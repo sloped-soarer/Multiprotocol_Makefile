@@ -1,0 +1,5009 @@
+typedef signed int int8_t __attribute__((__mode__(__QI__)));
+typedef unsigned int uint8_t __attribute__((__mode__(__QI__)));
+typedef signed int int16_t __attribute__ ((__mode__ (__HI__)));
+typedef unsigned int uint16_t __attribute__ ((__mode__ (__HI__)));
+typedef signed int int32_t __attribute__ ((__mode__ (__SI__)));
+typedef unsigned int uint32_t __attribute__ ((__mode__ (__SI__)));
+typedef signed int int64_t __attribute__((__mode__(__DI__)));
+typedef unsigned int uint64_t __attribute__((__mode__(__DI__)));
+typedef int16_t intptr_t;
+typedef uint16_t uintptr_t;
+typedef int8_t int_least8_t;
+typedef uint8_t uint_least8_t;
+typedef int16_t int_least16_t;
+typedef uint16_t uint_least16_t;
+typedef int32_t int_least32_t;
+typedef uint32_t uint_least32_t;
+typedef int64_t int_least64_t;
+typedef uint64_t uint_least64_t;
+typedef int8_t int_fast8_t;
+typedef uint8_t uint_fast8_t;
+typedef int16_t int_fast16_t;
+typedef uint16_t uint_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint32_t uint_fast32_t;
+typedef int64_t int_fast64_t;
+typedef uint64_t uint_fast64_t;
+typedef int64_t intmax_t;
+typedef uint64_t uintmax_t;
+typedef int32_t int_farptr_t;
+typedef uint32_t uint_farptr_t;
+typedef unsigned int size_t;
+typedef volatile uint8_t register8_t;
+typedef volatile uint16_t register16_t;
+typedef volatile uint32_t register32_t;
+typedef struct OCD_struct
+{
+    register8_t OCDR0;
+    register8_t OCDR1;
+} OCD_t;
+typedef enum CCP_enum
+{
+    CCP_SPM_gc = (0x9D<<0),
+    CCP_IOREG_gc = (0xD8<<0),
+} CCP_t;
+typedef struct CLK_struct
+{
+    register8_t CTRL;
+    register8_t PSCTRL;
+    register8_t LOCK;
+    register8_t RTCCTRL;
+} CLK_t;
+typedef struct PR_struct
+{
+    register8_t PRGEN;
+    register8_t PRPA;
+    register8_t PRPB;
+    register8_t PRPC;
+    register8_t PRPD;
+    register8_t PRPE;
+    register8_t PRPF;
+} PR_t;
+typedef enum CLK_SCLKSEL_enum
+{
+    CLK_SCLKSEL_RC2M_gc = (0x00<<0),
+    CLK_SCLKSEL_RC32M_gc = (0x01<<0),
+    CLK_SCLKSEL_RC32K_gc = (0x02<<0),
+    CLK_SCLKSEL_XOSC_gc = (0x03<<0),
+    CLK_SCLKSEL_PLL_gc = (0x04<<0),
+} CLK_SCLKSEL_t;
+typedef enum CLK_PSADIV_enum
+{
+    CLK_PSADIV_1_gc = (0x00<<2),
+    CLK_PSADIV_2_gc = (0x01<<2),
+    CLK_PSADIV_4_gc = (0x03<<2),
+    CLK_PSADIV_8_gc = (0x05<<2),
+    CLK_PSADIV_16_gc = (0x07<<2),
+    CLK_PSADIV_32_gc = (0x09<<2),
+    CLK_PSADIV_64_gc = (0x0B<<2),
+    CLK_PSADIV_128_gc = (0x0D<<2),
+    CLK_PSADIV_256_gc = (0x0F<<2),
+    CLK_PSADIV_512_gc = (0x11<<2),
+} CLK_PSADIV_t;
+typedef enum CLK_PSBCDIV_enum
+{
+    CLK_PSBCDIV_1_1_gc = (0x00<<0),
+    CLK_PSBCDIV_1_2_gc = (0x01<<0),
+    CLK_PSBCDIV_4_1_gc = (0x02<<0),
+    CLK_PSBCDIV_2_2_gc = (0x03<<0),
+} CLK_PSBCDIV_t;
+typedef enum CLK_RTCSRC_enum
+{
+    CLK_RTCSRC_ULP_gc = (0x00<<1),
+    CLK_RTCSRC_TOSC_gc = (0x01<<1),
+    CLK_RTCSRC_RCOSC_gc = (0x02<<1),
+    CLK_RTCSRC_TOSC32_gc = (0x05<<1),
+} CLK_RTCSRC_t;
+typedef struct SLEEP_struct
+{
+    register8_t CTRL;
+} SLEEP_t;
+typedef enum SLEEP_SMODE_enum
+{
+    SLEEP_SMODE_IDLE_gc = (0x00<<1),
+    SLEEP_SMODE_PDOWN_gc = (0x02<<1),
+    SLEEP_SMODE_PSAVE_gc = (0x03<<1),
+    SLEEP_SMODE_STDBY_gc = (0x06<<1),
+    SLEEP_SMODE_ESTDBY_gc = (0x07<<1),
+} SLEEP_SMODE_t;
+typedef struct OSC_struct
+{
+    register8_t CTRL;
+    register8_t STATUS;
+    register8_t XOSCCTRL;
+    register8_t XOSCFAIL;
+    register8_t RC32KCAL;
+    register8_t PLLCTRL;
+    register8_t DFLLCTRL;
+} OSC_t;
+typedef enum OSC_FRQRANGE_enum
+{
+    OSC_FRQRANGE_04TO2_gc = (0x00<<6),
+    OSC_FRQRANGE_2TO9_gc = (0x01<<6),
+    OSC_FRQRANGE_9TO12_gc = (0x02<<6),
+    OSC_FRQRANGE_12TO16_gc = (0x03<<6),
+} OSC_FRQRANGE_t;
+typedef enum OSC_XOSCSEL_enum
+{
+    OSC_XOSCSEL_EXTCLK_gc = (0x00<<0),
+    OSC_XOSCSEL_32KHz_gc = (0x02<<0),
+    OSC_XOSCSEL_XTAL_256CLK_gc = (0x03<<0),
+    OSC_XOSCSEL_XTAL_1KCLK_gc = (0x07<<0),
+    OSC_XOSCSEL_XTAL_16KCLK_gc = (0x0B<<0),
+} OSC_XOSCSEL_t;
+typedef enum OSC_PLLSRC_enum
+{
+    OSC_PLLSRC_RC2M_gc = (0x00<<6),
+    OSC_PLLSRC_RC32M_gc = (0x02<<6),
+    OSC_PLLSRC_XOSC_gc = (0x03<<6),
+} OSC_PLLSRC_t;
+typedef struct DFLL_struct
+{
+    register8_t CTRL;
+    register8_t reserved_0x01;
+    register8_t CALA;
+    register8_t CALB;
+    register8_t COMP0;
+    register8_t COMP1;
+    register8_t COMP2;
+    register8_t reserved_0x07;
+} DFLL_t;
+typedef struct RST_struct
+{
+    register8_t STATUS;
+    register8_t CTRL;
+} RST_t;
+typedef struct WDT_struct
+{
+    register8_t CTRL;
+    register8_t WINCTRL;
+    register8_t STATUS;
+} WDT_t;
+typedef enum WDT_PER_enum
+{
+    WDT_PER_8CLK_gc = (0x00<<2),
+    WDT_PER_16CLK_gc = (0x01<<2),
+    WDT_PER_32CLK_gc = (0x02<<2),
+    WDT_PER_64CLK_gc = (0x03<<2),
+    WDT_PER_128CLK_gc = (0x04<<2),
+    WDT_PER_256CLK_gc = (0x05<<2),
+    WDT_PER_512CLK_gc = (0x06<<2),
+    WDT_PER_1KCLK_gc = (0x07<<2),
+    WDT_PER_2KCLK_gc = (0x08<<2),
+    WDT_PER_4KCLK_gc = (0x09<<2),
+    WDT_PER_8KCLK_gc = (0x0A<<2),
+} WDT_PER_t;
+typedef enum WDT_WPER_enum
+{
+    WDT_WPER_8CLK_gc = (0x00<<2),
+    WDT_WPER_16CLK_gc = (0x01<<2),
+    WDT_WPER_32CLK_gc = (0x02<<2),
+    WDT_WPER_64CLK_gc = (0x03<<2),
+    WDT_WPER_128CLK_gc = (0x04<<2),
+    WDT_WPER_256CLK_gc = (0x05<<2),
+    WDT_WPER_512CLK_gc = (0x06<<2),
+    WDT_WPER_1KCLK_gc = (0x07<<2),
+    WDT_WPER_2KCLK_gc = (0x08<<2),
+    WDT_WPER_4KCLK_gc = (0x09<<2),
+    WDT_WPER_8KCLK_gc = (0x0A<<2),
+} WDT_WPER_t;
+typedef struct MCU_struct
+{
+    register8_t DEVID0;
+    register8_t DEVID1;
+    register8_t DEVID2;
+    register8_t REVID;
+    register8_t JTAGUID;
+    register8_t reserved_0x05;
+    register8_t MCUCR;
+    register8_t reserved_0x07;
+    register8_t EVSYSLOCK;
+    register8_t AWEXLOCK;
+    register8_t reserved_0x0A;
+    register8_t reserved_0x0B;
+} MCU_t;
+typedef struct PMIC_struct
+{
+    register8_t STATUS;
+    register8_t INTPRI;
+    register8_t CTRL;
+} PMIC_t;
+typedef struct CRC_struct
+{
+    register8_t CTRL;
+    register8_t STATUS;
+    register8_t reserved_0x02;
+    register8_t DATAIN;
+    register8_t CHECKSUM0;
+    register8_t CHECKSUM1;
+    register8_t CHECKSUM2;
+    register8_t CHECKSUM3;
+} CRC_t;
+typedef enum CRC_RESET_enum
+{
+    CRC_RESET_NO_gc = (0x00<<6),
+    CRC_RESET_RESET0_gc = (0x02<<6),
+    CRC_RESET_RESET1_gc = (0x03<<6),
+} CRC_RESET_t;
+typedef enum CRC_SOURCE_enum
+{
+    CRC_SOURCE_DISABLE_gc = (0x00<<0),
+    CRC_SOURCE_IO_gc = (0x01<<0),
+    CRC_SOURCE_FLASH_gc = (0x02<<0),
+} CRC_SOURCE_t;
+typedef struct EVSYS_struct
+{
+    register8_t CH0MUX;
+    register8_t CH1MUX;
+    register8_t CH2MUX;
+    register8_t CH3MUX;
+    register8_t reserved_0x04;
+    register8_t reserved_0x05;
+    register8_t reserved_0x06;
+    register8_t reserved_0x07;
+    register8_t CH0CTRL;
+    register8_t CH1CTRL;
+    register8_t CH2CTRL;
+    register8_t CH3CTRL;
+    register8_t reserved_0x0C;
+    register8_t reserved_0x0D;
+    register8_t reserved_0x0E;
+    register8_t reserved_0x0F;
+    register8_t STROBE;
+    register8_t DATA;
+} EVSYS_t;
+typedef enum EVSYS_QDIRM_enum
+{
+    EVSYS_QDIRM_00_gc = (0x00<<5),
+    EVSYS_QDIRM_01_gc = (0x01<<5),
+    EVSYS_QDIRM_10_gc = (0x02<<5),
+    EVSYS_QDIRM_11_gc = (0x03<<5),
+} EVSYS_QDIRM_t;
+typedef enum EVSYS_DIGFILT_enum
+{
+    EVSYS_DIGFILT_1SAMPLE_gc = (0x00<<0),
+    EVSYS_DIGFILT_2SAMPLES_gc = (0x01<<0),
+    EVSYS_DIGFILT_3SAMPLES_gc = (0x02<<0),
+    EVSYS_DIGFILT_4SAMPLES_gc = (0x03<<0),
+    EVSYS_DIGFILT_5SAMPLES_gc = (0x04<<0),
+    EVSYS_DIGFILT_6SAMPLES_gc = (0x05<<0),
+    EVSYS_DIGFILT_7SAMPLES_gc = (0x06<<0),
+    EVSYS_DIGFILT_8SAMPLES_gc = (0x07<<0),
+} EVSYS_DIGFILT_t;
+typedef enum EVSYS_CHMUX_enum
+{
+    EVSYS_CHMUX_OFF_gc = (0x00<<0),
+    EVSYS_CHMUX_RTC_OVF_gc = (0x08<<0),
+    EVSYS_CHMUX_RTC_CMP_gc = (0x09<<0),
+    EVSYS_CHMUX_ACA_CH0_gc = (0x10<<0),
+    EVSYS_CHMUX_ACA_CH1_gc = (0x11<<0),
+    EVSYS_CHMUX_ACA_WIN_gc = (0x12<<0),
+    EVSYS_CHMUX_ADCA_CH0_gc = (0x20<<0),
+    EVSYS_CHMUX_PORTA_PIN0_gc = (0x50<<0),
+    EVSYS_CHMUX_PORTA_PIN1_gc = (0x51<<0),
+    EVSYS_CHMUX_PORTA_PIN2_gc = (0x52<<0),
+    EVSYS_CHMUX_PORTA_PIN3_gc = (0x53<<0),
+    EVSYS_CHMUX_PORTA_PIN4_gc = (0x54<<0),
+    EVSYS_CHMUX_PORTA_PIN5_gc = (0x55<<0),
+    EVSYS_CHMUX_PORTA_PIN6_gc = (0x56<<0),
+    EVSYS_CHMUX_PORTA_PIN7_gc = (0x57<<0),
+    EVSYS_CHMUX_PORTB_PIN0_gc = (0x58<<0),
+    EVSYS_CHMUX_PORTB_PIN1_gc = (0x59<<0),
+    EVSYS_CHMUX_PORTB_PIN2_gc = (0x5A<<0),
+    EVSYS_CHMUX_PORTB_PIN3_gc = (0x5B<<0),
+    EVSYS_CHMUX_PORTB_PIN4_gc = (0x5C<<0),
+    EVSYS_CHMUX_PORTB_PIN5_gc = (0x5D<<0),
+    EVSYS_CHMUX_PORTB_PIN6_gc = (0x5E<<0),
+    EVSYS_CHMUX_PORTB_PIN7_gc = (0x5F<<0),
+    EVSYS_CHMUX_PORTC_PIN0_gc = (0x60<<0),
+    EVSYS_CHMUX_PORTC_PIN1_gc = (0x61<<0),
+    EVSYS_CHMUX_PORTC_PIN2_gc = (0x62<<0),
+    EVSYS_CHMUX_PORTC_PIN3_gc = (0x63<<0),
+    EVSYS_CHMUX_PORTC_PIN4_gc = (0x64<<0),
+    EVSYS_CHMUX_PORTC_PIN5_gc = (0x65<<0),
+    EVSYS_CHMUX_PORTC_PIN6_gc = (0x66<<0),
+    EVSYS_CHMUX_PORTC_PIN7_gc = (0x67<<0),
+    EVSYS_CHMUX_PORTD_PIN0_gc = (0x68<<0),
+    EVSYS_CHMUX_PORTD_PIN1_gc = (0x69<<0),
+    EVSYS_CHMUX_PORTD_PIN2_gc = (0x6A<<0),
+    EVSYS_CHMUX_PORTD_PIN3_gc = (0x6B<<0),
+    EVSYS_CHMUX_PORTD_PIN4_gc = (0x6C<<0),
+    EVSYS_CHMUX_PORTD_PIN5_gc = (0x6D<<0),
+    EVSYS_CHMUX_PORTD_PIN6_gc = (0x6E<<0),
+    EVSYS_CHMUX_PORTD_PIN7_gc = (0x6F<<0),
+    EVSYS_CHMUX_PORTE_PIN0_gc = (0x70<<0),
+    EVSYS_CHMUX_PORTE_PIN1_gc = (0x71<<0),
+    EVSYS_CHMUX_PORTE_PIN2_gc = (0x72<<0),
+    EVSYS_CHMUX_PORTE_PIN3_gc = (0x73<<0),
+    EVSYS_CHMUX_PORTE_PIN4_gc = (0x74<<0),
+    EVSYS_CHMUX_PORTE_PIN5_gc = (0x75<<0),
+    EVSYS_CHMUX_PORTE_PIN6_gc = (0x76<<0),
+    EVSYS_CHMUX_PORTE_PIN7_gc = (0x77<<0),
+    EVSYS_CHMUX_PORTF_PIN0_gc = (0x78<<0),
+    EVSYS_CHMUX_PORTF_PIN1_gc = (0x79<<0),
+    EVSYS_CHMUX_PORTF_PIN2_gc = (0x7A<<0),
+    EVSYS_CHMUX_PORTF_PIN3_gc = (0x7B<<0),
+    EVSYS_CHMUX_PORTF_PIN4_gc = (0x7C<<0),
+    EVSYS_CHMUX_PORTF_PIN5_gc = (0x7D<<0),
+    EVSYS_CHMUX_PORTF_PIN6_gc = (0x7E<<0),
+    EVSYS_CHMUX_PORTF_PIN7_gc = (0x7F<<0),
+    EVSYS_CHMUX_PRESCALER_1_gc = (0x80<<0),
+    EVSYS_CHMUX_PRESCALER_2_gc = (0x81<<0),
+    EVSYS_CHMUX_PRESCALER_4_gc = (0x82<<0),
+    EVSYS_CHMUX_PRESCALER_8_gc = (0x83<<0),
+    EVSYS_CHMUX_PRESCALER_16_gc = (0x84<<0),
+    EVSYS_CHMUX_PRESCALER_32_gc = (0x85<<0),
+    EVSYS_CHMUX_PRESCALER_64_gc = (0x86<<0),
+    EVSYS_CHMUX_PRESCALER_128_gc = (0x87<<0),
+    EVSYS_CHMUX_PRESCALER_256_gc = (0x88<<0),
+    EVSYS_CHMUX_PRESCALER_512_gc = (0x89<<0),
+    EVSYS_CHMUX_PRESCALER_1024_gc = (0x8A<<0),
+    EVSYS_CHMUX_PRESCALER_2048_gc = (0x8B<<0),
+    EVSYS_CHMUX_PRESCALER_4096_gc = (0x8C<<0),
+    EVSYS_CHMUX_PRESCALER_8192_gc = (0x8D<<0),
+    EVSYS_CHMUX_PRESCALER_16384_gc = (0x8E<<0),
+    EVSYS_CHMUX_PRESCALER_32768_gc = (0x8F<<0),
+    EVSYS_CHMUX_TCC0_OVF_gc = (0xC0<<0),
+    EVSYS_CHMUX_TCC0_ERR_gc = (0xC1<<0),
+    EVSYS_CHMUX_TCC0_CCA_gc = (0xC4<<0),
+    EVSYS_CHMUX_TCC0_CCB_gc = (0xC5<<0),
+    EVSYS_CHMUX_TCC0_CCC_gc = (0xC6<<0),
+    EVSYS_CHMUX_TCC0_CCD_gc = (0xC7<<0),
+    EVSYS_CHMUX_TCC1_OVF_gc = (0xC8<<0),
+    EVSYS_CHMUX_TCC1_ERR_gc = (0xC9<<0),
+    EVSYS_CHMUX_TCC1_CCA_gc = (0xCC<<0),
+    EVSYS_CHMUX_TCC1_CCB_gc = (0xCD<<0),
+    EVSYS_CHMUX_TCD0_OVF_gc = (0xD0<<0),
+    EVSYS_CHMUX_TCD0_ERR_gc = (0xD1<<0),
+    EVSYS_CHMUX_TCD0_CCA_gc = (0xD4<<0),
+    EVSYS_CHMUX_TCD0_CCB_gc = (0xD5<<0),
+    EVSYS_CHMUX_TCD0_CCC_gc = (0xD6<<0),
+    EVSYS_CHMUX_TCD0_CCD_gc = (0xD7<<0),
+    EVSYS_CHMUX_TCD1_OVF_gc = (0xD8<<0),
+    EVSYS_CHMUX_TCD1_ERR_gc = (0xD9<<0),
+    EVSYS_CHMUX_TCD1_CCA_gc = (0xDC<<0),
+    EVSYS_CHMUX_TCD1_CCB_gc = (0xDD<<0),
+    EVSYS_CHMUX_TCE0_OVF_gc = (0xE0<<0),
+    EVSYS_CHMUX_TCE0_ERR_gc = (0xE1<<0),
+    EVSYS_CHMUX_TCE0_CCA_gc = (0xE4<<0),
+    EVSYS_CHMUX_TCE0_CCB_gc = (0xE5<<0),
+    EVSYS_CHMUX_TCE0_CCC_gc = (0xE6<<0),
+    EVSYS_CHMUX_TCE0_CCD_gc = (0xE7<<0),
+    EVSYS_CHMUX_TCE1_OVF_gc = (0xE8<<0),
+    EVSYS_CHMUX_TCE1_ERR_gc = (0xE9<<0),
+    EVSYS_CHMUX_TCE1_CCA_gc = (0xEC<<0),
+    EVSYS_CHMUX_TCE1_CCB_gc = (0xED<<0),
+    EVSYS_CHMUX_TCF0_OVF_gc = (0xF0<<0),
+    EVSYS_CHMUX_TCF0_ERR_gc = (0xF1<<0),
+    EVSYS_CHMUX_TCF0_CCA_gc = (0xF4<<0),
+    EVSYS_CHMUX_TCF0_CCB_gc = (0xF5<<0),
+    EVSYS_CHMUX_TCF0_CCC_gc = (0xF6<<0),
+    EVSYS_CHMUX_TCF0_CCD_gc = (0xF7<<0),
+    EVSYS_CHMUX_TCF1_OVF_gc = (0xF8<<0),
+    EVSYS_CHMUX_TCF1_ERR_gc = (0xF9<<0),
+    EVSYS_CHMUX_TCF1_CCA_gc = (0xFC<<0),
+    EVSYS_CHMUX_TCF1_CCB_gc = (0xFD<<0),
+} EVSYS_CHMUX_t;
+typedef struct NVM_struct
+{
+    register8_t ADDR0;
+    register8_t ADDR1;
+    register8_t ADDR2;
+    register8_t reserved_0x03;
+    register8_t DATA0;
+    register8_t DATA1;
+    register8_t DATA2;
+    register8_t reserved_0x07;
+    register8_t reserved_0x08;
+    register8_t reserved_0x09;
+    register8_t CMD;
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t INTCTRL;
+    register8_t reserved_0x0E;
+    register8_t STATUS;
+    register8_t LOCK_BITS;
+} NVM_t;
+typedef struct NVM_LOCKBITS_struct
+{
+    register8_t LOCKBITS;
+} NVM_LOCKBITS_t;
+typedef struct NVM_FUSES_struct
+{
+    register8_t FUSEBYTE0;
+    register8_t FUSEBYTE1;
+    register8_t FUSEBYTE2;
+    register8_t reserved_0x03;
+    register8_t FUSEBYTE4;
+    register8_t FUSEBYTE5;
+} NVM_FUSES_t;
+typedef struct NVM_PROD_SIGNATURES_struct
+{
+    register8_t RCOSC2M;
+    register8_t reserved_0x01;
+    register8_t RCOSC32K;
+    register8_t RCOSC32M;
+    register8_t reserved_0x04;
+    register8_t reserved_0x05;
+    register8_t reserved_0x06;
+    register8_t reserved_0x07;
+    register8_t LOTNUM0;
+    register8_t LOTNUM1;
+    register8_t LOTNUM2;
+    register8_t LOTNUM3;
+    register8_t LOTNUM4;
+    register8_t LOTNUM5;
+    register8_t reserved_0x0E;
+    register8_t reserved_0x0F;
+    register8_t WAFNUM;
+    register8_t reserved_0x11;
+    register8_t COORDX0;
+    register8_t COORDX1;
+    register8_t COORDY0;
+    register8_t COORDY1;
+    register8_t reserved_0x16;
+    register8_t reserved_0x17;
+    register8_t reserved_0x18;
+    register8_t reserved_0x19;
+    register8_t reserved_0x1A;
+    register8_t reserved_0x1B;
+    register8_t reserved_0x1C;
+    register8_t reserved_0x1D;
+    register8_t reserved_0x1E;
+    register8_t reserved_0x1F;
+    register8_t ADCACAL0;
+    register8_t ADCACAL1;
+    register8_t reserved_0x22;
+    register8_t reserved_0x23;
+    register8_t ADCBCAL0;
+    register8_t ADCBCAL1;
+    register8_t reserved_0x26;
+    register8_t reserved_0x27;
+    register8_t reserved_0x28;
+    register8_t reserved_0x29;
+    register8_t reserved_0x2A;
+    register8_t reserved_0x2B;
+    register8_t reserved_0x2C;
+    register8_t reserved_0x2D;
+    register8_t TEMPSENSE0;
+    register8_t TEMPSENSE1;
+    register8_t DACAOFFCAL;
+    register8_t DACAGAINCAL;
+    register8_t DACBOFFCAL;
+    register8_t DACBGAINCAL;
+    register8_t reserved_0x34;
+    register8_t reserved_0x35;
+    register8_t reserved_0x36;
+    register8_t reserved_0x37;
+    register8_t reserved_0x38;
+    register8_t reserved_0x39;
+    register8_t reserved_0x3A;
+    register8_t reserved_0x3B;
+    register8_t reserved_0x3C;
+    register8_t reserved_0x3D;
+    register8_t reserved_0x3E;
+} NVM_PROD_SIGNATURES_t;
+typedef enum NVM_CMD_enum
+{
+    NVM_CMD_NO_OPERATION_gc = (0x00<<0),
+    NVM_CMD_READ_CALIB_ROW_gc = (0x02<<0),
+    NVM_CMD_READ_USER_SIG_ROW_gc = (0x01<<0),
+    NVM_CMD_READ_EEPROM_gc = (0x06<<0),
+    NVM_CMD_READ_FUSES_gc = (0x07<<0),
+    NVM_CMD_WRITE_LOCK_BITS_gc = (0x08<<0),
+    NVM_CMD_ERASE_USER_SIG_ROW_gc = (0x18<<0),
+    NVM_CMD_WRITE_USER_SIG_ROW_gc = (0x1A<<0),
+    NVM_CMD_ERASE_APP_gc = (0x20<<0),
+    NVM_CMD_ERASE_APP_PAGE_gc = (0x22<<0),
+    NVM_CMD_LOAD_FLASH_BUFFER_gc = (0x23<<0),
+    NVM_CMD_WRITE_APP_PAGE_gc = (0x24<<0),
+    NVM_CMD_ERASE_WRITE_APP_PAGE_gc = (0x25<<0),
+    NVM_CMD_ERASE_FLASH_BUFFER_gc = (0x26<<0),
+    NVM_CMD_ERASE_BOOT_PAGE_gc = (0x2A<<0),
+    NVM_CMD_WRITE_BOOT_PAGE_gc = (0x2C<<0),
+    NVM_CMD_ERASE_WRITE_BOOT_PAGE_gc = (0x2D<<0),
+    NVM_CMD_ERASE_EEPROM_gc = (0x30<<0),
+    NVM_CMD_ERASE_EEPROM_PAGE_gc = (0x32<<0),
+    NVM_CMD_LOAD_EEPROM_BUFFER_gc = (0x33<<0),
+    NVM_CMD_WRITE_EEPROM_PAGE_gc = (0x34<<0),
+    NVM_CMD_ERASE_WRITE_EEPROM_PAGE_gc = (0x35<<0),
+    NVM_CMD_ERASE_EEPROM_BUFFER_gc = (0x36<<0),
+    NVM_CMD_APP_CRC_gc = (0x38<<0),
+    NVM_CMD_BOOT_CRC_gc = (0x39<<0),
+    NVM_CMD_FLASH_RANGE_CRC_gc = (0x3A<<0),
+} NVM_CMD_t;
+typedef enum NVM_SPMLVL_enum
+{
+    NVM_SPMLVL_OFF_gc = (0x00<<2),
+    NVM_SPMLVL_LO_gc = (0x01<<2),
+    NVM_SPMLVL_MED_gc = (0x02<<2),
+    NVM_SPMLVL_HI_gc = (0x03<<2),
+} NVM_SPMLVL_t;
+typedef enum NVM_EELVL_enum
+{
+    NVM_EELVL_OFF_gc = (0x00<<0),
+    NVM_EELVL_LO_gc = (0x01<<0),
+    NVM_EELVL_MED_gc = (0x02<<0),
+    NVM_EELVL_HI_gc = (0x03<<0),
+} NVM_EELVL_t;
+typedef enum NVM_BLBB_enum
+{
+    NVM_BLBB_NOLOCK_gc = (0x03<<6),
+    NVM_BLBB_WLOCK_gc = (0x02<<6),
+    NVM_BLBB_RLOCK_gc = (0x01<<6),
+    NVM_BLBB_RWLOCK_gc = (0x00<<6),
+} NVM_BLBB_t;
+typedef enum NVM_BLBA_enum
+{
+    NVM_BLBA_NOLOCK_gc = (0x03<<4),
+    NVM_BLBA_WLOCK_gc = (0x02<<4),
+    NVM_BLBA_RLOCK_gc = (0x01<<4),
+    NVM_BLBA_RWLOCK_gc = (0x00<<4),
+} NVM_BLBA_t;
+typedef enum NVM_BLBAT_enum
+{
+    NVM_BLBAT_NOLOCK_gc = (0x03<<2),
+    NVM_BLBAT_WLOCK_gc = (0x02<<2),
+    NVM_BLBAT_RLOCK_gc = (0x01<<2),
+    NVM_BLBAT_RWLOCK_gc = (0x00<<2),
+} NVM_BLBAT_t;
+typedef enum NVM_LB_enum
+{
+    NVM_LB_NOLOCK_gc = (0x03<<0),
+    NVM_LB_WLOCK_gc = (0x02<<0),
+    NVM_LB_RWLOCK_gc = (0x00<<0),
+} NVM_LB_t;
+typedef enum BOOTRST_enum
+{
+    BOOTRST_BOOTLDR_gc = (0x00<<6),
+    BOOTRST_APPLICATION_gc = (0x01<<6),
+} BOOTRST_t;
+typedef enum BOD_enum
+{
+    BOD_INSAMPLEDMODE_gc = (0x01<<0),
+    BOD_CONTINOUSLY_gc = (0x02<<0),
+    BOD_DISABLED_gc = (0x03<<0),
+} BOD_t;
+typedef enum WD_enum
+{
+    WD_8CLK_gc = (0x00<<4),
+    WD_16CLK_gc = (0x01<<4),
+    WD_32CLK_gc = (0x02<<4),
+    WD_64CLK_gc = (0x03<<4),
+    WD_128CLK_gc = (0x04<<4),
+    WD_256CLK_gc = (0x05<<4),
+    WD_512CLK_gc = (0x06<<4),
+    WD_1KCLK_gc = (0x07<<4),
+    WD_2KCLK_gc = (0x08<<4),
+    WD_4KCLK_gc = (0x09<<4),
+    WD_8KCLK_gc = (0x0A<<4),
+} WD_t;
+typedef enum SUT_enum
+{
+    SUT_0MS_gc = (0x03<<2),
+    SUT_4MS_gc = (0x01<<2),
+    SUT_64MS_gc = (0x00<<2),
+} SUT_t;
+typedef enum BODLVL_enum
+{
+    BODLVL_1V6_gc = (0x07<<0),
+    BODLVL_1V8_gc = (0x06<<0),
+    BODLVL_2V0_gc = (0x05<<0),
+    BODLVL_2V2_gc = (0x04<<0),
+    BODLVL_2V4_gc = (0x03<<0),
+    BODLVL_2V6_gc = (0x02<<0),
+    BODLVL_2V8_gc = (0x01<<0),
+    BODLVL_3V0_gc = (0x00<<0),
+} BODLVL_t;
+typedef struct AC_struct
+{
+    register8_t AC0CTRL;
+    register8_t AC1CTRL;
+    register8_t AC0MUXCTRL;
+    register8_t AC1MUXCTRL;
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t WINCTRL;
+    register8_t STATUS;
+} AC_t;
+typedef enum AC_INTMODE_enum
+{
+    AC_INTMODE_BOTHEDGES_gc = (0x00<<6),
+    AC_INTMODE_FALLING_gc = (0x02<<6),
+    AC_INTMODE_RISING_gc = (0x03<<6),
+} AC_INTMODE_t;
+typedef enum AC_INTLVL_enum
+{
+    AC_INTLVL_OFF_gc = (0x00<<4),
+    AC_INTLVL_LO_gc = (0x01<<4),
+    AC_INTLVL_MED_gc = (0x02<<4),
+    AC_INTLVL_HI_gc = (0x03<<4),
+} AC_INTLVL_t;
+typedef enum AC_HYSMODE_enum
+{
+    AC_HYSMODE_NO_gc = (0x00<<1),
+    AC_HYSMODE_SMALL_gc = (0x01<<1),
+    AC_HYSMODE_LARGE_gc = (0x02<<1),
+} AC_HYSMODE_t;
+typedef enum AC_MUXPOS_enum
+{
+    AC_MUXPOS_PIN0_gc = (0x00<<3),
+    AC_MUXPOS_PIN1_gc = (0x01<<3),
+    AC_MUXPOS_PIN2_gc = (0x02<<3),
+    AC_MUXPOS_PIN3_gc = (0x03<<3),
+    AC_MUXPOS_PIN4_gc = (0x04<<3),
+    AC_MUXPOS_PIN5_gc = (0x05<<3),
+    AC_MUXPOS_PIN6_gc = (0x06<<3),
+    AC_MUXPOS_DAC_gc = (0x07<<3),
+} AC_MUXPOS_t;
+typedef enum AC_MUXNEG_enum
+{
+    AC_MUXNEG_PIN0_gc = (0x00<<0),
+    AC_MUXNEG_PIN1_gc = (0x01<<0),
+    AC_MUXNEG_PIN3_gc = (0x02<<0),
+    AC_MUXNEG_PIN5_gc = (0x03<<0),
+    AC_MUXNEG_PIN7_gc = (0x04<<0),
+    AC_MUXNEG_DAC_gc = (0x05<<0),
+    AC_MUXNEG_BANDGAP_gc = (0x06<<0),
+    AC_MUXNEG_SCALER_gc = (0x07<<0),
+} AC_MUXNEG_t;
+typedef enum AC_WINTMODE_enum
+{
+    AC_WINTMODE_ABOVE_gc = (0x00<<2),
+    AC_WINTMODE_INSIDE_gc = (0x01<<2),
+    AC_WINTMODE_BELOW_gc = (0x02<<2),
+    AC_WINTMODE_OUTSIDE_gc = (0x03<<2),
+} AC_WINTMODE_t;
+typedef enum AC_WINTLVL_enum
+{
+    AC_WINTLVL_OFF_gc = (0x00<<0),
+    AC_WINTLVL_LO_gc = (0x01<<0),
+    AC_WINTLVL_MED_gc = (0x02<<0),
+    AC_WINTLVL_HI_gc = (0x03<<0),
+} AC_WINTLVL_t;
+typedef enum AC_WSTATE_enum
+{
+    AC_WSTATE_ABOVE_gc = (0x00<<6),
+    AC_WSTATE_INSIDE_gc = (0x01<<6),
+    AC_WSTATE_BELOW_gc = (0x02<<6),
+} AC_WSTATE_t;
+typedef struct ADC_CH_struct
+{
+    register8_t CTRL;
+    register8_t MUXCTRL;
+    register8_t INTCTRL;
+    register8_t INTFLAGS;
+    __extension__ union { register16_t RES; struct { register8_t RESL; register8_t RESH; }; };
+    register8_t reserved_0x6;
+    register8_t reserved_0x7;
+} ADC_CH_t;
+typedef struct ADC_struct
+{
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t REFCTRL;
+    register8_t EVCTRL;
+    register8_t PRESCALER;
+    register8_t reserved_0x05;
+    register8_t INTFLAGS;
+    register8_t reserved_0x07;
+    register8_t reserved_0x08;
+    register8_t reserved_0x09;
+    register8_t reserved_0x0A;
+    register8_t reserved_0x0B;
+    __extension__ union { register16_t CAL; struct { register8_t CALL; register8_t CALH; }; };
+    register8_t reserved_0x0E;
+    register8_t reserved_0x0F;
+    __extension__ union { register16_t CH0RES; struct { register8_t CH0RESL; register8_t CH0RESH; }; };
+    register8_t reserved_0x12;
+    register8_t reserved_0x13;
+    register8_t reserved_0x14;
+    register8_t reserved_0x15;
+    register8_t reserved_0x16;
+    register8_t reserved_0x17;
+    __extension__ union { register16_t CMP; struct { register8_t CMPL; register8_t CMPH; }; };
+    register8_t reserved_0x1A;
+    register8_t reserved_0x1B;
+    register8_t reserved_0x1C;
+    register8_t reserved_0x1D;
+    register8_t reserved_0x1E;
+    register8_t reserved_0x1F;
+    ADC_CH_t CH0;
+} ADC_t;
+typedef enum ADC_CH_MUXPOS_enum
+{
+    ADC_CH_MUXPOS_PIN0_gc = (0x00<<3),
+    ADC_CH_MUXPOS_PIN1_gc = (0x01<<3),
+    ADC_CH_MUXPOS_PIN2_gc = (0x02<<3),
+    ADC_CH_MUXPOS_PIN3_gc = (0x03<<3),
+    ADC_CH_MUXPOS_PIN4_gc = (0x04<<3),
+    ADC_CH_MUXPOS_PIN5_gc = (0x05<<3),
+    ADC_CH_MUXPOS_PIN6_gc = (0x06<<3),
+    ADC_CH_MUXPOS_PIN7_gc = (0x07<<3),
+ ADC_CH_MUXPOS_PIN8_gc = (0x08<<3),
+ ADC_CH_MUXPOS_PIN9_gc = (0x09<<3),
+ ADC_CH_MUXPOS_PIN10_gc = (0x10<<3),
+ ADC_CH_MUXPOS_PIN11_gc = (0x11<<3),
+} ADC_CH_MUXPOS_t;
+typedef enum ADC_CH_MUXINT_enum
+{
+    ADC_CH_MUXINT_TEMP_gc = (0x00<<3),
+    ADC_CH_MUXINT_BANDGAP_gc = (0x01<<3),
+    ADC_CH_MUXINT_SCALEDVCC_gc = (0x02<<3),
+    ADC_CH_MUXINT_DAC_gc = (0x03<<3),
+} ADC_CH_MUXINT_t;
+typedef enum ADC_CH_MUXNEG_enum
+{
+    ADC_CH_MUXNEG_PIN0_gc = (0x00<<0),
+    ADC_CH_MUXNEG_PIN1_gc = (0x01<<0),
+    ADC_CH_MUXNEG_PIN2_gc = (0x02<<0),
+    ADC_CH_MUXNEG_PIN3_gc = (0x03<<0),
+    ADC_CH_MUXNEG_PIN4_gc = (0x04<<0),
+    ADC_CH_MUXNEG_PIN5_gc = (0x05<<0),
+    ADC_CH_MUXNEG_PIN6_gc = (0x06<<0),
+    ADC_CH_MUXNEG_PIN7_gc = (0x07<<0),
+} ADC_CH_MUXNEG_t;
+typedef enum ADC_CH_INPUTMODE_enum
+{
+    ADC_CH_INPUTMODE_INTERNAL_gc = (0x00<<0),
+    ADC_CH_INPUTMODE_SINGLEENDED_gc = (0x01<<0),
+    ADC_CH_INPUTMODE_DIFF_gc = (0x02<<0),
+    ADC_CH_INPUTMODE_DIFFWGAIN_gc = (0x03<<0),
+} ADC_CH_INPUTMODE_t;
+typedef enum ADC_CH_GAIN_enum
+{
+    ADC_CH_GAIN_1X_gc = (0x00<<2),
+    ADC_CH_GAIN_2X_gc = (0x01<<2),
+    ADC_CH_GAIN_4X_gc = (0x02<<2),
+    ADC_CH_GAIN_8X_gc = (0x03<<2),
+    ADC_CH_GAIN_16X_gc = (0x04<<2),
+    ADC_CH_GAIN_32X_gc = (0x05<<2),
+    ADC_CH_GAIN_64X_gc = (0x06<<2),
+    ADC_CH_GAIN_DIV2_gc = (0x07<<2),
+} ADC_CH_GAIN_t;
+typedef enum ADC_RESOLUTION_enum
+{
+    ADC_RESOLUTION_12BIT_gc = (0x00<<1),
+    ADC_RESOLUTION_8BIT_gc = (0x02<<1),
+    ADC_RESOLUTION_LEFT12BIT_gc = (0x03<<1),
+} ADC_RESOLUTION_t;
+typedef enum ADC_CURRLIMIT_enum
+{
+    ADC_CURRLIMIT_NO_gc = (0x00<<5),
+    ADC_CURRLIMIT_LOW_gc = (0x01<<5),
+    ADC_CURRLIMIT_MED_gc = (0x02<<5),
+    ADC_CURRLIMIT_HIGH_gc = (0x03<<5),
+} ADC_CURRLIMIT_t;
+typedef enum ADC_REFSEL_enum
+{
+    ADC_REFSEL_INT1V_gc = (0x00<<4),
+    ADC_REFSEL_VCC_gc = (0x01<<4),
+    ADC_REFSEL_AREFA_gc = (0x02<<4),
+    ADC_REFSEL_AREFB_gc = (0x03<<4),
+} ADC_REFSEL_t;
+typedef enum ADC_SWEEP_enum
+{
+    ADC_SWEEP_0_gc = (0x00<<6),
+} ADC_SWEEP_t;
+typedef enum ADC_EVSEL_enum
+{
+    ADC_EVSEL_0123_gc = (0x00<<3),
+    ADC_EVSEL_1234_gc = (0x01<<3),
+    ADC_EVSEL_2345_gc = (0x02<<3),
+    ADC_EVSEL_3456_gc = (0x03<<3),
+    ADC_EVSEL_4567_gc = (0x04<<3),
+    ADC_EVSEL_567_gc = (0x05<<3),
+    ADC_EVSEL_67_gc = (0x06<<3),
+    ADC_EVSEL_7_gc = (0x07<<3),
+} ADC_EVSEL_t;
+typedef enum ADC_EVACT_enum
+{
+    ADC_EVACT_NONE_gc = (0x00<<0),
+    ADC_EVACT_CH0_gc = (0x01<<0),
+} ADC_EVACT_t;
+typedef enum ADC_CH_INTMODE_enum
+{
+    ADC_CH_INTMODE_COMPLETE_gc = (0x00<<2),
+    ADC_CH_INTMODE_BELOW_gc = (0x01<<2),
+    ADC_CH_INTMODE_ABOVE_gc = (0x03<<2),
+} ADC_CH_INTMODE_t;
+typedef enum ADC_CH_INTLVL_enum
+{
+    ADC_CH_INTLVL_OFF_gc = (0x00<<0),
+    ADC_CH_INTLVL_LO_gc = (0x01<<0),
+    ADC_CH_INTLVL_MED_gc = (0x02<<0),
+    ADC_CH_INTLVL_HI_gc = (0x03<<0),
+} ADC_CH_INTLVL_t;
+typedef enum ADC_PRESCALER_enum
+{
+    ADC_PRESCALER_DIV4_gc = (0x00<<0),
+    ADC_PRESCALER_DIV8_gc = (0x01<<0),
+    ADC_PRESCALER_DIV16_gc = (0x02<<0),
+    ADC_PRESCALER_DIV32_gc = (0x03<<0),
+    ADC_PRESCALER_DIV64_gc = (0x04<<0),
+    ADC_PRESCALER_DIV128_gc = (0x05<<0),
+    ADC_PRESCALER_DIV256_gc = (0x06<<0),
+    ADC_PRESCALER_DIV512_gc = (0x07<<0),
+} ADC_PRESCALER_t;
+typedef struct RTC_struct
+{
+    register8_t CTRL;
+    register8_t STATUS;
+    register8_t INTCTRL;
+    register8_t INTFLAGS;
+    register8_t TEMP;
+    register8_t reserved_0x05;
+    register8_t reserved_0x06;
+    register8_t reserved_0x07;
+    __extension__ union { register16_t CNT; struct { register8_t CNTL; register8_t CNTH; }; };
+    __extension__ union { register16_t PER; struct { register8_t PERL; register8_t PERH; }; };
+    __extension__ union { register16_t COMP; struct { register8_t COMPL; register8_t COMPH; }; };
+} RTC_t;
+typedef enum RTC_PRESCALER_enum
+{
+    RTC_PRESCALER_OFF_gc = (0x00<<0),
+    RTC_PRESCALER_DIV1_gc = (0x01<<0),
+    RTC_PRESCALER_DIV2_gc = (0x02<<0),
+    RTC_PRESCALER_DIV8_gc = (0x03<<0),
+    RTC_PRESCALER_DIV16_gc = (0x04<<0),
+    RTC_PRESCALER_DIV64_gc = (0x05<<0),
+    RTC_PRESCALER_DIV256_gc = (0x06<<0),
+    RTC_PRESCALER_DIV1024_gc = (0x07<<0),
+} RTC_PRESCALER_t;
+typedef enum RTC_COMPINTLVL_enum
+{
+    RTC_COMPINTLVL_OFF_gc = (0x00<<2),
+    RTC_COMPINTLVL_LO_gc = (0x01<<2),
+    RTC_COMPINTLVL_MED_gc = (0x02<<2),
+    RTC_COMPINTLVL_HI_gc = (0x03<<2),
+} RTC_COMPINTLVL_t;
+typedef enum RTC_OVFINTLVL_enum
+{
+    RTC_OVFINTLVL_OFF_gc = (0x00<<0),
+    RTC_OVFINTLVL_LO_gc = (0x01<<0),
+    RTC_OVFINTLVL_MED_gc = (0x02<<0),
+    RTC_OVFINTLVL_HI_gc = (0x03<<0),
+} RTC_OVFINTLVL_t;
+typedef struct EBI_CS_struct
+{
+    register8_t CTRLA;
+    register8_t CTRLB;
+    __extension__ union { register16_t BASEADDR; struct { register8_t BASEADDRL; register8_t BASEADDRH; }; };
+} EBI_CS_t;
+typedef struct EBI_struct
+{
+    register8_t CTRL;
+    register8_t SDRAMCTRLA;
+    register8_t reserved_0x02;
+    register8_t reserved_0x03;
+    __extension__ union { register16_t REFRESH; struct { register8_t REFRESHL; register8_t REFRESHH; }; };
+    __extension__ union { register16_t INITDLY; struct { register8_t INITDLYL; register8_t INITDLYH; }; };
+    register8_t SDRAMCTRLB;
+    register8_t SDRAMCTRLC;
+    register8_t reserved_0x0A;
+    register8_t reserved_0x0B;
+    register8_t reserved_0x0C;
+    register8_t reserved_0x0D;
+    register8_t reserved_0x0E;
+    register8_t reserved_0x0F;
+    EBI_CS_t CS0;
+    EBI_CS_t CS1;
+    EBI_CS_t CS2;
+    EBI_CS_t CS3;
+} EBI_t;
+typedef enum EBI_CS_ASIZE_enum
+{
+    EBI_CS_ASIZE_256B_gc = (0x00<<2),
+    EBI_CS_ASIZE_512B_gc = (0x01<<2),
+    EBI_CS_ASIZE_1KB_gc = (0x02<<2),
+    EBI_CS_ASIZE_2KB_gc = (0x03<<2),
+    EBI_CS_ASIZE_4KB_gc = (0x04<<2),
+    EBI_CS_ASIZE_8KB_gc = (0x05<<2),
+    EBI_CS_ASIZE_16KB_gc = (0x06<<2),
+    EBI_CS_ASIZE_32KB_gc = (0x07<<2),
+    EBI_CS_ASIZE_64KB_gc = (0x08<<2),
+    EBI_CS_ASIZE_128KB_gc = (0x09<<2),
+    EBI_CS_ASIZE_256KB_gc = (0x0A<<2),
+    EBI_CS_ASIZE_512KB_gc = (0x0B<<2),
+    EBI_CS_ASIZE_1MB_gc = (0x0C<<2),
+    EBI_CS_ASIZE_2MB_gc = (0x0D<<2),
+    EBI_CS_ASIZE_4MB_gc = (0x0E<<2),
+    EBI_CS_ASIZE_8MB_gc = (0x0F<<2),
+    EBI_CS_ASIZE_16M_gc = (0x10<<2),
+} EBI_CS_ASIZE_t;
+typedef enum EBI_CS_SRWS_enum
+{
+    EBI_CS_SRWS_0CLK_gc = (0x00<<0),
+    EBI_CS_SRWS_1CLK_gc = (0x01<<0),
+    EBI_CS_SRWS_2CLK_gc = (0x02<<0),
+    EBI_CS_SRWS_3CLK_gc = (0x03<<0),
+    EBI_CS_SRWS_4CLK_gc = (0x04<<0),
+    EBI_CS_SRWS_5CLK_gc = (0x05<<0),
+    EBI_CS_SRWS_6CLK_gc = (0x06<<0),
+    EBI_CS_SRWS_7CLK_gc = (0x07<<0),
+} EBI_CS_SRWS_t;
+typedef enum EBI_CS_MODE_enum
+{
+    EBI_CS_MODE_DISABLED_gc = (0x00<<0),
+    EBI_CS_MODE_SRAM_gc = (0x01<<0),
+    EBI_CS_MODE_LPC_gc = (0x02<<0),
+    EBI_CS_MODE_SDRAM_gc = (0x03<<0),
+} EBI_CS_MODE_t;
+typedef enum EBI_CS_SDMODE_enum
+{
+    EBI_CS_SDMODE_NORMAL_gc = (0x00<<0),
+    EBI_CS_SDMODE_LOAD_gc = (0x01<<0),
+} EBI_CS_SDMODE_t;
+typedef enum EBI_SDDATAW_enum
+{
+    EBI_SDDATAW_4BIT_gc = (0x00<<6),
+    EBI_SDDATAW_8BIT_gc = (0x01<<6),
+} EBI_SDDATAW_t;
+typedef enum EBI_LPCMODE_enum
+{
+    EBI_LPCMODE_ALE1_gc = (0x00<<4),
+    EBI_LPCMODE_ALE12_gc = (0x02<<4),
+} EBI_LPCMODE_t;
+typedef enum EBI_SRMODE_enum
+{
+    EBI_SRMODE_ALE1_gc = (0x00<<2),
+    EBI_SRMODE_ALE2_gc = (0x01<<2),
+    EBI_SRMODE_ALE12_gc = (0x02<<2),
+    EBI_SRMODE_NOALE_gc = (0x03<<2),
+} EBI_SRMODE_t;
+typedef enum EBI_IFMODE_enum
+{
+    EBI_IFMODE_DISABLED_gc = (0x00<<0),
+    EBI_IFMODE_3PORT_gc = (0x01<<0),
+    EBI_IFMODE_4PORT_gc = (0x02<<0),
+    EBI_IFMODE_2PORT_gc = (0x03<<0),
+} EBI_IFMODE_t;
+typedef enum EBI_SDCOL_enum
+{
+    EBI_SDCOL_8BIT_gc = (0x00<<0),
+    EBI_SDCOL_9BIT_gc = (0x01<<0),
+    EBI_SDCOL_10BIT_gc = (0x02<<0),
+    EBI_SDCOL_11BIT_gc = (0x03<<0),
+} EBI_SDCOL_t;
+typedef enum EBI_MRDLY_enum
+{
+    EBI_MRDLY_0CLK_gc = (0x00<<6),
+    EBI_MRDLY_1CLK_gc = (0x01<<6),
+    EBI_MRDLY_2CLK_gc = (0x02<<6),
+    EBI_MRDLY_3CLK_gc = (0x03<<6),
+} EBI_MRDLY_t;
+typedef enum EBI_ROWCYCDLY_enum
+{
+    EBI_ROWCYCDLY_0CLK_gc = (0x00<<3),
+    EBI_ROWCYCDLY_1CLK_gc = (0x01<<3),
+    EBI_ROWCYCDLY_2CLK_gc = (0x02<<3),
+    EBI_ROWCYCDLY_3CLK_gc = (0x03<<3),
+    EBI_ROWCYCDLY_4CLK_gc = (0x04<<3),
+    EBI_ROWCYCDLY_5CLK_gc = (0x05<<3),
+    EBI_ROWCYCDLY_6CLK_gc = (0x06<<3),
+    EBI_ROWCYCDLY_7CLK_gc = (0x07<<3),
+} EBI_ROWCYCDLY_t;
+typedef enum EBI_RPDLY_enum
+{
+    EBI_RPDLY_0CLK_gc = (0x00<<0),
+    EBI_RPDLY_1CLK_gc = (0x01<<0),
+    EBI_RPDLY_2CLK_gc = (0x02<<0),
+    EBI_RPDLY_3CLK_gc = (0x03<<0),
+    EBI_RPDLY_4CLK_gc = (0x04<<0),
+    EBI_RPDLY_5CLK_gc = (0x05<<0),
+    EBI_RPDLY_6CLK_gc = (0x06<<0),
+    EBI_RPDLY_7CLK_gc = (0x07<<0),
+} EBI_RPDLY_t;
+typedef enum EBI_WRDLY_enum
+{
+    EBI_WRDLY_0CLK_gc = (0x00<<6),
+    EBI_WRDLY_1CLK_gc = (0x01<<6),
+    EBI_WRDLY_2CLK_gc = (0x02<<6),
+    EBI_WRDLY_3CLK_gc = (0x03<<6),
+} EBI_WRDLY_t;
+typedef enum EBI_ESRDLY_enum
+{
+    EBI_ESRDLY_0CLK_gc = (0x00<<3),
+    EBI_ESRDLY_1CLK_gc = (0x01<<3),
+    EBI_ESRDLY_2CLK_gc = (0x02<<3),
+    EBI_ESRDLY_3CLK_gc = (0x03<<3),
+    EBI_ESRDLY_4CLK_gc = (0x04<<3),
+    EBI_ESRDLY_5CLK_gc = (0x05<<3),
+    EBI_ESRDLY_6CLK_gc = (0x06<<3),
+    EBI_ESRDLY_7CLK_gc = (0x07<<3),
+} EBI_ESRDLY_t;
+typedef enum EBI_ROWCOLDLY_enum
+{
+    EBI_ROWCOLDLY_0CLK_gc = (0x00<<0),
+    EBI_ROWCOLDLY_1CLK_gc = (0x01<<0),
+    EBI_ROWCOLDLY_2CLK_gc = (0x02<<0),
+    EBI_ROWCOLDLY_3CLK_gc = (0x03<<0),
+    EBI_ROWCOLDLY_4CLK_gc = (0x04<<0),
+    EBI_ROWCOLDLY_5CLK_gc = (0x05<<0),
+    EBI_ROWCOLDLY_6CLK_gc = (0x06<<0),
+    EBI_ROWCOLDLY_7CLK_gc = (0x07<<0),
+} EBI_ROWCOLDLY_t;
+typedef struct TWI_MASTER_struct
+{
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t CTRLC;
+    register8_t STATUS;
+    register8_t BAUD;
+    register8_t ADDR;
+    register8_t DATA;
+} TWI_MASTER_t;
+typedef struct TWI_SLAVE_struct
+{
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t STATUS;
+    register8_t ADDR;
+    register8_t DATA;
+    register8_t ADDRMASK;
+} TWI_SLAVE_t;
+typedef struct TWI_struct
+{
+    register8_t CTRL;
+    TWI_MASTER_t MASTER;
+    TWI_SLAVE_t SLAVE;
+} TWI_t;
+typedef enum TWI_MASTER_INTLVL_enum
+{
+    TWI_MASTER_INTLVL_OFF_gc = (0x00<<6),
+    TWI_MASTER_INTLVL_LO_gc = (0x01<<6),
+    TWI_MASTER_INTLVL_MED_gc = (0x02<<6),
+    TWI_MASTER_INTLVL_HI_gc = (0x03<<6),
+} TWI_MASTER_INTLVL_t;
+typedef enum TWI_MASTER_TIMEOUT_enum
+{
+    TWI_MASTER_TIMEOUT_DISABLED_gc = (0x00<<2),
+    TWI_MASTER_TIMEOUT_50US_gc = (0x01<<2),
+    TWI_MASTER_TIMEOUT_100US_gc = (0x02<<2),
+    TWI_MASTER_TIMEOUT_200US_gc = (0x03<<2),
+} TWI_MASTER_TIMEOUT_t;
+typedef enum TWI_MASTER_CMD_enum
+{
+    TWI_MASTER_CMD_NOACT_gc = (0x00<<0),
+    TWI_MASTER_CMD_REPSTART_gc = (0x01<<0),
+    TWI_MASTER_CMD_RECVTRANS_gc = (0x02<<0),
+    TWI_MASTER_CMD_STOP_gc = (0x03<<0),
+} TWI_MASTER_CMD_t;
+typedef enum TWI_MASTER_BUSSTATE_enum
+{
+    TWI_MASTER_BUSSTATE_UNKNOWN_gc = (0x00<<0),
+    TWI_MASTER_BUSSTATE_IDLE_gc = (0x01<<0),
+    TWI_MASTER_BUSSTATE_OWNER_gc = (0x02<<0),
+    TWI_MASTER_BUSSTATE_BUSY_gc = (0x03<<0),
+} TWI_MASTER_BUSSTATE_t;
+typedef enum TWI_SLAVE_INTLVL_enum
+{
+    TWI_SLAVE_INTLVL_OFF_gc = (0x00<<6),
+    TWI_SLAVE_INTLVL_LO_gc = (0x01<<6),
+    TWI_SLAVE_INTLVL_MED_gc = (0x02<<6),
+    TWI_SLAVE_INTLVL_HI_gc = (0x03<<6),
+} TWI_SLAVE_INTLVL_t;
+typedef enum TWI_SLAVE_CMD_enum
+{
+    TWI_SLAVE_CMD_NOACT_gc = (0x00<<0),
+    TWI_SLAVE_CMD_COMPTRANS_gc = (0x02<<0),
+    TWI_SLAVE_CMD_RESPONSE_gc = (0x03<<0),
+} TWI_SLAVE_CMD_t;
+typedef struct PORTCFG_struct
+{
+    register8_t MPCMASK;
+    register8_t reserved_0x01;
+    register8_t VPCTRLA;
+    register8_t VPCTRLB;
+    register8_t CLKEVOUT;
+} PORTCFG_t;
+typedef struct VPORT_struct
+{
+    register8_t DIR;
+    register8_t OUT;
+    register8_t IN;
+    register8_t INTFLAGS;
+} VPORT_t;
+typedef struct PORT_struct
+{
+    register8_t DIR;
+    register8_t DIRSET;
+    register8_t DIRCLR;
+    register8_t DIRTGL;
+    register8_t OUT;
+    register8_t OUTSET;
+    register8_t OUTCLR;
+    register8_t OUTTGL;
+    register8_t IN;
+    register8_t INTCTRL;
+    register8_t INT0MASK;
+    register8_t INT1MASK;
+    register8_t INTFLAGS;
+    register8_t reserved_0x0D;
+    register8_t reserved_0x0E;
+    register8_t reserved_0x0F;
+    register8_t PIN0CTRL;
+    register8_t PIN1CTRL;
+    register8_t PIN2CTRL;
+    register8_t PIN3CTRL;
+    register8_t PIN4CTRL;
+    register8_t PIN5CTRL;
+    register8_t PIN6CTRL;
+    register8_t PIN7CTRL;
+} PORT_t;
+typedef enum PORTCFG_VP0MAP_enum
+{
+    PORTCFG_VP0MAP_PORTA_gc = (0x00<<0),
+    PORTCFG_VP0MAP_PORTB_gc = (0x01<<0),
+    PORTCFG_VP0MAP_PORTC_gc = (0x02<<0),
+    PORTCFG_VP0MAP_PORTD_gc = (0x03<<0),
+    PORTCFG_VP0MAP_PORTE_gc = (0x04<<0),
+    PORTCFG_VP0MAP_PORTF_gc = (0x05<<0),
+    PORTCFG_VP0MAP_PORTG_gc = (0x06<<0),
+    PORTCFG_VP0MAP_PORTH_gc = (0x07<<0),
+    PORTCFG_VP0MAP_PORTJ_gc = (0x08<<0),
+    PORTCFG_VP0MAP_PORTK_gc = (0x09<<0),
+    PORTCFG_VP0MAP_PORTL_gc = (0x0A<<0),
+    PORTCFG_VP0MAP_PORTM_gc = (0x0B<<0),
+    PORTCFG_VP0MAP_PORTN_gc = (0x0C<<0),
+    PORTCFG_VP0MAP_PORTP_gc = (0x0D<<0),
+    PORTCFG_VP0MAP_PORTQ_gc = (0x0E<<0),
+    PORTCFG_VP0MAP_PORTR_gc = (0x0F<<0),
+} PORTCFG_VP0MAP_t;
+typedef enum PORTCFG_VP1MAP_enum
+{
+    PORTCFG_VP1MAP_PORTA_gc = (0x00<<4),
+    PORTCFG_VP1MAP_PORTB_gc = (0x01<<4),
+    PORTCFG_VP1MAP_PORTC_gc = (0x02<<4),
+    PORTCFG_VP1MAP_PORTD_gc = (0x03<<4),
+    PORTCFG_VP1MAP_PORTE_gc = (0x04<<4),
+    PORTCFG_VP1MAP_PORTF_gc = (0x05<<4),
+    PORTCFG_VP1MAP_PORTG_gc = (0x06<<4),
+    PORTCFG_VP1MAP_PORTH_gc = (0x07<<4),
+    PORTCFG_VP1MAP_PORTJ_gc = (0x08<<4),
+    PORTCFG_VP1MAP_PORTK_gc = (0x09<<4),
+    PORTCFG_VP1MAP_PORTL_gc = (0x0A<<4),
+    PORTCFG_VP1MAP_PORTM_gc = (0x0B<<4),
+    PORTCFG_VP1MAP_PORTN_gc = (0x0C<<4),
+    PORTCFG_VP1MAP_PORTP_gc = (0x0D<<4),
+    PORTCFG_VP1MAP_PORTQ_gc = (0x0E<<4),
+    PORTCFG_VP1MAP_PORTR_gc = (0x0F<<4),
+} PORTCFG_VP1MAP_t;
+typedef enum PORTCFG_VP2MAP_enum
+{
+    PORTCFG_VP2MAP_PORTA_gc = (0x00<<0),
+    PORTCFG_VP2MAP_PORTB_gc = (0x01<<0),
+    PORTCFG_VP2MAP_PORTC_gc = (0x02<<0),
+    PORTCFG_VP2MAP_PORTD_gc = (0x03<<0),
+    PORTCFG_VP2MAP_PORTE_gc = (0x04<<0),
+    PORTCFG_VP2MAP_PORTF_gc = (0x05<<0),
+    PORTCFG_VP2MAP_PORTG_gc = (0x06<<0),
+    PORTCFG_VP2MAP_PORTH_gc = (0x07<<0),
+    PORTCFG_VP2MAP_PORTJ_gc = (0x08<<0),
+    PORTCFG_VP2MAP_PORTK_gc = (0x09<<0),
+    PORTCFG_VP2MAP_PORTL_gc = (0x0A<<0),
+    PORTCFG_VP2MAP_PORTM_gc = (0x0B<<0),
+    PORTCFG_VP2MAP_PORTN_gc = (0x0C<<0),
+    PORTCFG_VP2MAP_PORTP_gc = (0x0D<<0),
+    PORTCFG_VP2MAP_PORTQ_gc = (0x0E<<0),
+    PORTCFG_VP2MAP_PORTR_gc = (0x0F<<0),
+} PORTCFG_VP2MAP_t;
+typedef enum PORTCFG_VP3MAP_enum
+{
+    PORTCFG_VP3MAP_PORTA_gc = (0x00<<4),
+    PORTCFG_VP3MAP_PORTB_gc = (0x01<<4),
+    PORTCFG_VP3MAP_PORTC_gc = (0x02<<4),
+    PORTCFG_VP3MAP_PORTD_gc = (0x03<<4),
+    PORTCFG_VP3MAP_PORTE_gc = (0x04<<4),
+    PORTCFG_VP3MAP_PORTF_gc = (0x05<<4),
+    PORTCFG_VP3MAP_PORTG_gc = (0x06<<4),
+    PORTCFG_VP3MAP_PORTH_gc = (0x07<<4),
+    PORTCFG_VP3MAP_PORTJ_gc = (0x08<<4),
+    PORTCFG_VP3MAP_PORTK_gc = (0x09<<4),
+    PORTCFG_VP3MAP_PORTL_gc = (0x0A<<4),
+    PORTCFG_VP3MAP_PORTM_gc = (0x0B<<4),
+    PORTCFG_VP3MAP_PORTN_gc = (0x0C<<4),
+    PORTCFG_VP3MAP_PORTP_gc = (0x0D<<4),
+    PORTCFG_VP3MAP_PORTQ_gc = (0x0E<<4),
+    PORTCFG_VP3MAP_PORTR_gc = (0x0F<<4),
+} PORTCFG_VP3MAP_t;
+typedef enum PORTCFG_CLKOUT_enum
+{
+    PORTCFG_CLKOUT_OFF_gc = (0x00<<0),
+    PORTCFG_CLKOUT_PC7_gc = (0x01<<0),
+    PORTCFG_CLKOUT_PD7_gc = (0x02<<0),
+    PORTCFG_CLKOUT_PE7_gc = (0x03<<0),
+} PORTCFG_CLKOUT_t;
+typedef enum PORTCFG_EVOUT_enum
+{
+    PORTCFG_EVOUT_OFF_gc = (0x00<<4),
+    PORTCFG_EVOUT_PC7_gc = (0x01<<4),
+    PORTCFG_EVOUT_PD7_gc = (0x02<<4),
+    PORTCFG_EVOUT_PE7_gc = (0x03<<4),
+} PORTCFG_EVOUT_t;
+typedef enum PORT_INT0LVL_enum
+{
+    PORT_INT0LVL_OFF_gc = (0x00<<0),
+    PORT_INT0LVL_LO_gc = (0x01<<0),
+    PORT_INT0LVL_MED_gc = (0x02<<0),
+    PORT_INT0LVL_HI_gc = (0x03<<0),
+} PORT_INT0LVL_t;
+typedef enum PORT_INT1LVL_enum
+{
+    PORT_INT1LVL_OFF_gc = (0x00<<2),
+    PORT_INT1LVL_LO_gc = (0x01<<2),
+    PORT_INT1LVL_MED_gc = (0x02<<2),
+    PORT_INT1LVL_HI_gc = (0x03<<2),
+} PORT_INT1LVL_t;
+typedef enum PORT_OPC_enum
+{
+    PORT_OPC_TOTEM_gc = (0x00<<3),
+    PORT_OPC_BUSKEEPER_gc = (0x01<<3),
+    PORT_OPC_PULLDOWN_gc = (0x02<<3),
+    PORT_OPC_PULLUP_gc = (0x03<<3),
+    PORT_OPC_WIREDOR_gc = (0x04<<3),
+    PORT_OPC_WIREDAND_gc = (0x05<<3),
+    PORT_OPC_WIREDORPULL_gc = (0x06<<3),
+    PORT_OPC_WIREDANDPULL_gc = (0x07<<3),
+} PORT_OPC_t;
+typedef enum PORT_ISC_enum
+{
+    PORT_ISC_BOTHEDGES_gc = (0x00<<0),
+    PORT_ISC_RISING_gc = (0x01<<0),
+    PORT_ISC_FALLING_gc = (0x02<<0),
+    PORT_ISC_LEVEL_gc = (0x03<<0),
+    PORT_ISC_INPUT_DISABLE_gc = (0x07<<0),
+} PORT_ISC_t;
+typedef struct TC0_struct
+{
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t CTRLC;
+    register8_t CTRLD;
+    register8_t CTRLE;
+    register8_t reserved_0x05;
+    register8_t INTCTRLA;
+    register8_t INTCTRLB;
+    register8_t CTRLFCLR;
+    register8_t CTRLFSET;
+    register8_t CTRLGCLR;
+    register8_t CTRLGSET;
+    register8_t INTFLAGS;
+    register8_t reserved_0x0D;
+    register8_t reserved_0x0E;
+    register8_t TEMP;
+    register8_t reserved_0x10;
+    register8_t reserved_0x11;
+    register8_t reserved_0x12;
+    register8_t reserved_0x13;
+    register8_t reserved_0x14;
+    register8_t reserved_0x15;
+    register8_t reserved_0x16;
+    register8_t reserved_0x17;
+    register8_t reserved_0x18;
+    register8_t reserved_0x19;
+    register8_t reserved_0x1A;
+    register8_t reserved_0x1B;
+    register8_t reserved_0x1C;
+    register8_t reserved_0x1D;
+    register8_t reserved_0x1E;
+    register8_t reserved_0x1F;
+    __extension__ union { register16_t CNT; struct { register8_t CNTL; register8_t CNTH; }; };
+    register8_t reserved_0x22;
+    register8_t reserved_0x23;
+    register8_t reserved_0x24;
+    register8_t reserved_0x25;
+    __extension__ union { register16_t PER; struct { register8_t PERL; register8_t PERH; }; };
+    __extension__ union { register16_t CCA; struct { register8_t CCAL; register8_t CCAH; }; };
+    __extension__ union { register16_t CCB; struct { register8_t CCBL; register8_t CCBH; }; };
+    __extension__ union { register16_t CCC; struct { register8_t CCCL; register8_t CCCH; }; };
+    __extension__ union { register16_t CCD; struct { register8_t CCDL; register8_t CCDH; }; };
+    register8_t reserved_0x30;
+    register8_t reserved_0x31;
+    register8_t reserved_0x32;
+    register8_t reserved_0x33;
+    register8_t reserved_0x34;
+    register8_t reserved_0x35;
+    __extension__ union { register16_t PERBUF; struct { register8_t PERBUFL; register8_t PERBUFH; }; };
+    __extension__ union { register16_t CCABUF; struct { register8_t CCABUFL; register8_t CCABUFH; }; };
+    __extension__ union { register16_t CCBBUF; struct { register8_t CCBBUFL; register8_t CCBBUFH; }; };
+    __extension__ union { register16_t CCCBUF; struct { register8_t CCCBUFL; register8_t CCCBUFH; }; };
+    __extension__ union { register16_t CCDBUF; struct { register8_t CCDBUFL; register8_t CCDBUFH; }; };
+} TC0_t;
+typedef struct TC1_struct
+{
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t CTRLC;
+    register8_t CTRLD;
+    register8_t CTRLE;
+    register8_t reserved_0x05;
+    register8_t INTCTRLA;
+    register8_t INTCTRLB;
+    register8_t CTRLFCLR;
+    register8_t CTRLFSET;
+    register8_t CTRLGCLR;
+    register8_t CTRLGSET;
+    register8_t INTFLAGS;
+    register8_t reserved_0x0D;
+    register8_t reserved_0x0E;
+    register8_t TEMP;
+    register8_t reserved_0x10;
+    register8_t reserved_0x11;
+    register8_t reserved_0x12;
+    register8_t reserved_0x13;
+    register8_t reserved_0x14;
+    register8_t reserved_0x15;
+    register8_t reserved_0x16;
+    register8_t reserved_0x17;
+    register8_t reserved_0x18;
+    register8_t reserved_0x19;
+    register8_t reserved_0x1A;
+    register8_t reserved_0x1B;
+    register8_t reserved_0x1C;
+    register8_t reserved_0x1D;
+    register8_t reserved_0x1E;
+    register8_t reserved_0x1F;
+    __extension__ union { register16_t CNT; struct { register8_t CNTL; register8_t CNTH; }; };
+    register8_t reserved_0x22;
+    register8_t reserved_0x23;
+    register8_t reserved_0x24;
+    register8_t reserved_0x25;
+    __extension__ union { register16_t PER; struct { register8_t PERL; register8_t PERH; }; };
+    __extension__ union { register16_t CCA; struct { register8_t CCAL; register8_t CCAH; }; };
+    __extension__ union { register16_t CCB; struct { register8_t CCBL; register8_t CCBH; }; };
+    register8_t reserved_0x2C;
+    register8_t reserved_0x2D;
+    register8_t reserved_0x2E;
+    register8_t reserved_0x2F;
+    register8_t reserved_0x30;
+    register8_t reserved_0x31;
+    register8_t reserved_0x32;
+    register8_t reserved_0x33;
+    register8_t reserved_0x34;
+    register8_t reserved_0x35;
+    __extension__ union { register16_t PERBUF; struct { register8_t PERBUFL; register8_t PERBUFH; }; };
+    __extension__ union { register16_t CCABUF; struct { register8_t CCABUFL; register8_t CCABUFH; }; };
+    __extension__ union { register16_t CCBBUF; struct { register8_t CCBBUFL; register8_t CCBBUFH; }; };
+} TC1_t;
+typedef struct AWEX_struct
+{
+    register8_t CTRL;
+    register8_t reserved_0x01;
+    register8_t FDEMASK;
+    register8_t FDCTRL;
+    register8_t STATUS;
+    register8_t reserved_0x05;
+    register8_t DTBOTH;
+    register8_t DTBOTHBUF;
+    register8_t DTLS;
+    register8_t DTHS;
+    register8_t DTLSBUF;
+    register8_t DTHSBUF;
+    register8_t OUTOVEN;
+} AWEX_t;
+typedef struct HIRES_struct
+{
+    register8_t CTRLA;
+} HIRES_t;
+typedef enum TC_CLKSEL_enum
+{
+    TC_CLKSEL_OFF_gc = (0x00<<0),
+    TC_CLKSEL_DIV1_gc = (0x01<<0),
+    TC_CLKSEL_DIV2_gc = (0x02<<0),
+    TC_CLKSEL_DIV4_gc = (0x03<<0),
+    TC_CLKSEL_DIV8_gc = (0x04<<0),
+    TC_CLKSEL_DIV64_gc = (0x05<<0),
+    TC_CLKSEL_DIV256_gc = (0x06<<0),
+    TC_CLKSEL_DIV1024_gc = (0x07<<0),
+    TC_CLKSEL_EVCH0_gc = (0x08<<0),
+    TC_CLKSEL_EVCH1_gc = (0x09<<0),
+    TC_CLKSEL_EVCH2_gc = (0x0A<<0),
+    TC_CLKSEL_EVCH3_gc = (0x0B<<0),
+    TC_CLKSEL_EVCH4_gc = (0x0C<<0),
+    TC_CLKSEL_EVCH5_gc = (0x0D<<0),
+    TC_CLKSEL_EVCH6_gc = (0x0E<<0),
+    TC_CLKSEL_EVCH7_gc = (0x0F<<0),
+} TC_CLKSEL_t;
+typedef enum TC_WGMODE_enum
+{
+    TC_WGMODE_NORMAL_gc = (0x00<<0),
+    TC_WGMODE_FRQ_gc = (0x01<<0),
+    TC_WGMODE_SS_gc = (0x03<<0),
+    TC_WGMODE_DS_T_gc = (0x05<<0),
+    TC_WGMODE_DS_TB_gc = (0x06<<0),
+    TC_WGMODE_DS_B_gc = (0x07<<0),
+} TC_WGMODE_t;
+typedef enum TC_EVACT_enum
+{
+    TC_EVACT_OFF_gc = (0x00<<5),
+    TC_EVACT_CAPT_gc = (0x01<<5),
+    TC_EVACT_UPDOWN_gc = (0x02<<5),
+    TC_EVACT_QDEC_gc = (0x03<<5),
+    TC_EVACT_RESTART_gc = (0x04<<5),
+    TC_EVACT_FRQ_gc = (0x05<<5),
+    TC_EVACT_FRW_gc = (0x05<<5),
+    TC_EVACT_PW_gc = (0x06<<5),
+} TC_EVACT_t;
+typedef enum TC_EVSEL_enum
+{
+    TC_EVSEL_OFF_gc = (0x00<<0),
+    TC_EVSEL_CH0_gc = (0x08<<0),
+    TC_EVSEL_CH1_gc = (0x09<<0),
+    TC_EVSEL_CH2_gc = (0x0A<<0),
+    TC_EVSEL_CH3_gc = (0x0B<<0),
+    TC_EVSEL_CH4_gc = (0x0C<<0),
+    TC_EVSEL_CH5_gc = (0x0D<<0),
+    TC_EVSEL_CH6_gc = (0x0E<<0),
+    TC_EVSEL_CH7_gc = (0x0F<<0),
+} TC_EVSEL_t;
+typedef enum TC_ERRINTLVL_enum
+{
+    TC_ERRINTLVL_OFF_gc = (0x00<<2),
+    TC_ERRINTLVL_LO_gc = (0x01<<2),
+    TC_ERRINTLVL_MED_gc = (0x02<<2),
+    TC_ERRINTLVL_HI_gc = (0x03<<2),
+} TC_ERRINTLVL_t;
+typedef enum TC_OVFINTLVL_enum
+{
+    TC_OVFINTLVL_OFF_gc = (0x00<<0),
+    TC_OVFINTLVL_LO_gc = (0x01<<0),
+    TC_OVFINTLVL_MED_gc = (0x02<<0),
+    TC_OVFINTLVL_HI_gc = (0x03<<0),
+} TC_OVFINTLVL_t;
+typedef enum TC_CCDINTLVL_enum
+{
+    TC_CCDINTLVL_OFF_gc = (0x00<<6),
+    TC_CCDINTLVL_LO_gc = (0x01<<6),
+    TC_CCDINTLVL_MED_gc = (0x02<<6),
+    TC_CCDINTLVL_HI_gc = (0x03<<6),
+} TC_CCDINTLVL_t;
+typedef enum TC_CCCINTLVL_enum
+{
+    TC_CCCINTLVL_OFF_gc = (0x00<<4),
+    TC_CCCINTLVL_LO_gc = (0x01<<4),
+    TC_CCCINTLVL_MED_gc = (0x02<<4),
+    TC_CCCINTLVL_HI_gc = (0x03<<4),
+} TC_CCCINTLVL_t;
+typedef enum TC_CCBINTLVL_enum
+{
+    TC_CCBINTLVL_OFF_gc = (0x00<<2),
+    TC_CCBINTLVL_LO_gc = (0x01<<2),
+    TC_CCBINTLVL_MED_gc = (0x02<<2),
+    TC_CCBINTLVL_HI_gc = (0x03<<2),
+} TC_CCBINTLVL_t;
+typedef enum TC_CCAINTLVL_enum
+{
+    TC_CCAINTLVL_OFF_gc = (0x00<<0),
+    TC_CCAINTLVL_LO_gc = (0x01<<0),
+    TC_CCAINTLVL_MED_gc = (0x02<<0),
+    TC_CCAINTLVL_HI_gc = (0x03<<0),
+} TC_CCAINTLVL_t;
+typedef enum TC_CMD_enum
+{
+    TC_CMD_NONE_gc = (0x00<<2),
+    TC_CMD_UPDATE_gc = (0x01<<2),
+    TC_CMD_RESTART_gc = (0x02<<2),
+    TC_CMD_RESET_gc = (0x03<<2),
+} TC_CMD_t;
+typedef enum AWEX_FDACT_enum
+{
+    AWEX_FDACT_NONE_gc = (0x00<<0),
+    AWEX_FDACT_CLEAROE_gc = (0x01<<0),
+    AWEX_FDACT_CLEARDIR_gc = (0x03<<0),
+} AWEX_FDACT_t;
+typedef enum HIRES_HREN_enum
+{
+    HIRES_HREN_NONE_gc = (0x00<<0),
+    HIRES_HREN_TC0_gc = (0x01<<0),
+    HIRES_HREN_TC1_gc = (0x02<<0),
+    HIRES_HREN_BOTH_gc = (0x03<<0),
+} HIRES_HREN_t;
+typedef struct USART_struct
+{
+    register8_t DATA;
+    register8_t STATUS;
+    register8_t reserved_0x02;
+    register8_t CTRLA;
+    register8_t CTRLB;
+    register8_t CTRLC;
+    register8_t BAUDCTRLA;
+    register8_t BAUDCTRLB;
+} USART_t;
+typedef enum USART_RXCINTLVL_enum
+{
+    USART_RXCINTLVL_OFF_gc = (0x00<<4),
+    USART_RXCINTLVL_LO_gc = (0x01<<4),
+    USART_RXCINTLVL_MED_gc = (0x02<<4),
+    USART_RXCINTLVL_HI_gc = (0x03<<4),
+} USART_RXCINTLVL_t;
+typedef enum USART_TXCINTLVL_enum
+{
+    USART_TXCINTLVL_OFF_gc = (0x00<<2),
+    USART_TXCINTLVL_LO_gc = (0x01<<2),
+    USART_TXCINTLVL_MED_gc = (0x02<<2),
+    USART_TXCINTLVL_HI_gc = (0x03<<2),
+} USART_TXCINTLVL_t;
+typedef enum USART_DREINTLVL_enum
+{
+    USART_DREINTLVL_OFF_gc = (0x00<<0),
+    USART_DREINTLVL_LO_gc = (0x01<<0),
+    USART_DREINTLVL_MED_gc = (0x02<<0),
+    USART_DREINTLVL_HI_gc = (0x03<<0),
+} USART_DREINTLVL_t;
+typedef enum USART_CHSIZE_enum
+{
+    USART_CHSIZE_5BIT_gc = (0x00<<0),
+    USART_CHSIZE_6BIT_gc = (0x01<<0),
+    USART_CHSIZE_7BIT_gc = (0x02<<0),
+    USART_CHSIZE_8BIT_gc = (0x03<<0),
+    USART_CHSIZE_9BIT_gc = (0x07<<0),
+} USART_CHSIZE_t;
+typedef enum USART_CMODE_enum
+{
+    USART_CMODE_ASYNCHRONOUS_gc = (0x00<<6),
+    USART_CMODE_SYNCHRONOUS_gc = (0x01<<6),
+    USART_CMODE_IRDA_gc = (0x02<<6),
+    USART_CMODE_MSPI_gc = (0x03<<6),
+} USART_CMODE_t;
+typedef enum USART_PMODE_enum
+{
+    USART_PMODE_DISABLED_gc = (0x00<<4),
+    USART_PMODE_EVEN_gc = (0x02<<4),
+    USART_PMODE_ODD_gc = (0x03<<4),
+} USART_PMODE_t;
+typedef struct SPI_struct
+{
+    register8_t CTRL;
+    register8_t INTCTRL;
+    register8_t STATUS;
+    register8_t DATA;
+} SPI_t;
+typedef enum SPI_MODE_enum
+{
+    SPI_MODE_0_gc = (0x00<<2),
+    SPI_MODE_1_gc = (0x01<<2),
+    SPI_MODE_2_gc = (0x02<<2),
+    SPI_MODE_3_gc = (0x03<<2),
+} SPI_MODE_t;
+typedef enum SPI_PRESCALER_enum
+{
+    SPI_PRESCALER_DIV4_gc = (0x00<<0),
+    SPI_PRESCALER_DIV16_gc = (0x01<<0),
+    SPI_PRESCALER_DIV64_gc = (0x02<<0),
+    SPI_PRESCALER_DIV128_gc = (0x03<<0),
+} SPI_PRESCALER_t;
+typedef enum SPI_INTLVL_enum
+{
+    SPI_INTLVL_OFF_gc = (0x00<<0),
+    SPI_INTLVL_LO_gc = (0x01<<0),
+    SPI_INTLVL_MED_gc = (0x02<<0),
+    SPI_INTLVL_HI_gc = (0x03<<0),
+} SPI_INTLVL_t;
+typedef struct IRCOM_struct
+{
+    register8_t CTRL;
+    register8_t TXPLCTRL;
+    register8_t RXPLCTRL;
+} IRCOM_t;
+typedef enum IRDA_EVSEL_enum
+{
+    IRDA_EVSEL_OFF_gc = (0x00<<0),
+    IRDA_EVSEL_0_gc = (0x08<<0),
+    IRDA_EVSEL_1_gc = (0x09<<0),
+    IRDA_EVSEL_2_gc = (0x0A<<0),
+    IRDA_EVSEL_3_gc = (0x0B<<0),
+    IRDA_EVSEL_4_gc = (0x0C<<0),
+    IRDA_EVSEL_5_gc = (0x0D<<0),
+    IRDA_EVSEL_6_gc = (0x0E<<0),
+    IRDA_EVSEL_7_gc = (0x0F<<0),
+} IRDA_EVSEL_t;
+typedef struct
+{
+    unsigned char byte[6];
+} __fuse_t;
+extern "C" {
+extern const void * memchr_P(const void *, int __val, size_t __len) __attribute__((__const__));
+extern int memcmp_P(const void *, const void *, size_t) __attribute__((__pure__));
+extern void *memccpy_P(void *, const void *, int __val, size_t);
+extern void *memcpy_P(void *, const void *, size_t);
+extern void *memmem_P(const void *, size_t, const void *, size_t) __attribute__((__pure__));
+extern const void * memrchr_P(const void *, int __val, size_t __len) __attribute__((__const__));
+extern char *strcat_P(char *, const char *);
+extern const char * strchr_P(const char *, int __val) __attribute__((__const__));
+extern const char * strchrnul_P(const char *, int __val) __attribute__((__const__));
+extern int strcmp_P(const char *, const char *) __attribute__((__pure__));
+extern char *strcpy_P(char *, const char *);
+extern int strcasecmp_P(const char *, const char *) __attribute__((__pure__));
+extern char *strcasestr_P(const char *, const char *) __attribute__((__pure__));
+extern size_t strcspn_P(const char *__s, const char * __reject) __attribute__((__pure__));
+extern size_t strlcat_P (char *, const char *, size_t );
+extern size_t strlcpy_P (char *, const char *, size_t );
+extern size_t strnlen_P(const char *, size_t) __attribute__((__const__));
+extern int strncmp_P(const char *, const char *, size_t) __attribute__((__pure__));
+extern int strncasecmp_P(const char *, const char *, size_t) __attribute__((__pure__));
+extern char *strncat_P(char *, const char *, size_t);
+extern char *strncpy_P(char *, const char *, size_t);
+extern char *strpbrk_P(const char *__s, const char * __accept) __attribute__((__pure__));
+extern const char * strrchr_P(const char *, int __val) __attribute__((__const__));
+extern char *strsep_P(char **__sp, const char * __delim);
+extern size_t strspn_P(const char *__s, const char * __accept) __attribute__((__pure__));
+extern char *strstr_P(const char *, const char *) __attribute__((__pure__));
+extern char *strtok_P(char *__s, const char * __delim);
+extern char *strtok_rP(char *__s, const char * __delim, char **__last);
+extern size_t strlen_PF(uint_farptr_t src) __attribute__((__const__));
+extern size_t strnlen_PF(uint_farptr_t src, size_t len) __attribute__((__const__));
+extern void *memcpy_PF(void *dest, uint_farptr_t src, size_t len);
+extern char *strcpy_PF(char *dest, uint_farptr_t src);
+extern char *strncpy_PF(char *dest, uint_farptr_t src, size_t len);
+extern char *strcat_PF(char *dest, uint_farptr_t src);
+extern size_t strlcat_PF(char *dst, uint_farptr_t src, size_t siz);
+extern char *strncat_PF(char *dest, uint_farptr_t src, size_t len);
+extern int strcmp_PF(const char *s1, uint_farptr_t s2) __attribute__((__pure__));
+extern int strncmp_PF(const char *s1, uint_farptr_t s2, size_t n) __attribute__((__pure__));
+extern int strcasecmp_PF(const char *s1, uint_farptr_t s2) __attribute__((__pure__));
+extern int strncasecmp_PF(const char *s1, uint_farptr_t s2, size_t n) __attribute__((__pure__));
+extern char *strstr_PF(const char *s1, uint_farptr_t s2);
+extern size_t strlcpy_PF(char *dst, uint_farptr_t src, size_t siz);
+extern int memcmp_PF(const void *, uint_farptr_t, size_t) __attribute__((__pure__));
+extern size_t __strlen_P(const char *) __attribute__((__const__));
+__attribute__((__always_inline__)) static __inline__ size_t strlen_P(const char * s);
+static __inline__ size_t strlen_P(const char *s) {
+  return __builtin_constant_p(__builtin_strlen(s))
+     ? __builtin_strlen(s) : __strlen_P(s);
+}
+}
+extern "C" {
+typedef struct {
+ int quot;
+ int rem;
+} div_t;
+typedef struct {
+ long quot;
+ long rem;
+} ldiv_t;
+typedef int (*__compar_fn_t)(const void *, const void *);
+extern void abort(void) __attribute__((__noreturn__));
+extern int abs(int __i) __attribute__((__const__));
+extern long labs(long __i) __attribute__((__const__));
+extern void *bsearch(const void *__key, const void *__base, size_t __nmemb,
+       size_t __size, int (*__compar)(const void *, const void *));
+extern div_t div(int __num, int __denom) __asm__("__divmodhi4") __attribute__((__const__));
+extern ldiv_t ldiv(long __num, long __denom) __asm__("__divmodsi4") __attribute__((__const__));
+extern void qsort(void *__base, size_t __nmemb, size_t __size,
+    __compar_fn_t __compar);
+extern long strtol(const char *__nptr, char **__endptr, int __base);
+extern unsigned long strtoul(const char *__nptr, char **__endptr, int __base);
+extern long atol(const char *__s) __attribute__((__pure__));
+extern int atoi(const char *__s) __attribute__((__pure__));
+extern void exit(int __status) __attribute__((__noreturn__));
+extern void *malloc(size_t __size) __attribute__((__malloc__));
+extern void free(void *__ptr);
+extern size_t __malloc_margin;
+extern char *__malloc_heap_start;
+extern char *__malloc_heap_end;
+extern void *calloc(size_t __nele, size_t __size) __attribute__((__malloc__));
+extern void *realloc(void *__ptr, size_t __size) __attribute__((__malloc__));
+extern double strtod(const char *__nptr, char **__endptr);
+extern double atof(const char *__nptr);
+extern int rand(void);
+extern void srand(unsigned int __seed);
+extern int rand_r(unsigned long *__ctx);
+extern __inline__ __attribute__((__gnu_inline__))
+char *itoa (int __val, char *__s, int __radix)
+{
+    if (!__builtin_constant_p (__radix)) {
+ extern char *__itoa (int, char *, int);
+ return __itoa (__val, __s, __radix);
+    } else if (__radix < 2 || __radix > 36) {
+ *__s = 0;
+ return __s;
+    } else {
+ extern char *__itoa_ncheck (int, char *, unsigned char);
+ return __itoa_ncheck (__val, __s, __radix);
+    }
+}
+extern __inline__ __attribute__((__gnu_inline__))
+char *ltoa (long __val, char *__s, int __radix)
+{
+    if (!__builtin_constant_p (__radix)) {
+ extern char *__ltoa (long, char *, int);
+ return __ltoa (__val, __s, __radix);
+    } else if (__radix < 2 || __radix > 36) {
+ *__s = 0;
+ return __s;
+    } else {
+ extern char *__ltoa_ncheck (long, char *, unsigned char);
+ return __ltoa_ncheck (__val, __s, __radix);
+    }
+}
+extern __inline__ __attribute__((__gnu_inline__))
+char *utoa (unsigned int __val, char *__s, int __radix)
+{
+    if (!__builtin_constant_p (__radix)) {
+ extern char *__utoa (unsigned int, char *, int);
+ return __utoa (__val, __s, __radix);
+    } else if (__radix < 2 || __radix > 36) {
+ *__s = 0;
+ return __s;
+    } else {
+ extern char *__utoa_ncheck (unsigned int, char *, unsigned char);
+ return __utoa_ncheck (__val, __s, __radix);
+    }
+}
+extern __inline__ __attribute__((__gnu_inline__))
+char *ultoa (unsigned long __val, char *__s, int __radix)
+{
+    if (!__builtin_constant_p (__radix)) {
+ extern char *__ultoa (unsigned long, char *, int);
+ return __ultoa (__val, __s, __radix);
+    } else if (__radix < 2 || __radix > 36) {
+ *__s = 0;
+ return __s;
+    } else {
+ extern char *__ultoa_ncheck (unsigned long, char *, unsigned char);
+ return __ultoa_ncheck (__val, __s, __radix);
+    }
+}
+extern long random(void);
+extern void srandom(unsigned long __seed);
+extern long random_r(unsigned long *__ctx);
+extern char *dtostre(double __val, char *__s, unsigned char __prec,
+       unsigned char __flags);
+extern char *dtostrf(double __val, signed char __width,
+                     unsigned char __prec, char *__s);
+extern int atexit(void (*)(void));
+extern int system (const char *);
+extern char *getenv (const char *);
+}
+extern "C" {
+extern int ffs(int __val) __attribute__((__const__));
+extern int ffsl(long __val) __attribute__((__const__));
+__extension__ extern int ffsll(long long __val) __attribute__((__const__));
+extern void *memccpy(void *, const void *, int, size_t);
+extern void *memchr(const void *, int, size_t) __attribute__((__pure__));
+extern int memcmp(const void *, const void *, size_t) __attribute__((__pure__));
+extern void *memcpy(void *, const void *, size_t);
+extern void *memmem(const void *, size_t, const void *, size_t) __attribute__((__pure__));
+extern void *memmove(void *, const void *, size_t);
+extern void *memrchr(const void *, int, size_t) __attribute__((__pure__));
+extern void *memset(void *, int, size_t);
+extern char *strcat(char *, const char *);
+extern char *strchr(const char *, int) __attribute__((__pure__));
+extern char *strchrnul(const char *, int) __attribute__((__pure__));
+extern int strcmp(const char *, const char *) __attribute__((__pure__));
+extern char *strcpy(char *, const char *);
+extern int strcasecmp(const char *, const char *) __attribute__((__pure__));
+extern char *strcasestr(const char *, const char *) __attribute__((__pure__));
+extern size_t strcspn(const char *__s, const char *__reject) __attribute__((__pure__));
+extern char *strdup(const char *s1);
+extern size_t strlcat(char *, const char *, size_t);
+extern size_t strlcpy(char *, const char *, size_t);
+extern size_t strlen(const char *) __attribute__((__pure__));
+extern char *strlwr(char *);
+extern char *strncat(char *, const char *, size_t);
+extern int strncmp(const char *, const char *, size_t) __attribute__((__pure__));
+extern char *strncpy(char *, const char *, size_t);
+extern int strncasecmp(const char *, const char *, size_t) __attribute__((__pure__));
+extern size_t strnlen(const char *, size_t) __attribute__((__pure__));
+extern char *strpbrk(const char *__s, const char *__accept) __attribute__((__pure__));
+extern char *strrchr(const char *, int) __attribute__((__pure__));
+extern char *strrev(char *);
+extern char *strsep(char **, const char *);
+extern size_t strspn(const char *__s, const char *__accept) __attribute__((__pure__));
+extern char *strstr(const char *, const char *) __attribute__((__pure__));
+extern char *strtok(char *, const char *);
+extern char *strtok_r(char *, const char *, char **);
+extern char *strupr(char *);
+extern int strcoll(const char *s1, const char *s2);
+extern char *strerror(int errnum);
+extern size_t strxfrm(char *dest, const char *src, size_t n);
+}
+void init()
+{
+ (*(OSC_t *) 0x0050).XOSCCTRL = OSC_FRQRANGE_12TO16_gc | OSC_XOSCSEL_XTAL_256CLK_gc ;
+ (*(OSC_t *) 0x0050).CTRL |= 0x08 ;
+ while( ( (*(OSC_t *) 0x0050).STATUS & 0x08 ) == 0 )
+             ;
+ (*(OSC_t *) 0x0050).PLLCTRL = OSC_PLLSRC_XOSC_gc | 2 ;
+ (*(OSC_t *) 0x0050).CTRL |= 0x10 ;
+ while( ( (*(OSC_t *) 0x0050).STATUS & 0x10 ) == 0 )
+             ;
+ (*(volatile uint8_t *)(0x0034)) = 0xD8 ;
+ (*(CLK_t *) 0x0040).CTRL = CLK_SCLKSEL_RC2M_gc ;
+ (*(volatile uint8_t *)(0x0034)) = 0xD8 ;
+ (*(CLK_t *) 0x0040).CTRL = CLK_SCLKSEL_PLL_gc ;
+ (*(PMIC_t *) 0x00A0).CTRL = 7 ;
+ __asm__ __volatile__ ("sei" ::: "memory");
+ (*(PORT_t *) 0x0600).DIRCLR = 0xFF ;
+ (*(PORT_t *) 0x0600).PIN0CTRL = 0x18 ;
+ (*(PORT_t *) 0x0600).PIN1CTRL = 0x18 ;
+ (*(PORT_t *) 0x0600).PIN2CTRL = 0x18 ;
+ (*(PORT_t *) 0x0600).PIN3CTRL = 0x18 ;
+ (*(PORT_t *) 0x0600).PIN4CTRL = 0x18 ;
+ (*(PORT_t *) 0x0600).PIN5CTRL = 0x18 ;
+ (*(PORT_t *) 0x0600).PIN6CTRL = 0x18 ;
+ (*(PORT_t *) 0x0600).PIN7CTRL = 0x18 ;
+}
+enum PROTOCOLS
+{
+ MODE_SERIAL = 0,
+ PROTO_FLYSKY = 1,
+ PROTO_HUBSAN = 2,
+ PROTO_FRSKYD = 3,
+ PROTO_HISKY = 4,
+ PROTO_V2X2 = 5,
+ PROTO_DSM = 6,
+ PROTO_DEVO = 7,
+ PROTO_YD717 = 8,
+ PROTO_KN = 9,
+ PROTO_SYMAX = 10,
+ PROTO_SLT = 11,
+ PROTO_CX10 = 12,
+ PROTO_CG023 = 13,
+ PROTO_BAYANG = 14,
+ PROTO_FRSKYX = 15,
+ PROTO_ESKY = 16,
+ PROTO_MT99XX = 17,
+ PROTO_MJXQ = 18,
+ PROTO_SHENQI = 19,
+ PROTO_FY326 = 20,
+ PROTO_SFHSS = 21,
+ PROTO_J6PRO = 22,
+ PROTO_FQ777 = 23,
+ PROTO_ASSAN = 24,
+ PROTO_FRSKYV = 25,
+ PROTO_HONTAI = 26,
+ PROTO_OPENLRS = 27,
+ PROTO_AFHDS2A = 28,
+ PROTO_Q2X2 = 29,
+ PROTO_WK2x01 = 30,
+ PROTO_Q303 = 31,
+ PROTO_GW008 = 32,
+ PROTO_DM002 = 33,
+ PROTO_CABELL = 34,
+ PROTO_ESKY150 = 35,
+ PROTO_H8_3D = 36,
+ PROTO_CORONA = 37,
+ PROTO_CFLIE = 38,
+ PROTO_HITEC = 39,
+ PROTO_WFLY = 40,
+ PROTO_BUGS = 41,
+ PROTO_BUGSMINI = 42,
+ PROTO_TRAXXAS = 43,
+ PROTO_NCC1701 = 44,
+ PROTO_E01X = 45,
+ PROTO_V911S = 46,
+ PROTO_GD00X = 47,
+ PROTO_TEST = 63,
+};
+enum Flysky
+{
+ Flysky = 0,
+ V9X9 = 1,
+ V6X6 = 2,
+ V912 = 3,
+ CX20 = 4,
+};
+enum Hubsan
+{
+ H107 = 0,
+ H301 = 1,
+ H501 = 2,
+};
+enum AFHDS2A
+{
+ PWM_IBUS = 0,
+ PPM_IBUS = 1,
+ PWM_SBUS = 2,
+ PPM_SBUS = 3,
+};
+enum Hisky
+{
+ Hisky = 0,
+ HK310 = 1,
+};
+enum DSM
+{
+ DSM2_22 = 0,
+ DSM2_11 = 1,
+ DSMX_22 = 2,
+ DSMX_11 = 3,
+ DSM_AUTO = 4,
+};
+enum YD717
+{
+ YD717 = 0,
+ SKYWLKR = 1,
+ SYMAX4 = 2,
+ XINXUN = 3,
+ NIHUI = 4,
+};
+enum KN
+{
+ WLTOYS = 0,
+ FEILUN = 1,
+};
+enum SYMAX
+{
+ SYMAX = 0,
+ SYMAX5C = 1,
+};
+enum SLT
+{
+ SLT_V1 = 0,
+ SLT_V2 = 1,
+ Q100 = 2,
+ Q200 = 3,
+ MR100 = 4,
+};
+enum CX10
+{
+ CX10_GREEN = 0,
+ CX10_BLUE = 1,
+ DM007 = 2,
+ JC3015_1 = 4,
+ JC3015_2 = 5,
+ MK33041 = 6,
+};
+enum Q2X2
+{
+ Q222 = 0,
+ Q242 = 1,
+ Q282 = 2,
+ F_Q222 = 8,
+ F_Q242 = 9,
+ F_Q282 = 10,
+};
+enum CG023
+{
+    CG023 = 0,
+    YD829 = 1,
+};
+enum BAYANG
+{
+    BAYANG = 0,
+    H8S3D = 1,
+    X16_AH = 2,
+ IRDRONE = 3,
+};
+enum MT99XX
+{
+ MT99 = 0,
+ H7 = 1,
+ YZ = 2,
+ LS = 3,
+ FY805 = 4,
+};
+enum MJXQ
+{
+ WLH08 = 0,
+ X600 = 1,
+ X800 = 2,
+ H26D = 3,
+ E010 = 4,
+ H26WH = 5,
+};
+enum FRSKYX
+{
+ CH_16 = 0,
+ CH_8 = 1,
+ EU_16 = 2,
+ EU_8 = 3,
+};
+enum HONTAI
+{
+ HONTAI = 0,
+ JJRCX1 = 1,
+ X5C1 = 2,
+ FQ777_951 =3,
+};
+enum V2X2
+{
+ V2X2 = 0,
+ JXD506 = 1,
+};
+enum FY326
+{
+ FY326 = 0,
+ FY319 = 1,
+};
+enum WK2x01
+{
+ WK2801 = 0,
+ WK2401 = 1,
+ W6_5_1 = 2,
+ W6_6_1 = 3,
+ W6_HEL = 4,
+ W6_HEL_I= 5,
+};
+enum Q303
+{
+ Q303 = 0,
+ CX35 = 1,
+ CX10D = 2,
+ CX10WD = 3,
+};
+enum CABELL
+{
+ CABELL_V3 = 0,
+ CABELL_V3_TELEMETRY = 1,
+ CABELL_SET_FAIL_SAFE= 6,
+ CABELL_UNBIND = 7,
+};
+enum H8_3D
+{
+ H8_3D = 0,
+ H20H = 1,
+ H20MINI = 2,
+ H30MINI = 3,
+};
+enum CORONA
+{
+ COR_V1 = 0,
+ COR_V2 = 1,
+ FD_V3 = 2,
+};
+enum HITEC
+{
+ OPT_FW = 0,
+ OPT_HUB = 1,
+ MINIMA = 2,
+};
+enum E01X
+{
+ E012 = 0,
+ E015 = 1,
+};
+struct PPM_Parameters
+{
+ uint8_t protocol : 6;
+ uint8_t sub_proto : 3;
+ uint8_t rx_num : 4;
+ uint8_t power : 1;
+ uint8_t autobind : 1;
+ uint8_t option;
+};
+enum MultiPacketTypes
+{
+ MULTI_TELEMETRY_STATUS = 1,
+ MULTI_TELEMETRY_SPORT = 2,
+ MULTI_TELEMETRY_HUB = 3,
+ MULTI_TELEMETRY_DSM = 4,
+ MULTI_TELEMETRY_DSMBIND = 5,
+ MULTI_TELEMETRY_AFHDS2A = 6,
+ MULTI_TELEMETRY_CONFIG = 7,
+ MULTI_TELEMETRY_SYNC = 8,
+ MULTI_TELEMETRY_SPORT_POLLING = 9,
+ MULTI_TELEMETRY_HITEC = 10,
+};
+enum {
+ TXPOWER_100uW,
+ TXPOWER_300uW,
+ TXPOWER_1mW,
+ TXPOWER_3mW,
+ TXPOWER_10mW,
+ TXPOWER_30mW,
+ TXPOWER_100mW,
+ TXPOWER_150mW
+};
+enum A7105_POWER
+{
+ A7105_POWER_0 = 0x00<<3 | 0x00,
+ A7105_POWER_1 = 0x00<<3 | 0x01,
+ A7105_POWER_2 = 0x00<<3 | 0x02,
+ A7105_POWER_3 = 0x00<<3 | 0x04,
+ A7105_POWER_4 = 0x01<<3 | 0x05,
+ A7105_POWER_5 = 0x02<<3 | 0x07,
+ A7105_POWER_6 = 0x03<<3 | 0x07,
+ A7105_POWER_7 = 0x03<<3 | 0x07
+};
+enum NRF_POWER
+{
+ NRF_POWER_0 = 0x00,
+ NRF_POWER_1 = 0x01,
+ NRF_POWER_2 = 0x02,
+ NRF_POWER_3 = 0x03
+};
+enum CC2500_POWER
+{
+ CC2500_POWER_0 = 0x00,
+ CC2500_POWER_1 = 0x50,
+ CC2500_POWER_2 = 0x44,
+ CC2500_POWER_3 = 0xC0,
+ CC2500_POWER_4 = 0x84,
+ CC2500_POWER_5 = 0x81,
+ CC2500_POWER_6 = 0x46,
+ CC2500_POWER_7 = 0x93,
+ CC2500_POWER_8 = 0x55,
+ CC2500_POWER_9 = 0x8D,
+ CC2500_POWER_10 = 0xC6,
+ CC2500_POWER_11 = 0x97,
+ CC2500_POWER_12 = 0x6E,
+ CC2500_POWER_13 = 0x7F,
+ CC2500_POWER_14 = 0xA9,
+ CC2500_POWER_15 = 0xBB,
+ CC2500_POWER_16 = 0xFE,
+ CC2500_POWER_17 = 0xFF
+};
+enum CYRF_POWER
+{
+ CYRF_POWER_0 = 0x00,
+ CYRF_POWER_1 = 0x01,
+ CYRF_POWER_2 = 0x02,
+ CYRF_POWER_3 = 0x03,
+ CYRF_POWER_4 = 0x04,
+ CYRF_POWER_5 = 0x05,
+ CYRF_POWER_6 = 0x06,
+ CYRF_POWER_7 = 0x07
+};
+enum TXRX_State {
+ TXRX_OFF,
+ TX_EN,
+ RX_EN
+};
+enum {
+ PKT_PENDING = 0,
+ PKT_ACKED,
+ PKT_TIMEOUT
+};
+const PPM_Parameters PPM_prot[14*5]= {
+        {PROTO_FLYSKY, Flysky , 0 , 1 , 0 , 0 },
+        {PROTO_AFHDS2A, PWM_IBUS , 0 , 1 , 0 , 0 },
+        {PROTO_AFHDS2A, PWM_IBUS , 1 , 1 , 0 , 0 },
+        {PROTO_AFHDS2A, PWM_IBUS , 2 , 1 , 0 , 0 },
+        {PROTO_AFHDS2A, PWM_IBUS , 3 , 1 , 0 , 0 },
+        {PROTO_AFHDS2A, PWM_IBUS , 2 , 1 , 0 , 0 },
+        {PROTO_AFHDS2A, PWM_IBUS , 3 , 1 , 0 , 0 },
+        {PROTO_SFHSS, H107 , 0 , 1 , 0 , 0 },
+        {PROTO_FRSKYV, 0 , 0 , 1 , 0 , 40 },
+         {PROTO_FRSKYD, 0 , 0 , 1 , 0 , 40 },
+         {PROTO_FRSKYX, CH_16 , 0 , 1 , 0 , 40 },
+         {PROTO_FRSKYX, EU_16 , 0 , 1 , 0 , 40 },
+         {PROTO_DEVO , 0 , 0 , 1 , 0 , 0 },
+         {PROTO_WK2x01, WK2801 , 0 , 1 , 0 , 0 },
+        {PROTO_DSM , DSM2_11 , 0 , 1 , 0 , 6 },
+        {PROTO_DSM , DSM2_22 , 0 , 1 , 0 , 6 },
+        {PROTO_DSM , DSMX_11 , 0 , 1 , 0 , 6 },
+        {PROTO_DSM , DSMX_22 , 0 , 1 , 0 , 6 },
+        {PROTO_DSM , DSM2_11 , 0 , 1 , 0 , 8 },
+        {PROTO_DSM , DSM2_22 , 0 , 1 , 0 , 8 },
+        {PROTO_DSM , DSMX_11 , 0 , 1 , 0 , 8 },
+        {PROTO_DSM , DSMX_22 , 0 , 1 , 0 , 8 },
+        {PROTO_SLT , SLT_V1 , 0 , 1 , 0 , 6 },
+         {PROTO_HUBSAN, H107 , 0 , 1 , 0 , 0 },
+         {PROTO_HUBSAN, H301 , 0 , 1 , 0 , 0 },
+         {PROTO_HUBSAN, H501 , 0 , 1 , 0 , 0 },
+         {PROTO_HISKY, Hisky , 0 , 1 , 0 , 0 },
+         {PROTO_V2X2 , 0 , 0 , 1 , 0 , 0 },
+        {PROTO_ESKY , 0 , 0 , 1 , 0 , 0 },
+        {PROTO_ESKY150, 0 , 0 , 1 , 0 , 0 },
+        {PROTO_ASSAN, 0 , 0 , 1 , 0 , 0 },
+        {PROTO_CORONA, COR_V2 , 0 , 1 , 0 , 0 },
+        {PROTO_SYMAX, SYMAX , 0 , 1 , 0 , 0 },
+        {PROTO_KN , WLTOYS , 0 , 1 , 0 , 0 },
+        {PROTO_BAYANG, BAYANG , 0 , 1 , 0 , 0 },
+        {PROTO_BAYANG, H8S3D , 0 , 1 , 0 , 0 },
+        {PROTO_BAYANG, X16_AH , 0 , 1 , 0 , 0 },
+         {PROTO_BAYANG, IRDRONE , 0 , 1 , 0 , 0 },
+         {PROTO_H8_3D, H8_3D , 0 , 1 , 0 , 0 },
+         {PROTO_H8_3D, H20H , 0 , 1 , 0 , 0 },
+         {PROTO_H8_3D, H20MINI , 0 , 1 , 0 , 0 },
+         {PROTO_H8_3D, H30MINI , 0 , 1 , 0 , 0 },
+        {PROTO_MJXQ , WLH08 , 0 , 1 , 0 , 0 },
+        {PROTO_MJXQ , X600 , 0 , 1 , 0 , 0 },
+        {PROTO_MJXQ , X800 , 0 , 1 , 0 , 0 },
+        {PROTO_MJXQ , H26D , 0 , 1 , 0 , 0 },
+        {PROTO_MJXQ , E010 , 0 , 1 , 0 , 0 },
+        {PROTO_MJXQ , H26WH , 0 , 1 , 0 , 0 },
+        {PROTO_HONTAI, HONTAI , 0 , 1 , 0 , 0 },
+        {PROTO_HONTAI, JJRCX1 , 0 , 1 , 0 , 0 },
+        {PROTO_HONTAI, X5C1 , 0 , 1 , 0 , 0 },
+         {PROTO_HONTAI, FQ777_951 , 0 , 1 , 0 , 0 },
+         {PROTO_Q303 , Q303 , 0 , 1 , 0 , 0 },
+         {PROTO_Q303 , CX35 , 0 , 1 , 0 , 0 },
+         {PROTO_Q303 , CX10D , 0 , 1 , 0 , 0 },
+         {PROTO_Q303 , CX10WD , 0 , 1 , 0 , 0 },
+        {PROTO_CX10 , CX10_GREEN , 0 , 1 , 0 , 0 },
+        {PROTO_CX10 , CX10_BLUE , 0 , 1 , 0 , 0 },
+        {PROTO_CX10 , DM007 , 0 , 1 , 0 , 0 },
+        {PROTO_CX10 , JC3015_1 , 0 , 1 , 0 , 0 },
+        {PROTO_CX10 , JC3015_2 , 0 , 1 , 0 , 0 },
+        {PROTO_CX10 , MK33041 , 0 , 1 , 0 , 0 },
+        {PROTO_Q2X2 , Q222 , 0 , 1 , 0 , 0 },
+        {PROTO_Q2X2 , Q242 , 0 , 1 , 0 , 0 },
+        {PROTO_Q2X2 , Q282 , 0 , 1 , 0 , 0 },
+         {PROTO_CG023, CG023 , 0 , 1 , 0 , 0 },
+         {PROTO_CG023, YD829 , 0 , 1 , 0 , 0 },
+         {PROTO_FQ777, 0 , 0 , 1 , 0 , 0 },
+         {PROTO_YD717, YD717 , 0 , 1 , 0 , 0 },
+         {PROTO_MT99XX, MT99 , 0 , 1 , 0 , 0 },
+};
+typedef int ptrdiff_t;
+typedef struct {
+  long long __max_align_ll __attribute__((__aligned__(__alignof__(long long))));
+  long double __max_align_ld __attribute__((__aligned__(__alignof__(long double))));
+} max_align_t;
+  typedef decltype(nullptr) nullptr_t;
+extern "C" {
+uint8_t eeprom_read_byte (const uint8_t *__p) __attribute__((__pure__));
+uint16_t eeprom_read_word (const uint16_t *__p) __attribute__((__pure__));
+uint32_t eeprom_read_dword (const uint32_t *__p) __attribute__((__pure__));
+float eeprom_read_float (const float *__p) __attribute__((__pure__));
+void eeprom_read_block (void *__dst, const void *__src, size_t __n);
+void eeprom_write_byte (uint8_t *__p, uint8_t __value);
+void eeprom_write_word (uint16_t *__p, uint16_t __value);
+void eeprom_write_dword (uint32_t *__p, uint32_t __value);
+void eeprom_write_float (float *__p, float __value);
+void eeprom_write_block (const void *__src, void *__dst, size_t __n);
+void eeprom_update_byte (uint8_t *__p, uint8_t __value);
+void eeprom_update_word (uint16_t *__p, uint16_t __value);
+void eeprom_update_dword (uint32_t *__p, uint32_t __value);
+void eeprom_update_float (float *__p, float __value);
+void eeprom_update_block (const void *__src, void *__dst, size_t __n);
+}
+uint32_t MProtocol_id;
+uint32_t MProtocol_id_master;
+uint32_t blink=0,last_signal=0;
+uint16_t counter;
+uint8_t channel;
+uint8_t packet[40];
+uint16_t Channel_data[16];
+uint8_t Channel_AUX;
+ uint16_t Failsafe_data[16];
+uint8_t cyrfmfg_id[6];
+uint8_t rx_tx_addr[5];
+uint8_t rx_id[5];
+uint8_t phase;
+uint16_t bind_counter;
+uint8_t bind_phase;
+uint8_t binding_idx;
+uint16_t packet_period;
+uint8_t packet_count;
+uint8_t packet_sent;
+uint8_t packet_length;
+uint8_t hopping_frequency[50];
+uint8_t *hopping_frequency_ptr;
+uint8_t hopping_frequency_no=0;
+uint8_t rf_ch_num;
+uint8_t throttle, rudder, elevator, aileron;
+uint8_t flags;
+uint16_t crc;
+uint8_t crc8;
+uint16_t seed;
+uint16_t failsafe_count;
+uint16_t state;
+uint8_t len;
+uint8_t armed, arm_flags, arm_channel_previous;
+const uint8_t CH_AETR[]={0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+const uint8_t CH_TAER[]={2, 0, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+const uint8_t CH_RETA[]={3, 1, 2, 0, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+const uint8_t CH_EATR[]={1, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+uint8_t mode_select;
+uint8_t protocol_flags=0,protocol_flags2=0;
+uint8_t sub_protocol;
+uint8_t protocol;
+uint8_t option;
+uint8_t cur_protocol[3];
+uint8_t prev_option;
+uint8_t prev_power=0xFD;
+uint8_t RX_num;
+volatile uint8_t rx_buff[26];
+volatile uint8_t rx_ok_buff[26];
+volatile uint8_t discard_frame = 0;
+uint8_t pkt[29];
+ uint8_t pass = 0;
+ uint8_t pktt[29];
+  volatile uint8_t tx_buff[96];
+  volatile uint8_t tx_head=0;
+  volatile uint8_t tx_tail=0;
+ uint8_t v_lipo1;
+ uint8_t v_lipo2;
+ uint8_t RX_RSSI;
+ uint8_t TX_RSSI;
+ uint8_t RX_LQI;
+ uint8_t TX_LQI;
+ uint8_t telemetry_link=0;
+ uint8_t telemetry_counter=0;
+ uint8_t telemetry_lost;
+typedef uint16_t (*void_function_t) (void);
+void_function_t remote_callback = 0;
+void setup()
+{
+  (*(PORT_t *) 0x0660).OUTSET = 0x17 ;
+  (*(PORT_t *) 0x0660).DIRSET = 0xB2 ;
+  (*(PORT_t *) 0x0660).DIRCLR = 0x4D ;
+  (*(PORT_t *) 0x0660).PIN0CTRL = 0x18 ;
+  (*(PORT_t *) 0x0660).PIN2CTRL = 0x18 ;
+  (*(PORT_t *) 0x0680).DIRSET = 0x01 ;
+  (*(PORT_t *) 0x0680).DIRCLR = 0x02 ;
+  (*(EVSYS_t *) 0x0180).CH3MUX = 0x80 + 0x04 ;
+  (*(TC1_t *) 0x0840).CTRLB = 0; (*(TC1_t *) 0x0840).CTRLC = 0; (*(TC1_t *) 0x0840).CTRLD = 0; (*(TC1_t *) 0x0840).CTRLE = 0;
+  (*(TC1_t *) 0x0840).INTCTRLA = 0; (*(TC1_t *) 0x0840).INTCTRLB = 0;
+  (*(TC1_t *) 0x0840).PER = 0xFFFF ;
+  (*(TC1_t *) 0x0840).CNT = 0 ;
+  (*(TC1_t *) 0x0840).CTRLA = 0x0B ;
+ ;
+  (*(PORT_t *) 0x0660).OUTSET = (1 << (4));
+  (*(PORT_t *) 0x0660).OUTSET = (1 << (5));
+  (*(PORT_t *) 0x0660).OUTCLR = (1 << (7));
+ delayMilliseconds(100);
+ if( ( ((*(PORT_t *) 0x0660).IN & (1 << (2))) == 0x00 ) )
+ {
+  protocol_flags |= (1 << (5));
+  protocol_flags &= ~(1 << (7));
+ }
+ else
+  protocol_flags |= (1 << (7));
+  mode_select = MODE_SERIAL ;
+    { };
+ InitChannel();
+ (*(PORT_t *) 0x0660).OUTSET = (1 << (1));
+ (*(PORT_t *) 0x0660).DIRSET = (1 << (1));
+ modules_reset();
+ MProtocol_id_master=random_id(10,false);
+ { };
+ {
+   for(uint8_t i=0;i<3;i++)
+    cur_protocol[i]=0;
+   protocol=0;
+    Mprotocol_serial_init();
+ }
+ ;
+ { };
+}
+void loop()
+{
+ uint16_t next_callback,diff=0xFFFF;
+ while(1)
+ {
+  if(remote_callback==0 || ( ( protocol_flags2 & (1 << (7)) ) !=0 ) || diff>2*200)
+  {
+   do
+   {
+    Update_All();
+   }
+   while(remote_callback==0 || ( ( protocol_flags2 & (1 << (7)) ) !=0 ));
+  }
+   if( ((*(TC1_t *) 0x0840).INTFLAGS & 0x10) != 0)
+   {
+    __asm__ __volatile__ ("cli" ::: "memory");
+    (*(TC1_t *) 0x0840).CCA=(*(TC1_t *) 0x0840).CNT;
+    __asm__ __volatile__ ("sei" ::: "memory");
+   }
+   else
+    while(((*(TC1_t *) 0x0840).INTFLAGS & 0x10) == 0);
+  do
+  {
+   protocol_flags2 |= (1 << (3));
+   tx_pause();
+   if(( ( protocol_flags2 & (1 << (5)) ) !=0 ) && remote_callback!=0)
+    next_callback=remote_callback();
+   else
+    next_callback=2000;
+   protocol_flags2 &= ~(1 << (3));
+   tx_resume();
+   while(next_callback>4000)
+   {
+    next_callback-=2000;
+    __asm__ __volatile__ ("cli" ::: "memory");
+    (*(TC1_t *) 0x0840).CCA += 2000*2 ;
+     (*(TC1_t *) 0x0840).INTFLAGS=0x10;
+    __asm__ __volatile__ ("sei" ::: "memory");
+    if(Update_All())
+    {
+     next_callback=0;
+     break;
+    }
+     while(((*(TC1_t *) 0x0840).INTFLAGS & 0x10) == 0);
+   }
+   next_callback *= 2 ;
+   __asm__ __volatile__ ("cli" ::: "memory");
+   (*(TC1_t *) 0x0840).CCA+= next_callback ;
+    (*(TC1_t *) 0x0840).INTFLAGS=0x10;
+   diff=(*(TC1_t *) 0x0840).CCA-(*(TC1_t *) 0x0840).CNT;
+   __asm__ __volatile__ ("sei" ::: "memory");
+  }
+  while(diff&0x8000);
+ }
+}
+uint8_t Update_All()
+{
+  if(mode_select==MODE_SERIAL && ( ( protocol_flags & (1 << (0)) ) !=0 ))
+  {
+   update_serial_data();
+   update_channels_aux();
+   protocol_flags2 |= (1 << (5));
+   last_signal=millis();
+  }
+ update_led_status();
+    TelemetryUpdate();
+  if(( ( protocol_flags & (1 << (4)) ) !=0 ) && ( ( protocol_flags2 & (1 << (6)) ) ==0 ) && Channel_data[16 -1]>1424 && Channel_data[2]<(204 +50))
+  {
+   protocol_flags |= (1 << (1));
+   protocol_flags &= ~(1 << (7));
+   protocol_flags2 |= (1 << (6));
+  }
+  if(( ( protocol_flags & (1 << (4)) ) !=0 ) && ( ( protocol_flags2 & (1 << (6)) ) !=0 ) && Channel_data[16 -1]<784)
+  {
+   protocol_flags2 &= ~(1 << (6));
+   if(bind_counter>2)
+    bind_counter=2;
+  }
+ if(( ( protocol_flags & (1 << (1)) ) !=0 ))
+ {
+  protocol_init();
+  return 1;
+ }
+ return 0;
+}
+static void update_channels_aux(void)
+{
+ Channel_AUX=0;
+ for(uint8_t i=0;i<8;i++)
+  if(Channel_data[4 +i]>1104)
+   Channel_AUX|=1<<i;
+}
+static void update_led_status(void)
+{
+ if(( ( protocol_flags2 & (1 << (5)) ) !=0 ))
+  if(millis()-last_signal>70)
+   protocol_flags2 &= ~(1 << (5));
+ if(blink<millis())
+ {
+  if(( ( protocol_flags2 & (1 << (5)) ) ==0 ))
+  {
+   if(mode_select==MODE_SERIAL)
+    blink+=500;
+   else
+    blink+=1000;
+  }
+  else
+   if(remote_callback == 0)
+   {
+    if(((*(PORT_t *) 0x0660).OUT & (1 << (1))))
+     blink+=1000;
+    else
+     blink+=50;
+   }
+   else
+   {
+    if(( ( protocol_flags2 & (1 << (7)) ) !=0 ))
+    {
+     if(((*(PORT_t *) 0x0660).OUT & (1 << (1))))
+      blink+=100;
+     else
+      blink+=1000;
+    }
+    else
+    {
+     if(( ( protocol_flags & (1 << (7)) ) !=0 ))
+      (*(PORT_t *) 0x0660).OUTSET = (1 << (1));
+     blink+=100;
+    }
+   }
+  (*(PORT_t *) 0x0660).OUTTGL = (1 << (1));
+ }
+}
+inline void tx_pause()
+{
+   (*(USART_t *) 0x08A0).CTRLA &= ~0x03 ;
+}
+inline void tx_resume()
+{
+  if(!( ( protocol_flags2 & ((1 << (4))|(1 << (3))) ) !=0 ))
+  {
+    __asm__ __volatile__ ("cli" ::: "memory") ;
+    (*(USART_t *) 0x08A0).CTRLA = ((*(USART_t *) 0x08A0).CTRLA & 0xFC) | 0x01 ;
+    __asm__ __volatile__ ("sei" ::: "memory") ;
+  }
+}
+static void protocol_init()
+{
+ static uint16_t next_callback;
+ if(( ( protocol_flags2 & (1 << (7)) ) ==0 ))
+ {
+  remote_callback = 0;
+  next_callback=0;
+  (*(PORT_t *) 0x0660).OUTSET = (1 << (1));
+  modules_reset();
+   tx_pause();
+   pass=0;
+   telemetry_link=0;
+   telemetry_lost=1;
+    tx_tail=0;
+    tx_head=0;
+   protocol_flags2 &= ~(1 << (4));
+   protocol_flags2 &= ~(1 << (3));
+  MProtocol_id = RX_num + MProtocol_id_master;
+  set_rx_tx_addr(MProtocol_id);
+   InitFailsafe();
+  blink=millis();
+  ;
+  ;
+  { };
+  switch(protocol)
+  {
+     case PROTO_DSM:
+      ;
+      next_callback = initDsm();
+      remote_callback = ReadDsm;
+      break;
+     case PROTO_WFLY:
+      ;
+      next_callback = initWFLY();
+      remote_callback = ReadWFLY;
+      break;
+     case PROTO_DEVO:
+      ;
+      next_callback = DevoInit();
+      remote_callback = devo_callback;
+      break;
+     case PROTO_WK2x01:
+      ;
+      next_callback = WK_setup();
+      remote_callback = WK_cb;
+      break;
+     case PROTO_J6PRO:
+      ;
+      next_callback = initJ6Pro();
+      remote_callback = ReadJ6Pro;
+      break;
+  }
+ }
+  if( ( ( protocol_flags & (1 << (4)) ) !=0 ) && ( ( protocol_flags2 & (1 << (6)) ) ==0 ) && (cur_protocol[1]&0x80)==0 && mode_select == MODE_SERIAL)
+  {
+   protocol_flags2 |= (1 << (7));
+   return;
+  }
+ protocol_flags2 &= ~(1 << (7));
+ protocol_flags &= ~(1 << (1));
+ if(next_callback>32000)
+ {
+  uint16_t temp=(next_callback>>10)-2;
+  delayMilliseconds(temp);
+  next_callback-=temp<<10;
+ }
+ __asm__ __volatile__ ("cli" ::: "memory");
+ (*(TC1_t *) 0x0840).CCA = (*(TC1_t *) 0x0840).CNT + next_callback*2;
+  (*(TC1_t *) 0x0840).INTFLAGS = 0x10 ;
+ __asm__ __volatile__ ("sei" ::: "memory");
+ protocol_flags &= ~(1 << (5));
+}
+void update_serial_data()
+{
+ protocol_flags2 |= (1 << (1));
+ protocol_flags &= ~(1 << (0));
+ if(rx_ok_buff[1]&0x20)
+  protocol_flags |= (1 << (3));
+ else
+  protocol_flags &= ~(1 << (3));
+ if(rx_ok_buff[1]&0x40)
+  protocol_flags |= (1 << (4));
+ else
+  protocol_flags &= ~(1 << (4));
+ if(rx_ok_buff[2]&0x80)
+  protocol_flags &= ~(1 << (2));
+ else
+  protocol_flags |= (1 << (2));
+   option=rx_ok_buff[3];
+  bool failsafe=false;
+  if(rx_ok_buff[0]&0x02)
+  {
+   failsafe=true;
+   rx_ok_buff[0]&=0xFD;
+   protocol_flags2 |= (1 << (0));
+  }
+ if( (rx_ok_buff[0] != cur_protocol[0]) || ((rx_ok_buff[1]&0x5F) != (cur_protocol[1]&0x5F)) || ( (rx_ok_buff[2]&0x7F) != (cur_protocol[2]&0x7F) ) )
+ {
+  protocol_flags |= (1 << (1));
+  protocol_flags2 &= ~(1 << (7));
+  if((rx_ok_buff[1]&0x80)!=0 || ( ( protocol_flags & (1 << (4)) ) !=0 ))
+   protocol_flags &= ~(1 << (7));
+  else
+   protocol_flags |= (1 << (7));
+  protocol=(rx_ok_buff[0]==0x55?0:32) + (rx_ok_buff[1]&0x1F);
+  sub_protocol=(rx_ok_buff[2]>>4)& 0x07;
+  RX_num=rx_ok_buff[2]& 0x0F;
+ }
+ else
+  if( ((rx_ok_buff[1]&0x80)!=0) && ((cur_protocol[1]&0x80)==0) )
+  {
+   protocol_flags |= (1 << (1));
+   protocol_flags &= ~(1 << (7));
+  }
+  else
+   if( ((rx_ok_buff[1]&0x80)==0) && ((cur_protocol[1]&0x80)!=0) )
+   {
+    if(bind_counter>2)
+     bind_counter=2;
+   }
+ for(uint8_t i=0;i<3;i++)
+  cur_protocol[i] = rx_ok_buff[i];
+ volatile uint8_t *p=rx_ok_buff+3;
+ uint8_t dec=-3;
+ for(uint8_t i=0;i<16;i++)
+ {
+  dec+=3;
+  if(dec>=8)
+  {
+   dec-=8;
+   p++;
+  }
+  p++;
+  uint16_t temp=((*((uint32_t *)p))>>dec)&0x7FF;
+   if(failsafe)
+    Failsafe_data[i]=temp;
+   else
+    Channel_data[i]=temp;
+ }
+ protocol_flags2 &= ~(1 << (1));
+  __asm__ __volatile__ ("cli" ::: "memory");
+ if(( ( protocol_flags2 & (1 << (2)) ) !=0 ))
+ { memcpy((void*)rx_ok_buff,(const void*)rx_buff,26);
+  protocol_flags |= (1 << (0));
+  protocol_flags2 &= ~(1 << (2));
+ }
+  __asm__ __volatile__ ("sei" ::: "memory");
+  if(failsafe)
+   { };
+}
+void modules_reset()
+{
+  CYRF_Reset();
+ delayMilliseconds(100);
+ prev_power=0xFD;
+}
+ void Mprotocol_serial_init()
+{
+  (*(PORT_t *) 0x0640).OUTSET = 0x08 ;
+  (*(PORT_t *) 0x0640).DIRSET = 0x08 ;
+  (*(USART_t *) 0x08A0).BAUDCTRLA = 19 ;
+  (*(USART_t *) 0x08A0).BAUDCTRLB = 0 ;
+  (*(USART_t *) 0x08A0).CTRLB = 0x18 ;
+  (*(USART_t *) 0x08A0).CTRLA = ((*(USART_t *) 0x08A0).CTRLA & 0xCC) | 0x11 ;
+  (*(USART_t *) 0x08A0).CTRLC = 0x2B ;
+  (*(USART_t *) 0x08A0).DATA ;
+   (*(PORT_t *) 0x0640).PIN3CTRL |= 0x40 ;
+}
+void PPM_Telemetry_serial_init()
+{
+ if( (protocol==PROTO_FRSKYD) || (protocol==PROTO_HUBSAN) || (protocol==PROTO_AFHDS2A) || (protocol==PROTO_BAYANG)|| (protocol==PROTO_NCC1701) || (protocol==PROTO_CABELL) || (protocol==PROTO_HITEC) || (protocol==PROTO_BUGS) || (protocol==PROTO_BUGSMINI))
+  initTXSerial( 1 ) ;
+ if(protocol==PROTO_FRSKYX)
+  initTXSerial( 2 ) ;
+ if(protocol==PROTO_DSM)
+  initTXSerial( 3 ) ;
+}
+static void set_rx_tx_addr(uint32_t id)
+{
+ rx_tx_addr[0] = (id >> 24) & 0xFF;
+ rx_tx_addr[1] = (id >> 16) & 0xFF;
+ rx_tx_addr[2] = (id >> 8) & 0xFF;
+ rx_tx_addr[3] = (id >> 0) & 0xFF;
+ rx_tx_addr[4] = (rx_tx_addr[2]&0xF0)|(rx_tx_addr[3]&0x0F);
+}
+static uint32_t random_id(uint16_t address, uint8_t create_new)
+{
+  uint32_t id=0;
+  if(eeprom_read_byte((uint8_t*)(address+10))==0xf0 && !create_new)
+  {
+   for(uint8_t i=4;i>0;i--)
+   {
+    id<<=8;
+    id|=eeprom_read_byte((uint8_t*)address+i-1);
+   }
+   if(id!=0x2AD141A7)
+   {
+    { };
+    return id;
+   }
+  }
+    id = random(0xfefefefe) + ((uint32_t)random(0xfefefefe) << 16);
+  for(uint8_t i=0;i<4;i++)
+   eeprom_write_byte((uint8_t*)address+i,id >> (i*8));
+  eeprom_write_byte((uint8_t*)(address+10),0xf0);
+  return id;
+}
+  extern "C" void __vector_25 (void) __attribute__ ((signal,used, externally_visible)) ; void __vector_25 (void)
+ {
+  static uint8_t idx=0;
+   if(((*(USART_t *) 0x08A0).STATUS & 0x1C)==0)
+  {
+   if(idx==0||discard_frame==1)
+   {
+    idx=0;discard_frame=0;
+    protocol_flags2 &= ~(1 << (2));
+    rx_buff[0]=(*(USART_t *) 0x08A0).DATA;
+     if((rx_buff[0]&0xFC)==0x54)
+    {
+     protocol_flags2 |= (1 << (4));
+     tx_pause();
+      (*(TC1_t *) 0x0840).CCB = (*(TC1_t *) 0x0840).CNT+(6500L) ;
+      (*(TC1_t *) 0x0840).INTFLAGS = 0x20 ;
+      (*(TC1_t *) 0x0840).INTCTRLB = ((*(TC1_t *) 0x0840).INTCTRLB & 0xF3) | 0x04 ;
+     idx++;
+    }
+   }
+   else
+   {
+    rx_buff[idx++]=(*(USART_t *) 0x08A0).DATA;
+    if(idx>=26)
+    {
+     if(!( ( protocol_flags2 & (1 << (1)) ) !=0 ))
+     {
+      memcpy((void*)rx_ok_buff,(const void*)rx_buff,26);
+      protocol_flags |= (1 << (0));
+     }
+     else
+      protocol_flags2 |= (1 << (2));
+     discard_frame=1;
+    }
+   }
+  }
+  else
+  {
+   idx=(*(USART_t *) 0x08A0).DATA;
+   discard_frame=1;
+   { };
+  }
+  if(discard_frame==1)
+  {
+    (*(TC1_t *) 0x0840).INTCTRLB &= 0xF3;
+   protocol_flags2 &= ~(1 << (4));
+   tx_resume();
+  }
+ }
+  extern "C" void __vector_23 (void) __attribute__ ((signal,used, externally_visible)) ; void __vector_23 (void)
+ {
+  discard_frame=1;
+   (*(TC1_t *) 0x0840).INTCTRLB &= 0xF3;
+  tx_resume();
+ }
+void SPI_Write(uint8_t command)
+{
+ uint8_t n=8;
+ (*(PORT_t *) 0x0660).OUTCLR = (1 << (7));
+ __asm__ __volatile__("nop");
+ (*(PORT_t *) 0x0660).OUTCLR = (1 << (5));
+ __asm__ __volatile__("nop");
+ do
+ {
+  if(command&0x80)
+   (*(PORT_t *) 0x0660).OUTSET = (1 << (5));
+  else
+   (*(PORT_t *) 0x0660).OUTCLR = (1 << (5));
+  __asm__ __volatile__("nop");
+  (*(PORT_t *) 0x0660).OUTSET = (1 << (7));
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+  command = command << 1;
+  (*(PORT_t *) 0x0660).OUTCLR = (1 << (7));
+  __asm__ __volatile__("nop");
+ }
+ while(--n) ;
+ (*(PORT_t *) 0x0660).OUTSET = (1 << (5));
+}
+uint8_t SPI_Read(void)
+{
+ uint8_t result=0,i;
+ for(i=0;i<8;i++)
+ {
+  result=result<<1;
+  if(((*(PORT_t *) 0x0660).IN & (1 << (6))))
+   result |= 0x01;
+  (*(PORT_t *) 0x0660).OUTSET = (1 << (7));
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+  (*(PORT_t *) 0x0660).OUTCLR = (1 << (7));
+  __asm__ __volatile__("nop");
+  __asm__ __volatile__("nop");
+ }
+ return result;
+}
+enum {
+    CYRF_00_CHANNEL = 0x00,
+    CYRF_01_TX_LENGTH = 0x01,
+    CYRF_02_TX_CTRL = 0x02,
+    CYRF_03_TX_CFG = 0x03,
+    CYRF_04_TX_IRQ_STATUS = 0x04,
+    CYRF_05_RX_CTRL = 0x05,
+    CYRF_06_RX_CFG = 0x06,
+    CYRF_07_RX_IRQ_STATUS = 0x07,
+    CYRF_08_RX_STATUS = 0x08,
+    CYRF_09_RX_COUNT = 0x09,
+    CYRF_0A_RX_LENGTH = 0x0A,
+    CYRF_0B_PWR_CTRL = 0x0B,
+    CYRF_0C_XTAL_CTRL = 0x0C,
+    CYRF_0D_IO_CFG = 0x0D,
+    CYRF_0E_GPIO_CTRL = 0x0E,
+    CYRF_0F_XACT_CFG = 0x0F,
+    CYRF_10_FRAMING_CFG = 0x10,
+    CYRF_11_DATA32_THOLD = 0x11,
+    CYRF_12_DATA64_THOLD = 0x12,
+    CYRF_13_RSSI = 0x13,
+    CYRF_14_EOP_CTRL = 0x14,
+    CYRF_15_CRC_SEED_LSB = 0x15,
+    CYRF_16_CRC_SEED_MSB = 0x16,
+    CYRF_17_TX_CRC_LSB = 0x17,
+    CYRF_18_TX_CRC_MSB = 0x18,
+    CYRF_19_RX_CRC_LSB = 0x19,
+    CYRF_1A_RX_CRC_MSB = 0x1A,
+    CYRF_1B_TX_OFFSET_LSB = 0x1B,
+    CYRF_1C_TX_OFFSET_MSB = 0x1C,
+    CYRF_1D_MODE_OVERRIDE = 0x1D,
+    CYRF_1E_RX_OVERRIDE = 0x1E,
+    CYRF_1F_TX_OVERRIDE = 0x1F,
+    CYRF_20_TX_BUFFER = 0x20,
+    CYRF_21_RX_BUFFER = 0x21,
+    CYRF_22_SOP_CODE = 0x22,
+    CYRF_23_DATA_CODE = 0x23,
+    CYRF_24_PREAMBLE = 0x24,
+    CYRF_25_MFG_ID = 0x25,
+    CYRF_26_XTAL_CFG = 0x26,
+    CYRF_27_CLK_OVERRIDE = 0x27,
+    CYRF_28_CLK_EN = 0x28,
+    CYRF_29_RX_ABORT = 0x29,
+    CYRF_32_AUTO_CAL_TIME = 0x32,
+    CYRF_35_AUTOCAL_OFFSET = 0x35,
+    CYRF_39_ANALOG_CTRL = 0x39,
+};
+enum CYRF_PWR {
+    CYRF_PWR_100MW,
+    CYRF_PWR_10MW,
+    CYRF_PWR_DEFAULT,
+};
+void CYRF_WriteRegister(uint8_t address, uint8_t data)
+{
+ (*(PORT_t *) 0x0660).OUTCLR = (1 << (4));
+ SPI_Write(0x80 | address);
+ SPI_Write(data);
+ (*(PORT_t *) 0x0660).OUTSET = (1 << (4));
+}
+static void CYRF_WriteRegisterMulti(uint8_t address, const uint8_t data[], uint8_t length)
+{
+ uint8_t i;
+ (*(PORT_t *) 0x0660).OUTCLR = (1 << (4));
+ SPI_Write(0x80 | address);
+ for(i = 0; i < length; i++)
+  SPI_Write(data[i]);
+ (*(PORT_t *) 0x0660).OUTSET = (1 << (4));
+}
+static void CYRF_ReadRegisterMulti(uint8_t address, uint8_t data[], uint8_t length)
+{
+ uint8_t i;
+ (*(PORT_t *) 0x0660).OUTCLR = (1 << (4));
+ SPI_Write(address);
+ for(i = 0; i < length; i++)
+  data[i] = SPI_Read();
+ (*(PORT_t *) 0x0660).OUTSET = (1 << (4));
+}
+uint8_t CYRF_ReadRegister(uint8_t address)
+{
+ uint8_t data;
+ (*(PORT_t *) 0x0660).OUTCLR = (1 << (4));
+ SPI_Write(address);
+ data = SPI_Read();
+ (*(PORT_t *) 0x0660).OUTSET = (1 << (4));
+ return data;
+}
+uint8_t CYRF_Reset()
+{
+ (*(PORT_t *) 0x0680).OUTSET = (1 << (0));
+ delayMicroseconds(100);
+ (*(PORT_t *) 0x0680).OUTCLR = (1 << (0));
+ delayMicroseconds(100);
+ CYRF_WriteRegister(CYRF_1D_MODE_OVERRIDE, 0x01);
+ delayMicroseconds(200);
+ CYRF_WriteRegister(CYRF_0C_XTAL_CTRL, 0xC0);
+ CYRF_WriteRegister(CYRF_0D_IO_CFG, 0x04);
+ CYRF_SetTxRxMode(TXRX_OFF);
+ return (CYRF_ReadRegister(CYRF_10_FRAMING_CFG) == 0xa5);
+}
+void CYRF_GetMfgData(uint8_t data[])
+{
+ CYRF_WriteRegister(CYRF_25_MFG_ID, 0xFF);
+ CYRF_ReadRegisterMulti(CYRF_25_MFG_ID, data, 6);
+ CYRF_WriteRegister(CYRF_25_MFG_ID, 0x00);
+}
+void CYRF_SetTxRxMode(uint8_t mode)
+{
+ if(mode==TXRX_OFF)
+ {
+  if(protocol!=PROTO_WFLY)
+   CYRF_WriteRegister(CYRF_0F_XACT_CFG, 0x24);
+  CYRF_WriteRegister(CYRF_0E_GPIO_CTRL,0x00);
+ }
+ else
+ {
+  if(protocol!=PROTO_WFLY)
+   CYRF_WriteRegister(CYRF_0F_XACT_CFG, mode == TX_EN ? 0x28 : 0x2C);
+  if(mode == TX_EN)
+   CYRF_WriteRegister(CYRF_0E_GPIO_CTRL,0x80);
+  else
+   CYRF_WriteRegister(CYRF_0E_GPIO_CTRL,0x20);
+ }
+}
+void CYRF_ConfigRFChannel(uint8_t ch)
+{
+ CYRF_WriteRegister(CYRF_00_CHANNEL,ch);
+}
+void CYRF_SetPower(uint8_t val)
+{
+ uint8_t power=CYRF_POWER_0;
+ if(( ( protocol_flags & (1 << (7)) ) !=0 ))
+   power=CYRF_POWER_7;
+ if(( ( protocol_flags & (1 << (3)) ) !=0 ))
+  power=CYRF_POWER_1;
+ power|=val;
+ if(prev_power != power)
+ {
+  CYRF_WriteRegister(CYRF_03_TX_CFG,power);
+  prev_power=power;
+ }
+}
+void CYRF_ConfigCRCSeed(uint16_t crc)
+{
+ CYRF_WriteRegister(CYRF_15_CRC_SEED_LSB,crc & 0xff);
+ CYRF_WriteRegister(CYRF_16_CRC_SEED_MSB,crc >> 8);
+}
+void CYRF_ConfigSOPCode(const uint8_t *sopcodes)
+{
+ CYRF_WriteRegisterMulti(CYRF_22_SOP_CODE, sopcodes, 8);
+}
+void CYRF_ConfigDataCode(const uint8_t *datacodes, uint8_t len)
+{
+ CYRF_WriteRegisterMulti(CYRF_23_DATA_CODE, datacodes, len);
+}
+void CYRF_WritePreamble(uint32_t preamble)
+{
+ (*(PORT_t *) 0x0660).OUTCLR = (1 << (4));
+ SPI_Write(0x80 | 0x24);
+ SPI_Write(preamble & 0xff);
+ SPI_Write((preamble >> 8) & 0xff);
+ SPI_Write((preamble >> 16) & 0xff);
+ (*(PORT_t *) 0x0660).OUTSET = (1 << (4));
+}
+void CYRF_ReadDataPacketLen(uint8_t dpbuffer[], uint8_t length)
+{
+    CYRF_ReadRegisterMulti(CYRF_21_RX_BUFFER, dpbuffer, length);
+}
+static void CYRF_WriteDataPacketLen(const uint8_t dpbuffer[], uint8_t len)
+{
+ CYRF_WriteRegister(CYRF_01_TX_LENGTH, len);
+ CYRF_WriteRegister(CYRF_02_TX_CTRL, 0x43);
+ CYRF_WriteRegisterMulti(CYRF_20_TX_BUFFER, dpbuffer, len);
+ CYRF_WriteRegister(CYRF_02_TX_CTRL, 0x83);
+}
+void CYRF_WriteDataPacket(const uint8_t dpbuffer[])
+{
+ CYRF_WriteDataPacketLen(dpbuffer, 16);
+}
+void CYRF_FindBestChannels(uint8_t *channels, uint8_t len, uint8_t minspace, uint8_t min, uint8_t max)
+{
+ uint8_t rssi[80];
+ if (min < 4)
+  min = 4;
+ if (max > 80)
+  max = 80;
+ uint8_t i;
+ int8_t j;
+ memset(channels, 0, sizeof(uint8_t) * len);
+ CYRF_ConfigCRCSeed(0x0000);
+ CYRF_SetTxRxMode(RX_EN);
+ delayMilliseconds(1);
+ for(i = 0; i < 80; i++)
+ {
+  CYRF_ConfigRFChannel(i);
+  delayMicroseconds(270);
+        if( !(CYRF_ReadRegister(CYRF_05_RX_CTRL) & 0x80)) {
+            CYRF_WriteRegister(CYRF_05_RX_CTRL, 0x80);
+            delayMicroseconds(15);
+            CYRF_ReadRegister(CYRF_13_RSSI);
+            delayMicroseconds(15);
+        }
+  rssi[i] = CYRF_ReadRegister(CYRF_13_RSSI)&0x1F;
+ }
+ for (i = 0; i < len; i++)
+ {
+  channels[i] = min;
+  for (j = min; j < max; j++)
+   if (rssi[j] < rssi[channels[i]])
+    channels[i] = j;
+  for (j = channels[i] - minspace; j < channels[i] + minspace; j++) {
+   if (j < 0 || j >= 80)
+    continue;
+   rssi[j] = 0xff;
+  }
+ }
+ CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x20);
+ CYRF_SetTxRxMode(TX_EN);
+ CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x20);
+}
+const uint8_t __attribute__((__progmem__)) DEVO_j6pro_sopcodes[][8] = {
+    {0x3C, 0x37, 0xCC, 0x91, 0xE2, 0xF8, 0xCC, 0x91},
+    {0x9B, 0xC5, 0xA1, 0x0F, 0xAD, 0x39, 0xA2, 0x0F},
+    {0xEF, 0x64, 0xB0, 0x2A, 0xD2, 0x8F, 0xB1, 0x2A},
+    {0x66, 0xCD, 0x7C, 0x50, 0xDD, 0x26, 0x7C, 0x50},
+    {0x5C, 0xE1, 0xF6, 0x44, 0xAD, 0x16, 0xF6, 0x44},
+    {0x5A, 0xCC, 0xAE, 0x46, 0xB6, 0x31, 0xAE, 0x46},
+    {0xA1, 0x78, 0xDC, 0x3C, 0x9E, 0x82, 0xDC, 0x3C},
+    {0xB9, 0x8E, 0x19, 0x74, 0x6F, 0x65, 0x18, 0x74},
+    {0xDF, 0xB1, 0xC0, 0x49, 0x62, 0xDF, 0xC1, 0x49},
+    {0x97, 0xE5, 0x14, 0x72, 0x7F, 0x1A, 0x14, 0x72},
+    {0x82, 0xC7, 0x90, 0x36, 0x21, 0x03, 0xFF, 0x17},
+    {0xE2, 0xF8, 0xCC, 0x91, 0x3C, 0x37, 0xCC, 0x91},
+    {0xAD, 0x39, 0xA2, 0x0F, 0x9B, 0xC5, 0xA1, 0x0F},
+    {0xD2, 0x8F, 0xB1, 0x2A, 0xEF, 0x64, 0xB0, 0x2A},
+    {0xDD, 0x26, 0x7C, 0x50, 0x66, 0xCD, 0x7C, 0x50},
+    {0xAD, 0x16, 0xF6, 0x44, 0x5C, 0xE1, 0xF6, 0x44},
+    {0xB6, 0x31, 0xAE, 0x46, 0x5A, 0xCC, 0xAE, 0x46},
+    {0x9E, 0x82, 0xDC, 0x3C, 0xA1, 0x78, 0xDC, 0x3C},
+    {0x6F, 0x65, 0x18, 0x74, 0xB9, 0x8E, 0x19, 0x74},
+};
+static void __attribute__((unused)) CYRF_PROGMEM_ConfigSOPCode(const uint8_t *data)
+{
+ uint8_t code[8];
+ for(uint8_t i=0;i<8;i++)
+  code[i]=(__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&data[i])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; }));
+ CYRF_ConfigSOPCode(code);
+}
+void InitFailsafe()
+{
+ for(uint8_t i=0;i<16;i++)
+  Failsafe_data[i]=1024;
+ Failsafe_data[2]=(uint16_t)(((-100 +125)*1024)/125);
+ protocol_flags2 |= (1 << (0));
+}
+void InitChannel()
+{
+ for(uint8_t i=0;i<16;i++)
+  Channel_data[i]=1024;
+  Channel_data[2]=(uint16_t)(((-100 +125)*1024)/125);
+}
+void reverse_channel(uint8_t num)
+{
+ uint16_t val=2048-Channel_data[num];
+ if(val>=2048) val=2047;
+ Channel_data[num]=val;
+}
+uint16_t convert_channel_ppm(uint8_t num)
+{
+ uint16_t val=Channel_data[num];
+ return (((val<<2)+val)>>3)+860;
+}
+uint16_t convert_channel_10b(uint8_t num)
+{
+ uint16_t val=Channel_data[num];
+ val=((val<<2)+val)>>3;
+ if(val<=128) return 0;
+ if(val>=1152) return 1023;
+ return val-128;
+}
+uint8_t convert_channel_8b(uint8_t num)
+{
+ uint16_t val=Channel_data[num];
+ val=((val<<2)+val)>>5;
+ if(val<=32) return 0;
+ if(val>=288) return 255;
+ return val-32;
+}
+int16_t convert_channel_16b_limit(uint8_t num,int16_t min,int16_t max)
+{
+ int32_t val=limit_channel_100(num);
+ val=(val-204)*(max-min)/(1844 -204)+min;
+ return (uint16_t)val;
+}
+int16_t convert_channel_16b_nolimit(uint8_t num, int16_t min, int16_t max)
+{
+ int32_t val=Channel_data[num];
+ val=(val-204)*(max-min)/(1844 -204)+min;
+ return (uint16_t)val;
+}
+uint8_t convert_channel_s8b(uint8_t num)
+{
+ uint8_t ch;
+ ch = convert_channel_8b(num);
+ return (ch < 128 ? 127-ch : ch);
+}
+uint16_t limit_channel_100(uint8_t num)
+{
+ if(Channel_data[num]>=1844)
+  return 1844;
+ if (Channel_data[num]<=204)
+  return 204;
+ return Channel_data[num];
+}
+void convert_channel_HK310(uint8_t num, uint8_t *low, uint8_t *high)
+{
+ uint16_t temp=0xFFFF-(3440+((Channel_data[num]*5)>>1))/3;
+ *low=(uint8_t)(temp&0xFF);
+ *high=(uint8_t)(temp>>8);
+}
+void convert_failsafe_HK310(uint8_t num, uint8_t *low, uint8_t *high)
+{
+ uint16_t temp=0xFFFF-(3440+((Failsafe_data[num]*5)>>1))/3;
+ *low=(uint8_t)(temp&0xFF);
+ *high=(uint8_t)(temp>>8);
+}
+uint16_t convert_channel_frsky(uint8_t num)
+{
+ uint16_t val=Channel_data[num];
+ return ((val*15)>>4)+1290;
+}
+enum {
+ WFLY_BIND_TX=0,
+ WFLY_BIND_PREP_RX,
+ WFLY_BIND_RX,
+ WFLY_PREP_DATA,
+ WFLY_DATA,
+};
+const uint8_t __attribute__((__progmem__)) WFLY_sop_bind[]={ 0x5A, 0xCC, 0xAE, 0x46, 0xB6, 0x31, 0xAE, 0x46 };
+const uint8_t __attribute__((__progmem__)) WFLY_sop_data[]={ 0xEF, 0x64, 0xB0, 0x2A, 0xD2, 0x8F, 0xB1, 0x2A };
+const uint8_t __attribute__((__progmem__)) WFLY_bind_packet[]={ 0x1C, 0xA7, 0x60, 0x04, 0x04, 0xBF, 0x13, 0x15, 0xC5, 0x40, 0x8A, 0x37, 0xE0, 0xE8, 0x03, 0xA3 };
+const uint8_t __attribute__((__progmem__)) WFLY_init_vals[][2] = {
+ {CYRF_1D_MODE_OVERRIDE, 0x19},
+ {CYRF_32_AUTO_CAL_TIME, 0x3C},
+ {CYRF_35_AUTOCAL_OFFSET, 0x14},
+ {CYRF_1B_TX_OFFSET_LSB, 0x55},
+ {CYRF_1C_TX_OFFSET_MSB, 0x05},
+ {CYRF_06_RX_CFG, 0x48 | 0x02},
+ {CYRF_10_FRAMING_CFG, 0xE8},
+ {CYRF_03_TX_CFG, 0x08 | CYRF_POWER_0},
+ {CYRF_0C_XTAL_CTRL, 0xC4},
+ {CYRF_0D_IO_CFG, 0x04},
+ {CYRF_0F_XACT_CFG, 0x21},
+ {CYRF_1E_RX_OVERRIDE, 0x00},
+ {CYRF_15_CRC_SEED_LSB, 0x00},
+ {CYRF_16_CRC_SEED_MSB, 0x00},
+};
+static void __attribute__((unused)) WFLY_cyrf_bind_config()
+{
+ for(uint8_t i = 0; i < sizeof(WFLY_init_vals) / 2; i++)
+  CYRF_WriteRegister((__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&WFLY_init_vals[i][0])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })), (__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&WFLY_init_vals[i][1])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })));
+    CYRF_PROGMEM_ConfigSOPCode(WFLY_sop_bind);
+ CYRF_ConfigRFChannel(0x09);
+ CYRF_SetTxRxMode(TX_EN);
+}
+static void __attribute__((unused)) WFLY_cyrf_data_config()
+{
+ for(uint8_t i = 0; i < (sizeof(WFLY_init_vals) / 2)-3; i++)
+  CYRF_WriteRegister((__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&WFLY_init_vals[i][0])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })), (__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&WFLY_init_vals[i][1])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })));
+ CYRF_WriteRegister(CYRF_15_CRC_SEED_LSB, rx_tx_addr[2]);
+ CYRF_WriteRegister(CYRF_16_CRC_SEED_MSB, rx_tx_addr[3]);
+    CYRF_PROGMEM_ConfigSOPCode(WFLY_sop_data);
+ CYRF_SetTxRxMode(TX_EN);
+}
+static uint16_t __attribute__((unused)) WFLY_send_data_packet()
+{
+ packet_count++;
+ packet[0] = rx_tx_addr[2];
+ packet[1] = rx_tx_addr[3];
+ if(packet_count%4==3)
+ {
+  packet[2]=0x70;
+  packet[3]=0x04;
+  packet[4]=0x00;
+  packet[5]=0x04;
+  packet[6]=hopping_frequency[0];
+  packet[7]=hopping_frequency[0];
+  packet[8]=hopping_frequency[1];
+  packet[9]=hopping_frequency[2];
+  len=10;
+ }
+ else
+ {
+  uint8_t nbr_ch=option;
+  if(nbr_ch<4) nbr_ch=9;
+  if(nbr_ch>9) nbr_ch=9;
+  packet[2]=nbr_ch-3;
+  packet[3]=packet_count>>2;
+  len=4;
+  for(uint8_t i=0;i<3;i++)
+  {
+   uint16_t ch = convert_channel_16b_nolimit(i*4+0,151,847);
+   uint8_t offset=i*5;
+   packet[3+offset]|=ch<<6;
+   packet[4+offset]=ch>>2;
+   len++;
+   if(--nbr_ch==0) break;
+   ch = convert_channel_16b_nolimit(i*4+1,151,847);
+   packet[5+offset]=ch;
+   packet[6+offset]=ch>>8;
+   len+=2;
+   if(--nbr_ch==0) break;
+   ch = convert_channel_16b_nolimit(i*4+2,151,847);
+   packet[6+offset]|=ch<<2;
+   packet[7+offset]=ch>>6;
+   len++;
+   if(--nbr_ch==0) break;
+   ch = convert_channel_16b_nolimit(i*4+3,151,847);
+   packet[7+offset]|=ch<<4;
+   packet[8+offset]=ch>>4;
+   len++;
+   if(--nbr_ch==0) break;
+  }
+ }
+ uint8_t sum=0;
+ for(uint8_t i = 0; i < len; i++)
+  sum += packet[i];
+ packet[len] = sum;
+ CYRF_ConfigRFChannel(hopping_frequency[(packet_count)%4]);
+ CYRF_SetPower(0x08);
+ CYRF_WriteDataPacketLen(packet, len+1);
+ switch(packet_count%4)
+ {
+  case 0:
+   return 1393;
+  case 1:
+   return 1330;
+  case 2:
+   return 1555;
+ }
+ return 1093;
+}
+uint16_t ReadWFLY()
+{
+ uint8_t status,len,sum=0,check=0;
+ uint8_t start;
+ static uint8_t retry;
+ switch(phase)
+ {
+  case WFLY_BIND_TX:
+   CYRF_SetTxRxMode(TX_EN);
+   CYRF_WriteDataPacketLen(packet, sizeof(WFLY_bind_packet));
+   { };
+   for(uint8_t i=0;i<sizeof(WFLY_bind_packet);i++)
+    { };
+   { };
+   phase++;
+   if(--bind_counter==0)
+   {
+    protocol_flags |= (1 << (7));
+    phase=WFLY_PREP_DATA;
+   }
+   return 2500;
+  case WFLY_BIND_PREP_RX:
+   start=micros();
+   while ((uint8_t)((uint8_t)micros()-(uint8_t)start) < 200)
+    if((CYRF_ReadRegister(CYRF_02_TX_CTRL) & 0x80) == 0x00)
+     break;
+   CYRF_SetTxRxMode(RX_EN);
+   CYRF_WriteRegister(CYRF_05_RX_CTRL, 0x83);
+   retry=10;
+   phase=WFLY_BIND_RX;
+   return 700;
+  case WFLY_BIND_RX:
+   status = CYRF_ReadRegister(CYRF_07_RX_IRQ_STATUS);
+   if((status & 0x03) == 0x02)
+    status |= CYRF_ReadRegister(CYRF_07_RX_IRQ_STATUS);
+   CYRF_WriteRegister(CYRF_07_RX_IRQ_STATUS, 0x80);
+   if((status & 0x07) == 0x02)
+   {
+    len=CYRF_ReadRegister(CYRF_09_RX_COUNT);
+    { }
+    if(len==0x10)
+    {
+     CYRF_ReadDataPacketLen(pkt, len);
+     { };
+     for(uint8_t i=0;i<0x0F;i++)
+     {
+      { };
+      if(pkt[i]==packet[i])
+       check++;
+      sum+=pkt[i];
+     }
+     { };
+     if(sum==pkt[15] && check>=10)
+     {
+      if(pkt[2]==0x64)
+      {
+       protocol_flags |= (1 << (7));
+       phase=WFLY_PREP_DATA;
+       return 10000;
+      }
+      memcpy((void *)packet,(void *)pkt,0x10);
+     }
+     phase=WFLY_BIND_TX;
+     return 200;
+    }
+   }
+   if(status & 0x85 || --retry == 0)
+   {
+    { };
+    CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x20);
+    CYRF_WriteRegister(CYRF_0F_XACT_CFG, 0x21);
+    CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x00);
+    phase=WFLY_BIND_TX;
+   }
+   return 700;
+  case WFLY_PREP_DATA:
+   WFLY_cyrf_data_config();
+   packet_count=0;
+   phase++;
+  case WFLY_DATA:
+   start=micros();
+   while ((uint8_t)((uint8_t)micros()-(uint8_t)start) < 200)
+    if((CYRF_ReadRegister(CYRF_02_TX_CTRL) & 0x80) == 0x00)
+     break;
+   return WFLY_send_data_packet();
+ }
+ return 1000;
+}
+uint16_t initWFLY()
+{
+ uint8_t ch=0x0A+random(0xfefefefe)%0x0E;
+ if(ch%3==0)
+  ch++;
+ rf_ch_num=0x0C+(rx_tx_addr[1]%4)*3;
+ { }
+ for(uint8_t i=0;i<2;i++)
+  { };
+ { };
+ hopping_frequency[0]=ch;
+ hopping_frequency[1]=ch+0x1E;
+ hopping_frequency[2]=ch+0x2D;
+ hopping_frequency[3]=rf_ch_num;
+ { }
+ for(uint8_t i=0;i<4;i++)
+  { };
+ { };
+ if(( ( protocol_flags & (1 << (7)) ) ==0 ))
+ {
+  bind_counter=1500;
+  WFLY_cyrf_bind_config();
+  for(uint8_t i=0;i<sizeof(WFLY_bind_packet);i++)
+   packet[i]=(__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&WFLY_bind_packet[i])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; }));
+  packet[5]=rx_tx_addr[2];
+  packet[6]=rx_tx_addr[3];
+  packet[7]=rf_ch_num;
+  uint8_t sum=0;
+  for(uint8_t i = 0; i < 15; i++)
+   sum += packet[i];
+  packet[15] = sum;
+  phase=WFLY_BIND_TX;
+ }
+ else
+  phase = WFLY_PREP_DATA;
+ return 10000;
+}
+enum {
+ WK_BIND=0,
+ WK_BOUND_1,
+ WK_BOUND_2,
+ WK_BOUND_3,
+ WK_BOUND_4,
+ WK_BOUND_5,
+ WK_BOUND_6,
+ WK_BOUND_7,
+ WK_BOUND_8,
+};
+static const uint8_t WK_sopcodes[8] = {
+    0xDF,0xB1,0xC0,0x49,0x62,0xDF,0xC1,0x49
+};
+static const uint8_t init_2801[] = {0xc5, 0x34, 0x60, 0x00, 0x25};
+static const uint8_t init_2601[] = {0xb9, 0x45, 0xb0, 0xf1, 0x3a};
+static const uint8_t init_2401[] = {0xa5, 0x23, 0xd0, 0xf0, 0x00};
+uint8_t WK_last_beacon;
+static void __attribute__((unused)) WK_add_pkt_crc(uint8_t init)
+{
+ uint8_t add = init;
+ uint8_t xou = init;
+ for (uint8_t i = 0; i < 14; i++)
+ {
+  add += packet[i];
+  xou ^= packet[i];
+ }
+ packet[14] = xou;
+ packet[15] = add;
+}
+static void __attribute__((unused)) WK_build_bind_pkt(const uint8_t *init)
+{
+ packet[0] = init[0];
+ packet[1] = init[1];
+ packet[2] = hopping_frequency[0];
+ packet[3] = hopping_frequency[1];
+ packet[4] = init[2];
+ packet[5] = hopping_frequency[2];
+ packet[6] = 0xff;
+ packet[7] = 0x00;
+ packet[8] = 0x00;
+ packet[9] = 0x32;
+ if (sub_protocol == WK2401)
+  packet[10] = 0x10 | (rx_tx_addr[0] & 0x0e);
+ else
+  packet[10] = rx_tx_addr[0];
+ packet[11] = rx_tx_addr[1];
+ packet[12] = rx_tx_addr[2] | packet_count;
+ packet[13] = init[3];
+ WK_add_pkt_crc(init[4]);
+}
+static int16_t __attribute__((unused)) WK_get_channel(uint8_t ch, int32_t scale, int16_t center, int16_t range)
+{
+ int16_t value = convert_channel_16b_nolimit(CH_AETR[ch],-scale,scale)+center;
+ if (value < center - range) value = center - range;
+ if (value > center + range) value = center + range;
+ return value;
+}
+static void __attribute__((unused)) WK_build_data_pkt_2401()
+{
+ uint16_t msb = 0;
+ uint8_t offset = 0;
+ for (uint8_t i = 0; i < 4; i++)
+ {
+  if (i == 2)
+   offset = 1;
+  int16_t value = WK_get_channel(i, 0x800, 0, 0xA00);
+  uint16_t base = __builtin_abs(value) >> 2;
+  uint16_t trim = __builtin_abs(value) & 0x03;
+  if (base >= 0x200)
+  {
+   trim = 4 *(base - 0x200);
+   base = 0x1ff;
+  }
+  base = (value >= 0) ? 0x200 + base : 0x200 - base;
+  trim = (value >= 0) ? 0x200 + trim : 0x200 - trim;
+  packet[2*i+offset] = base & 0xff;
+  packet[2*i+offset+1] = trim & 0xff;
+  msb = (msb << 4) | ((base >> 6) & 0x0c) | ((trim >> 8) & 0x03);
+ }
+ packet[4] = msb >> 8;
+ packet[9] = msb & 0xff;
+ packet[10] = 0xe0 | (rx_tx_addr[0] & 0x0e);
+ packet[11] = rx_tx_addr[1];
+ packet[12] = rx_tx_addr[2] | packet_count;
+ packet[13] = 0xf0;
+ WK_add_pkt_crc(0x00);
+}
+static void __attribute__((unused)) WK_channels_6plus1_2601(uint8_t frame, int16_t *_v1, int16_t *_v2)
+{
+ int16_t thr = WK_get_channel(2, 1000, 0, 1000);
+ int16_t v1;
+ uint8_t thr_rev = 0, pitch_rev = 0;
+ if(thr > 0)
+ {
+  if(thr >= 780)
+  {
+   v1 = 0;
+   thr = (((int32_t)(512) * (int32_t)(1000-426) + 1L) / 1000L) * (thr-(((int32_t)(1000) * (int32_t)(780) + 1L) / 1000L)) / (((int32_t)(1000) * (int32_t)(220) + 1L) / 1000L) + (((int32_t)(512) * (int32_t)(426) + 1L) / 1000L);
+  }
+  else
+  {
+   v1 = 1023 - 1023 * thr / 780;
+   thr = (((int32_t)(512) * (int32_t)(426) + 1L) / 1000L);
+  }
+ }
+ else
+ {
+  thr = -thr;
+  thr_rev = 1;
+  if(thr >= 780)
+  {
+   v1 = 1023;
+   thr = (((int32_t)(512) * (int32_t)(1000-426) + 1L) / 1000L) * (thr-(((int32_t)(1000) * (int32_t)(780) + 1L) / 1000L)) / (((int32_t)(1000) * (int32_t)(220) + 1L) / 1000L) + (((int32_t)(512) * (int32_t)(426) + 1L) / 1000L);
+  }
+  else
+  {
+   v1 = 1023 * thr / 780;
+   thr = (((int32_t)(512) * (int32_t)(426) + 1L) / 1000L);
+  }
+ }
+ if (thr >= 512)
+  thr = 511;
+ packet[2] = thr & 0xff;
+ packet[4] = (packet[4] & 0xF3) | ((thr >> 6) & 0x04);
+ int16_t pitch= WK_get_channel(5, 0x400, 0, 0x400);
+ if (pitch < 0)
+ {
+  pitch_rev = 1;
+  pitch = -pitch;
+ }
+ if (frame == 1)
+ {
+  if (thr > (((int32_t)(512) * (int32_t)(426) + 1L) / 1000L))
+   *_v2 = pitch - pitch * 16 * (thr - (((int32_t)(512) * (int32_t)(426) + 1L) / 1000L)) / (((int32_t)(512) * (int32_t)(1000 - 426) + 1L) / 1000L) / 100;
+  else
+   *_v2 = pitch;
+  *_v1 = 0;
+ }
+ else
+  if (frame == 2)
+  {
+   *_v1 = v1;
+   *_v2 = 512;
+  }
+ packet[7] = (thr_rev << 5) | (pitch_rev << 2);
+ packet[8] = 0;
+}
+static void __attribute__((unused)) WK_channels_5plus1_2601(uint8_t frame, int16_t *v1, int16_t *v2)
+{
+ (void)v1;
+ if (frame == 1)
+  *v2 = 0;
+ packet[7] = 0;
+ packet[8] = 0;
+}
+static void __attribute__((unused)) WK_channels_heli_2601(uint8_t frame, int16_t *v1, int16_t *v2)
+{
+ uint8_t pit_rev = 0;
+ if (sub_protocol==W6_HEL_I)
+  pit_rev = 1;
+ int16_t pit_rate = WK_get_channel(5, 0x400, 0, 0x400);
+ uint8_t fmode = 1;
+ if (pit_rate < 0)
+ {
+  pit_rate = -pit_rate;
+  fmode = 0;
+ }
+ if (frame == 1)
+ {
+  *v1 = pit_rate;
+  *v2 = (int16_t)(option) * 0x400 / 100 + 0x400;
+ }
+ packet[7] = (pit_rev << 2);
+ packet[8] = fmode ? 0x02 : 0x00;
+}
+static void __attribute__((unused)) WK_build_data_pkt_2601()
+{
+ uint8_t msb = 0;
+ uint8_t frame = (packet_count % 3);
+ for (uint8_t i = 0; i < 4; i++)
+ {
+  int16_t value = WK_get_channel(i, 0x190, 0, 0x1FF);
+  uint16_t mag = value < 0 ? -value : value;
+  packet[i] = mag & 0xff;
+  msb = (msb << 2) | ((mag >> 8) & 0x01) | (value < 0 ? 0x02 : 0x00);
+ }
+ packet[4] = msb;
+ int16_t v1 = 0x200, v2 = 0x200;
+ if (frame == 0)
+ {
+  v1 = WK_get_channel(6, 0x200, 0x200, 0x200);
+  v2 = 0;
+ }
+ if (sub_protocol == W6_5_1)
+  WK_channels_5plus1_2601(frame, &v1, &v2);
+ else if (sub_protocol == W6_6_1)
+  WK_channels_6plus1_2601(frame, &v1, &v2);
+ else
+  WK_channels_heli_2601(frame, &v1, &v2);
+ if (v1 > 1023)
+  v1 = 1023;
+ if (v2 > 1023)
+  v2 = 1023;
+ packet[5] = v2 & 0xff;
+ packet[6] = v1 & 0xff;
+ packet[8] |= (WK_get_channel(4, 0x190, 0, 0x1FF) > 0 ? 1 : 0);
+ packet[9] = ((v1 >> 4) & 0x30) | ((v2 >> 2) & 0xc0) | 0x04 | frame;
+ packet[10] = rx_tx_addr[0];
+ packet[11] = rx_tx_addr[1];
+ packet[12] = rx_tx_addr[2] | packet_count;
+ packet[13] = 0xff;
+ WK_add_pkt_crc(0x3A);
+}
+static void __attribute__((unused)) WK_build_data_pkt_2801()
+{
+ uint16_t msb = 0;
+ uint8_t offset = 0;
+ uint8_t sign = 0;
+ for (uint8_t i = 0; i < 8; i++)
+ {
+  if (i == 4) { offset = 1; }
+  int16_t value = WK_get_channel(i, 0x1C2, 0, 0x3FF);
+  uint16_t mag = value < 0 ? -value : value;
+  packet[i+offset] = mag & 0xff;
+  msb = (msb << 2) | ((mag >> 8) & 0x03);
+  if (value < 0) { sign |= 1 << i; }
+ }
+ packet[4] = msb >> 8;
+ packet[9] = msb & 0xff;
+ packet[10] = rx_tx_addr[0];
+ packet[11] = rx_tx_addr[1];
+ packet[12] = rx_tx_addr[2] | packet_count;
+ packet[13] = sign;
+ WK_add_pkt_crc(0x25);
+}
+static void __attribute__((unused)) WK_build_beacon_pkt_2801()
+{
+ WK_last_beacon ^= 1;
+ uint8_t en = 0;
+ uint8_t bind_state;
+    if(prev_option!=option && ( ( protocol_flags & (1 << (7)) ) !=0 ))
+ {
+  set_rx_tx_addr(MProtocol_id);
+  rx_tx_addr[2]=rx_tx_addr[3]<<4;
+  bind_counter = 2980 / 8 + 1;
+ }
+ if (option)
+ {
+        if (bind_counter)
+            bind_state = 0xe4;
+        else
+            bind_state = 0x1b;
+    }
+ else
+        bind_state = 0x99;
+ for (uint8_t i = 0; i < 4; i++)
+ {
+   uint16_t failsafe=Failsafe_data[CH_AETR[i + WK_last_beacon * 4]];
+   if(failsafe!=2047 && ( ( protocol_flags2 & (1 << (0)) ) !=0 ))
+   {
+    packet[i+1] = failsafe>>3;
+    en |= 1 << i;
+   }
+   else
+    packet[i+1] = 0;
+ }
+ packet[0] = en;
+ packet[5] = packet[4];
+ packet[4] = WK_last_beacon << 6;
+ packet[6] = hopping_frequency[0];
+ packet[7] = hopping_frequency[1];
+ packet[8] = hopping_frequency[2];
+ packet[9] = bind_state;
+ packet[10] = rx_tx_addr[0];
+ packet[11] = rx_tx_addr[1];
+ packet[12] = rx_tx_addr[2] | packet_count;
+ packet[13] = 0x00;
+ WK_add_pkt_crc(0x1C);
+}
+static void __attribute__((unused)) wk2x01_cyrf_init() {
+ CYRF_SetPower(0x28);
+ CYRF_WriteRegister(CYRF_06_RX_CFG, 0x4A);
+ CYRF_WriteRegister(CYRF_0B_PWR_CTRL, 0x00);
+ CYRF_WriteRegister(CYRF_0C_XTAL_CTRL, 0xC0);
+ CYRF_WriteRegister(CYRF_0D_IO_CFG, 0x04);
+ CYRF_WriteRegister(CYRF_0F_XACT_CFG, 0x2C);
+ CYRF_WriteRegister(CYRF_10_FRAMING_CFG, 0xEE);
+ CYRF_WriteRegister(CYRF_1B_TX_OFFSET_LSB, 0x55);
+ CYRF_WriteRegister(CYRF_1C_TX_OFFSET_MSB, 0x05);
+ CYRF_WriteRegister(CYRF_1D_MODE_OVERRIDE, 0x18);
+ CYRF_WriteRegister(CYRF_32_AUTO_CAL_TIME, 0x3C);
+ CYRF_WriteRegister(CYRF_35_AUTOCAL_OFFSET, 0x14);
+ CYRF_WriteRegister(CYRF_1E_RX_OVERRIDE, 0x90);
+ CYRF_WriteRegister(CYRF_1F_TX_OVERRIDE, 0x00);
+ CYRF_WriteRegister(CYRF_01_TX_LENGTH, 0x10);
+ CYRF_WriteRegister(CYRF_0F_XACT_CFG, 0x2C);
+ CYRF_WriteRegister(CYRF_28_CLK_EN, 0x02);
+ CYRF_WriteRegister(CYRF_27_CLK_OVERRIDE, 0x02);
+ CYRF_ConfigSOPCode(WK_sopcodes);
+ CYRF_WriteRegister(CYRF_0F_XACT_CFG, 0x28);
+ CYRF_WriteRegister(CYRF_1E_RX_OVERRIDE, 0x10);
+ CYRF_WriteRegister(CYRF_0E_GPIO_CTRL, 0x20);
+ CYRF_WriteRegister(CYRF_0F_XACT_CFG, 0x2C);
+}
+static void __attribute__((unused)) WK_BuildPacket_2801()
+{
+ switch(phase) {
+  case WK_BIND:
+   bind_counter--;
+   WK_build_bind_pkt(init_2801);
+   if (bind_counter == 0)
+   {
+    protocol_flags |= (1 << (7));
+    phase++;
+   }
+   break;
+  case WK_BOUND_1:
+  case WK_BOUND_2:
+  case WK_BOUND_3:
+  case WK_BOUND_4:
+  case WK_BOUND_5:
+  case WK_BOUND_6:
+  case WK_BOUND_7:
+   WK_build_data_pkt_2801();
+   phase++;
+   break;
+  case WK_BOUND_8:
+   WK_build_beacon_pkt_2801();
+   phase = WK_BOUND_1;
+   if (bind_counter)
+   {
+    bind_counter--;
+    if (bind_counter == 0)
+     protocol_flags |= (1 << (7));
+   }
+   break;
+ }
+}
+static void __attribute__((unused)) WK_BuildPacket_2601()
+{
+ if (bind_counter)
+ {
+  bind_counter--;
+  WK_build_bind_pkt(init_2601);
+  if (bind_counter == 0)
+   protocol_flags |= (1 << (7));
+ }
+ else
+  WK_build_data_pkt_2601();
+}
+static void __attribute__((unused)) WK_BuildPacket_2401()
+{
+ if (bind_counter)
+ {
+  bind_counter--;
+  WK_build_bind_pkt(init_2401);
+  if(bind_counter == 0)
+   protocol_flags |= (1 << (7));
+ }
+ else
+  WK_build_data_pkt_2401();
+}
+uint16_t WK_cb()
+{
+ if (packet_sent == 0)
+ {
+  packet_sent = 1;
+  if(sub_protocol == WK2801)
+   WK_BuildPacket_2801();
+  else if(sub_protocol == WK2401)
+   WK_BuildPacket_2401();
+  else
+   WK_BuildPacket_2601();
+  packet_count = (packet_count + 1) % 12;
+  CYRF_WriteDataPacket(packet);
+  return 1600;
+ }
+ packet_sent = 0;
+ uint8_t start=micros();
+ while ((uint8_t)micros()-start < 100)
+  if(CYRF_ReadRegister(CYRF_04_TX_IRQ_STATUS) & 0x02)
+   break;
+ if((packet_count & 0x03) == 0)
+ {
+  hopping_frequency_no++;
+  hopping_frequency_no%=3;
+  CYRF_ConfigRFChannel(hopping_frequency[hopping_frequency_no]);
+  CYRF_SetPower(0x28);
+ }
+ return 1200;
+}
+uint16_t WK_setup()
+{
+ wk2x01_cyrf_init();
+ CYRF_SetTxRxMode(TX_EN);
+ hopping_frequency_no=0;
+ CYRF_FindBestChannels(hopping_frequency, 3, 4, 4, 80);
+ CYRF_ConfigRFChannel(hopping_frequency[0]);
+ packet_count = 0;
+ packet_sent = 0;
+ WK_last_beacon = 0;
+ prev_option=option;
+ if(sub_protocol!=WK2801 || option==0)
+ {
+  CYRF_GetMfgData(cyrfmfg_id);
+  rx_tx_addr[2]=(hopping_frequency[0] ^ cyrfmfg_id[0] ^ cyrfmfg_id[3])<<4;
+  rx_tx_addr[1]=hopping_frequency[1] ^ cyrfmfg_id[1] ^ cyrfmfg_id[4];
+  rx_tx_addr[0]=hopping_frequency[2] ^ cyrfmfg_id[2] ^ cyrfmfg_id[5];
+  if(sub_protocol == WK2401)
+   rx_tx_addr[0] |= 0x01;
+  bind_counter = 2980;
+  phase = WK_BIND;
+  protocol_flags &= ~(1 << (7));
+ }
+ else
+ {
+  rx_tx_addr[2]=rx_tx_addr[3]<<4;
+  bind_counter = 0;
+  phase = WK_BOUND_1;
+  protocol_flags |= (1 << (7));
+ }
+ return 2800;
+}
+enum PktState {
+    J6PRO_BIND,
+    J6PRO_BIND_01,
+    J6PRO_BIND_03_START,
+    J6PRO_BIND_03_CHECK,
+    J6PRO_BIND_05_1,
+    J6PRO_BIND_05_2,
+    J6PRO_BIND_05_3,
+    J6PRO_BIND_05_4,
+    J6PRO_BIND_05_5,
+    J6PRO_BIND_05_6,
+    J6PRO_CHANSEL,
+    J6PRO_CHAN_1,
+    J6PRO_CHAN_2,
+    J6PRO_CHAN_3,
+    J6PRO_CHAN_4,
+};
+const uint8_t __attribute__((__progmem__)) j6pro_bind_sop_code[] = {0x62, 0xdf, 0xc1, 0x49, 0xdf, 0xb1, 0xc0, 0x49};
+const uint8_t j6pro_data_code[] = {0x02, 0xf9, 0x93, 0x97, 0x02, 0xfa, 0x5c, 0xe3, 0x01, 0x2b, 0xf1, 0xdb, 0x01, 0x32, 0xbe, 0x6f};
+static void __attribute__((unused)) j6pro_build_bind_packet()
+{
+    packet[0] = 0x01;
+    packet[1] = 0x01;
+    packet[2] = 0x56;
+    packet[3] = cyrfmfg_id[0];
+    packet[4] = cyrfmfg_id[1];
+    packet[5] = cyrfmfg_id[2];
+    packet[6] = cyrfmfg_id[3];
+    packet[7] = cyrfmfg_id[4];
+    packet[8] = cyrfmfg_id[5];
+}
+static void __attribute__((unused)) j6pro_build_data_packet()
+{
+    uint8_t i;
+    uint32_t upperbits = 0;
+    uint16_t value;
+    packet[0] = 0xaa;
+    for (i = 0; i < 12; i++)
+    {
+        value = convert_channel_10b(CH_AETR[i]);
+        packet[i+1] = value & 0xff;
+        upperbits |= (value >> 8) << (i * 2);
+    }
+    packet[13] = upperbits & 0xff;
+    packet[14] = (upperbits >> 8) & 0xff;
+    packet[15] = (upperbits >> 16) & 0xff;
+}
+static void __attribute__((unused)) j6pro_cyrf_init()
+{
+    CYRF_WriteRegister(CYRF_28_CLK_EN, 0x02);
+    CYRF_WriteRegister(CYRF_32_AUTO_CAL_TIME, 0x3c);
+    CYRF_WriteRegister(CYRF_35_AUTOCAL_OFFSET, 0x14);
+    CYRF_WriteRegister(CYRF_1C_TX_OFFSET_MSB, 0x05);
+    CYRF_WriteRegister(CYRF_1B_TX_OFFSET_LSB, 0x55);
+    CYRF_WriteRegister(CYRF_06_RX_CFG, 0x4a);
+    CYRF_SetPower(0x28);
+    CYRF_WriteRegister(CYRF_12_DATA64_THOLD, 0x0e);
+    CYRF_WriteRegister(CYRF_10_FRAMING_CFG, 0xee);
+    CYRF_WriteRegister(CYRF_1F_TX_OVERRIDE, 0x00);
+    CYRF_WriteRegister(CYRF_1E_RX_OVERRIDE, 0x00);
+    CYRF_ConfigDataCode(j6pro_data_code, 16);
+    CYRF_WritePreamble(0x333302);
+    CYRF_GetMfgData(cyrfmfg_id);
+ cyrfmfg_id[3]+=RX_num;
+}
+static void __attribute__((unused)) cyrf_bindinit()
+{
+    CYRF_SetPower(0x28);
+    CYRF_PROGMEM_ConfigSOPCode(j6pro_bind_sop_code);
+    CYRF_ConfigCRCSeed(0x0000);
+    j6pro_build_bind_packet();
+}
+static void __attribute__((unused)) cyrf_datainit()
+{
+    uint8_t sop_idx = (0xff & (cyrfmfg_id[0] + cyrfmfg_id[1] + cyrfmfg_id[2] + cyrfmfg_id[3] - cyrfmfg_id[5])) % 19;
+    uint16_t crc = (0xff & (cyrfmfg_id[1] - cyrfmfg_id[4] + cyrfmfg_id[5])) |
+                   ((0xff & (cyrfmfg_id[2] + cyrfmfg_id[3] - cyrfmfg_id[4] + cyrfmfg_id[5])) << 8);
+    CYRF_PROGMEM_ConfigSOPCode(DEVO_j6pro_sopcodes[sop_idx]);
+    CYRF_ConfigCRCSeed(crc);
+}
+static void __attribute__((unused)) j6pro_set_radio_channels()
+{
+    CYRF_FindBestChannels(hopping_frequency, 3, 5, 8, 77);
+    hopping_frequency[3] = hopping_frequency[0];
+}
+uint16_t ReadJ6Pro()
+{
+    uint16_t start;
+    switch(phase)
+    {
+        case J6PRO_BIND:
+            cyrf_bindinit();
+            phase = J6PRO_BIND_01;
+        case J6PRO_BIND_01:
+            CYRF_ConfigRFChannel(0x52);
+            CYRF_SetTxRxMode(TX_EN);
+            CYRF_WriteDataPacketLen(packet, 0x09);
+            phase = J6PRO_BIND_03_START;
+            return 3000;
+        case J6PRO_BIND_03_START:
+            start=(uint16_t)micros();
+            while ((uint16_t)((uint16_t)micros()-(uint16_t)start) < 500)
+    if((CYRF_ReadRegister(CYRF_02_TX_CTRL) & 0x80) == 0x00)
+     break;
+   CYRF_ConfigRFChannel(0x53);
+            CYRF_SetTxRxMode(RX_EN);
+            CYRF_WriteRegister(CYRF_05_RX_CTRL, 0x80);
+            phase = J6PRO_BIND_03_CHECK;
+            return 30000;
+        case J6PRO_BIND_03_CHECK:
+            {
+            uint8_t rx = CYRF_ReadRegister(CYRF_07_RX_IRQ_STATUS);
+            if((rx & 0x1a) == 0x1a) {
+                rx = CYRF_ReadRegister(CYRF_0A_RX_LENGTH);
+                if(rx == 0x0f) {
+                    rx = CYRF_ReadRegister(CYRF_09_RX_COUNT);
+                    if(rx == 0x0f) {
+                        CYRF_ReadDataPacketLen(packet, rx);
+                        if (packet[0] == 0x03 &&
+                            packet[3] == cyrfmfg_id[0] &&
+                            packet[4] == cyrfmfg_id[1] &&
+                            packet[5] == cyrfmfg_id[2] &&
+                            packet[6] == cyrfmfg_id[3] &&
+                            packet[7] == cyrfmfg_id[4] &&
+                            packet[8] == cyrfmfg_id[5])
+                        {
+                            packet[0] = 0x05;
+                            CYRF_ConfigRFChannel(0x54);
+                            CYRF_SetTxRxMode(TX_EN);
+                            phase = J6PRO_BIND_05_1;
+                            return 2000;
+                         }
+                    }
+                }
+            }
+            phase = J6PRO_BIND_01;
+            return 500;
+            }
+        case J6PRO_BIND_05_1:
+        case J6PRO_BIND_05_2:
+        case J6PRO_BIND_05_3:
+        case J6PRO_BIND_05_4:
+        case J6PRO_BIND_05_5:
+        case J6PRO_BIND_05_6:
+            CYRF_WriteDataPacketLen(packet, 0x0f);
+            phase = phase + 1;
+            return 4600;
+        case J6PRO_CHANSEL:
+            protocol_flags |= (1 << (7));
+            j6pro_set_radio_channels();
+            cyrf_datainit();
+            phase = J6PRO_CHAN_1;
+        case J6PRO_CHAN_1:
+            CYRF_SetPower(0x28);
+            j6pro_build_data_packet();
+        case J6PRO_CHAN_2:
+        case J6PRO_CHAN_3:
+        case J6PRO_CHAN_4:
+            CYRF_ConfigRFChannel(hopping_frequency[phase - J6PRO_CHAN_1]);
+            CYRF_SetTxRxMode(TX_EN);
+            CYRF_WriteDataPacket(packet);
+            if (phase == J6PRO_CHAN_4) {
+                phase = J6PRO_CHAN_1;
+                return 13900;
+            }
+            phase = phase + 1;
+            return 3550;
+    }
+    return 0;
+}
+uint16_t initJ6Pro()
+{
+    j6pro_cyrf_init();
+ if(( ( protocol_flags & (1 << (7)) ) ==0 ))
+        phase = J6PRO_BIND;
+    else
+        phase = J6PRO_CHANSEL;
+    return 2400;
+}
+uint8_t RetrySequence ;
+ uint32_t lastMulti = 0;
+uint8_t pktx[10];
+uint8_t indx;
+uint8_t frame[18];
+static void multi_send_header(uint8_t type, uint8_t len)
+{
+ Serial_write('M');
+  (void)type;
+ Serial_write(len);
+}
+static void multi_send_status()
+{
+ multi_send_header(MULTI_TELEMETRY_STATUS, 5);
+ uint8_t flags=0;
+ if (( ( protocol_flags2 & (1 << (5)) ) !=0 ))
+  flags |= 0x01;
+ if (mode_select==MODE_SERIAL)
+  flags |= 0x02;
+ if (remote_callback != 0)
+ {
+  flags |= 0x04;
+  if (( ( protocol_flags2 & (1 << (7)) ) !=0 ))
+   flags |= 0x10;
+  else
+   if (( ( protocol_flags & (1 << (7)) ) ==0 ))
+    flags |= 0x08;
+   switch (protocol)
+   {
+    case PROTO_HISKY:
+     if(sub_protocol!=HK310)
+      break;
+    case PROTO_AFHDS2A:
+    case PROTO_DEVO:
+    case PROTO_SFHSS:
+    case PROTO_WK2x01:
+    case PROTO_FRSKYX:
+     flags |= 0x20;
+    default:
+     break;
+   }
+ }
+ Serial_write(flags);
+ Serial_write(1);
+ Serial_write(2);
+ Serial_write(1);
+ Serial_write(23);
+}
+  void DSM_frame()
+  {
+   Serial_write(0xAA);
+   for (uint8_t i = 0; i < 17; i++)
+    Serial_write(pkt[i]);
+  }
+void frskySendStuffed()
+{
+ Serial_write(0x7e);
+ for (uint8_t i = 0; i < 9; i++)
+ {
+  if ((frame[i] == 0x7e) || (frame[i] == 0x7d))
+  {
+   Serial_write(0x7d);
+   frame[i] ^= 0x20;
+  }
+  Serial_write(frame[i]);
+ }
+ Serial_write(0x7e);
+}
+void frsky_check_telemetry(uint8_t *pkt,uint8_t len)
+{
+ uint8_t clen = pkt[0] + 3 ;
+ if(pkt[1] == rx_tx_addr[3] && pkt[2] == rx_tx_addr[2] && len == clen )
+ {
+  telemetry_link|=1;
+  TX_RSSI = pkt[len-2];
+  if(TX_RSSI >=128)
+   TX_RSSI -= 128;
+  else
+   TX_RSSI += 128;
+  TX_LQI = pkt[len-1]&0x7F;
+  for (uint8_t i=3;i<len-2;i++)
+   pktt[i]=pkt[i];
+  if(pktt[6]>0 && pktt[6]<=10)
+  {
+   if (protocol==PROTO_FRSKYD)
+   {
+    if ( ( pktt[7] & 0x1F ) == (telemetry_counter & 0x1F) )
+    {
+     uint8_t topBit = 0 ;
+     if ( telemetry_counter & 0x80 )
+      if ( ( telemetry_counter & 0x1F ) != RetrySequence )
+       topBit = 0x80 ;
+     telemetry_counter = ( (telemetry_counter+1)%32 ) | topBit ;
+    }
+    else
+    {
+     RetrySequence = pktt[7] & 0x1F ;
+     telemetry_counter |= 0x80 ;
+     pktt[6]=0 ;
+    }
+   }
+  }
+  else
+   pktt[6]=0;
+ }
+}
+void init_frskyd_link_telemetry()
+{
+ telemetry_link=0;
+ telemetry_counter=0;
+ v_lipo1=0;
+ v_lipo2=0;
+ RX_RSSI=0;
+ TX_RSSI=0;
+ RX_LQI=0;
+ TX_LQI=0;
+}
+void frsky_link_frame()
+{
+ frame[0] = 0xFE;
+ if (protocol==PROTO_FRSKYD)
+ {
+  frame[1] = pktt[3];
+  frame[2] = pktt[4];
+  frame[3] = pktt[5];
+  telemetry_link &= ~1 ;
+  telemetry_link |= 2 ;
+ }
+ else
+  if (protocol==PROTO_HUBSAN||protocol==PROTO_AFHDS2A||protocol==PROTO_BAYANG||protocol==PROTO_NCC1701||protocol==PROTO_CABELL||protocol==PROTO_HITEC||protocol==PROTO_BUGS||protocol==PROTO_BUGSMINI)
+  {
+   frame[1] = v_lipo1;
+   frame[2] = v_lipo2;
+   frame[3] = RX_RSSI;
+   telemetry_link=0;
+  }
+ frame[4] = TX_RSSI;
+ frame[5] = RX_LQI;
+ frame[6] = TX_LQI;
+ frame[7] = frame[8] = 0;
+  frskySendStuffed();
+}
+void TelemetryUpdate()
+{
+  uint8_t h ;
+  uint8_t t ;
+  h = tx_head ;
+  t = tx_tail ;
+  if ( h >= t )
+   t += 96 - h ;
+  else
+   t -= h ;
+  if ( t < 32 )
+  {
+   return ;
+  }
+  {
+   uint32_t now = millis();
+   if ((now - lastMulti) > 500)
+   {
+    multi_send_status();
+    lastMulti = now;
+    return;
+   }
+  }
+  if(telemetry_link && protocol == PROTO_DSM)
+  {
+   DSM_frame();
+   telemetry_link=0;
+   return;
+  }
+  if((telemetry_link & 1 )&& protocol != PROTO_FRSKYX)
+  {
+   frsky_link_frame();
+   return;
+  }
+}
+ void Serial_write(uint8_t data)
+ {
+  uint8_t nextHead ;
+  nextHead = tx_head + 1 ;
+  if ( nextHead >= 96 )
+   nextHead = 0 ;
+  tx_buff[nextHead]=data;
+  tx_head = nextHead ;
+  tx_resume();
+ }
+ void initTXSerial( uint8_t speed)
+ {
+   (void)speed;
+ }
+  extern "C" void __vector_26 (void) __attribute__ ((signal,used, externally_visible)) ; void __vector_26 (void)
+ {
+    if(tx_head!=tx_tail)
+    {
+     if(++tx_tail>=96)
+      tx_tail=0;
+      (*(USART_t *) 0x08A0).DATA=tx_buff[tx_tail];
+    }
+    if (tx_tail == tx_head)
+    {
+     tx_pause();
+    }
+ }
+int16_t map16b( int16_t x, int16_t in_min, int16_t in_max, int16_t out_min, int16_t out_max)
+{
+ long y ;
+ x -= in_min ;
+ y = out_max - out_min ;
+ y *= x ;
+ x = y / (in_max - in_min) ;
+ return x + out_min ;
+}
+int16_t map( int16_t x, int16_t in_min, int16_t in_max, int16_t out_min, int16_t out_max)
+{
+ long y ;
+ x -= in_min ;
+ y = out_max - out_min ;
+ y *= x ;
+ x = y / (in_max - in_min) ;
+ return x + out_min ;
+}
+uint16_t MillisPrecount ;
+uint16_t lastTimerValue ;
+uint32_t TotalMicros ;
+uint32_t TotalMillis ;
+uint8_t Correction ;
+uint32_t micros()
+{
+   uint16_t elapsed ;
+   uint8_t millisToAdd ;
+   uint8_t oldSREG = (*(volatile uint8_t *)(0x003F)) ;
+   __asm__ __volatile__ ("cli" ::: "memory") ;
+   uint16_t time = (*(TC1_t *) 0x0840).CNT ;
+   (*(volatile uint8_t *)(0x003F)) = oldSREG ;
+   elapsed = time - lastTimerValue ;
+   elapsed += Correction ;
+   Correction = elapsed & 0x01 ;
+   elapsed >>= 1 ;
+   uint32_t ltime = TotalMicros ;
+   ltime += elapsed ;
+   __asm__ __volatile__ ("cli" ::: "memory") ;
+   TotalMicros = ltime ;
+   lastTimerValue = time ;
+   (*(volatile uint8_t *)(0x003F)) = oldSREG ;
+   elapsed += MillisPrecount;
+   millisToAdd = 0 ;
+   if ( elapsed > 15999 )
+   {
+      millisToAdd = 16 ;
+      elapsed -= 16000 ;
+   }
+   if ( elapsed > 7999 )
+   {
+      millisToAdd += 8 ;
+      elapsed -= 8000 ;
+   }
+   if ( elapsed > 3999 )
+   {
+      millisToAdd += 4 ;
+      elapsed -= 4000 ;
+   }
+   if ( elapsed > 1999 )
+   {
+      millisToAdd += 2 ;
+      elapsed -= 2000 ;
+   }
+   if ( elapsed > 999 )
+   {
+      millisToAdd += 1 ;
+      elapsed -= 1000 ;
+   }
+   TotalMillis += millisToAdd ;
+   MillisPrecount = elapsed ;
+   return TotalMicros ;
+}
+uint32_t millis()
+{
+   micros() ;
+   return TotalMillis ;
+}
+void delayMilliseconds(unsigned long ms)
+{
+   uint16_t start = (uint16_t)micros();
+   uint16_t lms = ms ;
+   while (lms > 0) {
+      if (((uint16_t)micros() - start) >= 1000) {
+         lms--;
+         start += 1000;
+      }
+   }
+}
+void delayMicroseconds(unsigned int us)
+{
+   if (--us == 0)
+      return;
+   us <<= 2;
+   us -= 2;
+  __asm__ __volatile__ (
+      "1: sbiw %0,1" "\n\t"
+   "nop \n"
+   "nop \n"
+   "nop \n"
+   "nop \n"
+      "brne 1b" : "=w" (us) : "0" (us)
+   );
+}
+enum {
+ DSM_BIND_WRITE=0,
+ DSM_BIND_CHECK,
+ DSM_BIND_READ,
+ DSM_CHANSEL,
+ DSM_CH1_WRITE_A,
+ DSM_CH1_CHECK_A,
+ DSM_CH2_WRITE_A,
+ DSM_CH2_CHECK_A,
+ DSM_CH2_READ_A,
+ DSM_CH1_WRITE_B,
+ DSM_CH1_CHECK_B,
+ DSM_CH2_WRITE_B,
+ DSM_CH2_CHECK_B,
+ DSM_CH2_READ_B,
+};
+uint8_t sop_col;
+uint8_t DSM_num_ch=0;
+uint8_t ch_map[14];
+const uint8_t __attribute__((__progmem__)) DSM_ch_map_progmem[][14] = {
+ {1, 0, 2, 3, 0xff, 0xff, 0xff, 1, 0, 2, 3, 0xff, 0xff, 0xff},
+ {1, 0, 2, 3, 4, 0xff, 0xff, 1, 0, 2, 3, 4, 0xff, 0xff},
+ {1, 5, 2, 3, 0, 4, 0xff, 1, 5, 2, 3, 0, 4, 0xff},
+ {1, 5, 2, 4, 3, 6, 0, 1, 5, 2, 4, 3, 6, 0 },
+ {1, 5, 2, 3, 6, 0xff, 0xff, 4, 0, 7, 0xff, 0xff, 0xff, 0xff},
+ {1, 5, 2, 3, 6, 0xff, 0xff, 4, 0, 7, 8, 0xff, 0xff, 0xff},
+ {1, 5, 2, 3, 6, 0xff, 0xff, 4, 0, 7, 8, 9, 0xff, 0xff},
+ {1, 5, 2, 3, 6, 10, 0xff, 4, 0, 7, 8, 9, 0xff, 0xff},
+ {1, 5, 2, 4, 6, 10, 0xff, 0, 7, 3, 8, 9 , 11 , 0xff},
+ {1, 5, 2, 3, 6, 7, 0xff, 1, 5, 2, 4, 0, 0xff, 0xff},
+ {1, 5, 2, 3, 6, 7, 0xff, 1, 5, 2, 4, 0, 8, 0xff},
+ {1, 5, 2, 3, 4, 8, 9, 1, 5, 2, 3, 0, 7, 6 },
+};
+const uint8_t __attribute__((__progmem__)) DSM_pncodes[5][8][8] = {
+ {
+              {0x03, 0xBC, 0x6E, 0x8A, 0xEF, 0xBD, 0xFE, 0xF8},
+              {0x88, 0x17, 0x13, 0x3B, 0x2D, 0xBF, 0x06, 0xD6},
+              {0xF1, 0x94, 0x30, 0x21, 0xA1, 0x1C, 0x88, 0xA9},
+              {0xD0, 0xD2, 0x8E, 0xBC, 0x82, 0x2F, 0xE3, 0xB4},
+              {0x8C, 0xFA, 0x47, 0x9B, 0x83, 0xA5, 0x66, 0xD0},
+              {0x07, 0xBD, 0x9F, 0x26, 0xC8, 0x31, 0x0F, 0xB8},
+              {0xEF, 0x03, 0x95, 0x89, 0xB4, 0x71, 0x61, 0x9D},
+              {0x40, 0xBA, 0x97, 0xD5, 0x86, 0x4F, 0xCC, 0xD1},
+ },
+ {
+              {0x83, 0xF7, 0xA8, 0x2D, 0x7A, 0x44, 0x64, 0xD3},
+              {0x3F, 0x2C, 0x4E, 0xAA, 0x71, 0x48, 0x7A, 0xC9},
+              {0x17, 0xFF, 0x9E, 0x21, 0x36, 0x90, 0xC7, 0x82},
+              {0xBC, 0x5D, 0x9A, 0x5B, 0xEE, 0x7F, 0x42, 0xEB},
+              {0x24, 0xF5, 0xDD, 0xF8, 0x7A, 0x77, 0x74, 0xE7},
+              {0x3D, 0x70, 0x7C, 0x94, 0xDC, 0x84, 0xAD, 0x95},
+              {0x1E, 0x6A, 0xF0, 0x37, 0x52, 0x7B, 0x11, 0xD4},
+              {0x62, 0xF5, 0x2B, 0xAA, 0xFC, 0x33, 0xBF, 0xAF},
+ },
+ {
+              {0x40, 0x56, 0x32, 0xD9, 0x0F, 0xD9, 0x5D, 0x97},
+              {0x8E, 0x4A, 0xD0, 0xA9, 0xA7, 0xFF, 0x20, 0xCA},
+              {0x4C, 0x97, 0x9D, 0xBF, 0xB8, 0x3D, 0xB5, 0xBE},
+              {0x0C, 0x5D, 0x24, 0x30, 0x9F, 0xCA, 0x6D, 0xBD},
+              {0x50, 0x14, 0x33, 0xDE, 0xF1, 0x78, 0x95, 0xAD},
+              {0x0C, 0x3C, 0xFA, 0xF9, 0xF0, 0xF2, 0x10, 0xC9},
+              {0xF4, 0xDA, 0x06, 0xDB, 0xBF, 0x4E, 0x6F, 0xB3},
+              {0x9E, 0x08, 0xD1, 0xAE, 0x59, 0x5E, 0xE8, 0xF0},
+ },
+ {
+              {0xC0, 0x90, 0x8F, 0xBB, 0x7C, 0x8E, 0x2B, 0x8E},
+              {0x80, 0x69, 0x26, 0x80, 0x08, 0xF8, 0x49, 0xE7},
+              {0x7D, 0x2D, 0x49, 0x54, 0xD0, 0x80, 0x40, 0xC1},
+              {0xB6, 0xF2, 0xE6, 0x1B, 0x80, 0x5A, 0x36, 0xB4},
+              {0x42, 0xAE, 0x9C, 0x1C, 0xDA, 0x67, 0x05, 0xF6},
+              {0x9B, 0x75, 0xF7, 0xE0, 0x14, 0x8D, 0xB5, 0x80},
+              {0xBF, 0x54, 0x98, 0xB9, 0xB7, 0x30, 0x5A, 0x88},
+              {0x35, 0xD1, 0xFC, 0x97, 0x23, 0xD4, 0xC9, 0x88},
+ },
+ {
+              {0xE1, 0xD6, 0x31, 0x26, 0x5F, 0xBD, 0x40, 0x93},
+              {0xDC, 0x68, 0x08, 0x99, 0x97, 0xAE, 0xAF, 0x8C},
+              {0xC3, 0x0E, 0x01, 0x16, 0x0E, 0x32, 0x06, 0xBA},
+              {0xE0, 0x83, 0x01, 0xFA, 0xAB, 0x3E, 0x8F, 0xAC},
+              {0x5C, 0xD5, 0x9C, 0xB8, 0x46, 0x9C, 0x7D, 0x84},
+              {0xF1, 0xC6, 0xFE, 0x5C, 0x9D, 0xA5, 0x4F, 0xB7},
+              {0x58, 0xB5, 0xB3, 0xDD, 0x0E, 0x28, 0xF1, 0xB0},
+              {0x5F, 0x30, 0x3B, 0x56, 0x96, 0x45, 0xF4, 0xA1},
+ },
+};
+static void __attribute__((unused)) DSM_read_code(uint8_t *buf, uint8_t row, uint8_t col, uint8_t len)
+{
+ for(uint8_t i=0;i<len;i++)
+  buf[i]=(__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DSM_pncodes[row][col][i])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; }));
+}
+static uint8_t __attribute__((unused)) DSM_get_pn_row(uint8_t channel)
+{
+ return ((sub_protocol == DSMX_11 || sub_protocol == DSMX_22 )? (channel - 2) % 5 : channel % 5);
+}
+const uint8_t __attribute__((__progmem__)) DSM_init_vals[][2] = {
+ {CYRF_02_TX_CTRL, 0x00},
+ {CYRF_05_RX_CTRL, 0x00},
+ {CYRF_28_CLK_EN, 0x02},
+ {CYRF_32_AUTO_CAL_TIME, 0x3c},
+ {CYRF_35_AUTOCAL_OFFSET, 0x14},
+ {CYRF_06_RX_CFG, 0x4A},
+ {CYRF_1B_TX_OFFSET_LSB, 0x55},
+ {CYRF_1C_TX_OFFSET_MSB, 0x05},
+ {CYRF_39_ANALOG_CTRL, 0x01},
+ {CYRF_01_TX_LENGTH, 0x10},
+ {CYRF_14_EOP_CTRL, 0x02},
+ {CYRF_12_DATA64_THOLD, 0x0a},
+ {CYRF_03_TX_CFG, 0x38 | CYRF_POWER_0},
+ {CYRF_10_FRAMING_CFG, 0x4a},
+ {CYRF_1F_TX_OVERRIDE, 0x04},
+ {CYRF_1E_RX_OVERRIDE, 0x14},
+};
+const uint8_t __attribute__((__progmem__)) DSM_data_vals[][2] = {
+ {CYRF_29_RX_ABORT, 0x20},
+ {CYRF_0F_XACT_CFG, 0x24},
+ {CYRF_29_RX_ABORT, 0x00},
+ {CYRF_03_TX_CFG, 0x28 | CYRF_POWER_7},
+ {CYRF_10_FRAMING_CFG, 0xea},
+ {CYRF_1F_TX_OVERRIDE, 0x00},
+ {CYRF_1E_RX_OVERRIDE, 0x00},
+};
+static void __attribute__((unused)) DSM_cyrf_config()
+{
+ for(uint8_t i = 0; i < sizeof(DSM_init_vals) / 2; i++)
+  CYRF_WriteRegister((__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DSM_init_vals[i][0])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })), (__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DSM_init_vals[i][1])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })));
+ CYRF_WritePreamble(0x333304);
+ CYRF_ConfigRFChannel(0x61);
+}
+static void __attribute__((unused)) DSM_build_bind_packet()
+{
+ uint8_t i;
+ uint16_t sum = 384 - 0x10;
+ packet[0] = 0xff ^ cyrfmfg_id[0];
+ packet[1] = 0xff ^ cyrfmfg_id[1];
+ packet[2] = 0xff ^ cyrfmfg_id[2];
+ packet[3] = 0xff ^ cyrfmfg_id[3];
+ packet[4] = packet[0];
+ packet[5] = packet[1];
+ packet[6] = packet[2];
+ packet[7] = packet[3];
+ for(i = 0; i < 8; i++)
+  sum += packet[i];
+ packet[8] = sum >> 8;
+ packet[9] = sum & 0xff;
+ packet[10] = 0x01;
+ packet[11] = DSM_num_ch;
+ if (sub_protocol==DSM2_22)
+  packet[12]=DSM_num_ch<8?0x01:0x02;
+ if(sub_protocol==DSM2_11)
+  packet[12]=0x12;
+ if(sub_protocol==DSMX_22)
+   packet[12] = 0xb2;
+ if(sub_protocol==DSMX_11 || sub_protocol==DSM_AUTO)
+  packet[12]=0xb2;
+ packet[13] = 0x00;
+ for(i = 8; i < 14; i++)
+  sum += packet[i];
+ packet[14] = sum >> 8;
+ packet[15] = sum & 0xff;
+}
+static void __attribute__((unused)) DSM_initialize_bind_phase()
+{
+ CYRF_ConfigRFChannel(0x0d);
+ CYRF_ConfigDataCode((const uint8_t*)"\xD7\xA1\x54\xB1\x5E\x89\xAE\x86\xc6\x94\x22\xfe\x48\xe6\x57\x4e", 16);
+ DSM_build_bind_packet();
+}
+static void __attribute__((unused)) DSM_cyrf_configdata()
+{
+ for(uint8_t i = 0; i < sizeof(DSM_data_vals) / 2; i++)
+  CYRF_WriteRegister((__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DSM_data_vals[i][0])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })), (__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DSM_data_vals[i][1])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })));
+}
+static void __attribute__((unused)) DSM_update_channels()
+{
+ prev_option=option;
+ if(sub_protocol==DSM_AUTO)
+  DSM_num_ch=12;
+ else
+  DSM_num_ch=option;
+ if(DSM_num_ch<4 || DSM_num_ch>12)
+  DSM_num_ch=6;
+ uint8_t idx=DSM_num_ch-4;
+ if(DSM_num_ch>7 && DSM_num_ch<11 && (sub_protocol==DSM2_11 || sub_protocol==DSMX_11))
+  idx+=5;
+ for(uint8_t i=0;i<14;i++)
+  ch_map[i]=(__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DSM_ch_map_progmem[idx][i])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; }));
+}
+static void __attribute__((unused)) DSM_build_data_packet(uint8_t upper)
+{
+ uint8_t bits = 11;
+ if(prev_option!=option)
+  DSM_update_channels();
+ if (sub_protocol==DSMX_11 || sub_protocol==DSMX_22 )
+ {
+  packet[0] = cyrfmfg_id[2];
+  packet[1] = cyrfmfg_id[3];
+ }
+ else
+ {
+  packet[0] = (0xff ^ cyrfmfg_id[2]);
+  packet[1] = (0xff ^ cyrfmfg_id[3]);
+  if(sub_protocol==DSM2_22)
+   bits=10;
+ }
+  uint16_t kill_ch=Channel_data[15 -1];
+ for (uint8_t i = 0; i < 7; i++)
+ {
+  uint8_t idx = ch_map[(upper?7:0) + i];
+  uint16_t value = 0xffff;;
+  if (idx != 0xff)
+  {
+    if(CH_TAER[idx]==2 && kill_ch<=604)
+    {
+     if(kill_ch<204)
+      kill_ch=0;
+     else
+      kill_ch-=204;
+     value=(kill_ch*21)/25;
+    }
+    else
+     value=convert_channel_16b_nolimit(CH_TAER[idx],0x150,0x6B0);
+   if(bits==10) value>>=1;
+   value |= (upper && i==0 ? 0x8000 : 0) | (idx << bits);
+  }
+  packet[i*2+2] = (value >> 8) & 0xff;
+  packet[i*2+3] = (value >> 0) & 0xff;
+ }
+}
+static void __attribute__((unused)) DSM_set_sop_data_crc()
+{
+ uint16_t crc = (cyrfmfg_id[0] << 8) + cyrfmfg_id[1];
+ if(phase==DSM_CH1_CHECK_A||phase==DSM_CH1_CHECK_B)
+  CYRF_ConfigCRCSeed(crc);
+ else
+  CYRF_ConfigCRCSeed(~crc);
+ uint8_t pn_row = DSM_get_pn_row(hopping_frequency[hopping_frequency_no]);
+ uint8_t code[16];
+ DSM_read_code(code,pn_row,sop_col,8);
+ CYRF_ConfigSOPCode(code);
+ DSM_read_code(code,pn_row,7 - sop_col,8);
+ DSM_read_code(code+8,pn_row,7 - sop_col + 1,8);
+ CYRF_ConfigDataCode(code, 16);
+ CYRF_ConfigRFChannel(hopping_frequency[hopping_frequency_no]);
+ hopping_frequency_no++;
+ if(sub_protocol == DSMX_11 || sub_protocol == DSMX_22)
+  hopping_frequency_no %=23;
+ else
+  hopping_frequency_no %=2;
+}
+static void __attribute__((unused)) DSM_calc_dsmx_channel()
+{
+ uint8_t idx = 0;
+ uint32_t id = ~(((uint32_t)cyrfmfg_id[0] << 24) | ((uint32_t)cyrfmfg_id[1] << 16) | ((uint32_t)cyrfmfg_id[2] << 8) | (cyrfmfg_id[3] << 0));
+ uint32_t id_tmp = id;
+ while(idx < 23)
+ {
+  uint8_t i;
+  uint8_t count_3_27 = 0, count_28_51 = 0, count_52_76 = 0;
+  id_tmp = id_tmp * 0x0019660D + 0x3C6EF35F;
+  uint8_t next_ch = ((id_tmp >> 8) % 0x49) + 3;
+  if ( (next_ch ^ cyrfmfg_id[3]) & 0x01 )
+   continue;
+  for (i = 0; i < idx; i++)
+  {
+   if(hopping_frequency[i] == next_ch)
+    break;
+   if(hopping_frequency[i] <= 27)
+    count_3_27++;
+   else
+    if (hopping_frequency[i] <= 51)
+     count_28_51++;
+    else
+     count_52_76++;
+  }
+  if (i != idx)
+   continue;
+  if ((next_ch < 28 && count_3_27 < 8)
+   ||(next_ch >= 28 && next_ch < 52 && count_28_51 < 7)
+   ||(next_ch >= 52 && count_52_76 < 8))
+   hopping_frequency[idx++] = next_ch;
+ }
+}
+static uint8_t __attribute__((unused)) DSM_Check_RX_packet()
+{
+ uint8_t result=1;
+ uint16_t sum = 384 - 0x10;
+ for(uint8_t i = 1; i < 9; i++)
+ {
+  sum += pkt[i];
+  if(i<5)
+   if(pkt[i] != (0xff ^ cyrfmfg_id[i-1]))
+    result=0;
+ }
+ if( pkt[9] != (sum>>8) && pkt[10] != (uint8_t)sum )
+  result=0;
+ return result;
+}
+uint16_t ReadDsm()
+{
+  uint8_t rx_phase;
+  uint8_t len;
+ uint8_t start;
+ switch(phase)
+ {
+  case DSM_BIND_WRITE:
+   if(bind_counter--==0)
+    phase=DSM_BIND_CHECK;
+   CYRF_WriteDataPacket(packet);
+   return 10000;
+  case DSM_BIND_CHECK:
+   CYRF_ConfigDataCode((const uint8_t *)"\x98\x88\x1B\xE4\x30\x79\x03\x84\xC9\x2C\x06\x93\x86\xB9\x9E\xD7", 16);
+   CYRF_SetTxRxMode(RX_EN);
+   CYRF_WriteRegister(CYRF_05_RX_CTRL, 0x87);
+   bind_counter=2*300;
+   phase++;
+   return 2000;
+  case DSM_BIND_READ:
+   rx_phase = CYRF_ReadRegister(CYRF_07_RX_IRQ_STATUS);
+   if((rx_phase & 0x03) == 0x02)
+    rx_phase |= CYRF_ReadRegister(CYRF_07_RX_IRQ_STATUS);
+   if((rx_phase & 0x07) == 0x02)
+   {
+    CYRF_WriteRegister(CYRF_07_RX_IRQ_STATUS, 0x80);
+    len=CYRF_ReadRegister(CYRF_09_RX_COUNT);
+    if(len>29 -2)
+     len=29 -2;
+    CYRF_ReadDataPacketLen(pkt+1, len);
+    if(len==10 && DSM_Check_RX_packet())
+    {
+     pkt[0]=0x80;
+     telemetry_link=1;
+     phase++;
+     return 2000;
+    }
+   }
+   else
+    if((rx_phase & 0x02) != 0x02)
+    {
+     CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x20);
+     CYRF_SetTxRxMode(RX_EN);
+     CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x00);
+     CYRF_WriteRegister(CYRF_05_RX_CTRL, 0x83);
+    }
+   if( --bind_counter == 0 )
+   {
+    phase++;
+    return 7000 ;
+   }
+   return 7000;
+  case DSM_CHANSEL:
+   protocol_flags |= (1 << (7));
+   DSM_cyrf_configdata();
+   CYRF_SetTxRxMode(TX_EN);
+   hopping_frequency_no = 0;
+   phase = DSM_CH1_WRITE_A;
+   DSM_set_sop_data_crc();
+   return 10000;
+  case DSM_CH1_WRITE_A:
+  case DSM_CH1_WRITE_B:
+  case DSM_CH2_WRITE_A:
+  case DSM_CH2_WRITE_B:
+   DSM_build_data_packet(phase == DSM_CH1_WRITE_B||phase == DSM_CH2_WRITE_B);
+   CYRF_ReadRegister(CYRF_04_TX_IRQ_STATUS);
+   CYRF_WriteDataPacket(packet);
+   phase++;
+   return 1950;
+  case DSM_CH1_CHECK_A:
+  case DSM_CH1_CHECK_B:
+  case DSM_CH2_CHECK_A:
+  case DSM_CH2_CHECK_B:
+   start=(uint8_t)micros();
+   while ((uint8_t)((uint8_t)micros()-(uint8_t)start) < 100)
+    if((CYRF_ReadRegister(CYRF_02_TX_CTRL) & 0x80) == 0x00)
+     break;
+   if(phase==DSM_CH1_CHECK_A || phase==DSM_CH1_CHECK_B)
+   {
+     if (((CYRF_ReadRegister(CYRF_04_TX_IRQ_STATUS) & 0x22) == 0x20) || (CYRF_ReadRegister(CYRF_02_TX_CTRL) & 0x80))
+     {
+      CYRF_Reset();
+      DSM_cyrf_config();
+      DSM_cyrf_configdata();
+      CYRF_SetTxRxMode(TX_EN);
+     }
+    DSM_set_sop_data_crc();
+    phase++;
+    return 4010 - 1950;
+   }
+   if (phase == DSM_CH2_CHECK_A)
+    CYRF_SetPower(0x28);
+   phase++;
+   CYRF_SetTxRxMode(RX_EN);
+   CYRF_WriteRegister(CYRF_05_RX_CTRL, 0x87);
+   return 11000 - 4010 - 1950 - 600;
+  case DSM_CH2_READ_A:
+  case DSM_CH2_READ_B:
+   rx_phase = CYRF_ReadRegister(CYRF_07_RX_IRQ_STATUS);
+   if((rx_phase & 0x03) == 0x02)
+    rx_phase |= CYRF_ReadRegister(CYRF_07_RX_IRQ_STATUS);
+   if((rx_phase & 0x07) == 0x02)
+   {
+    CYRF_WriteRegister(CYRF_07_RX_IRQ_STATUS, 0x80);
+    len=CYRF_ReadRegister(CYRF_09_RX_COUNT);
+    if(len>29 -2)
+     len=29 -2;
+    CYRF_ReadDataPacketLen(pkt+1, len);
+    pkt[0]=CYRF_ReadRegister(CYRF_13_RSSI)&0x1F;
+    telemetry_link=1;
+   }
+   CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x20);
+   if (phase == DSM_CH2_READ_A && (sub_protocol==DSM2_22 || sub_protocol==DSMX_22) && DSM_num_ch < 8)
+   {
+    CYRF_SetTxRxMode(RX_EN);
+    CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x00);
+    CYRF_WriteRegister(CYRF_05_RX_CTRL, 0x87);
+    phase = DSM_CH2_READ_B;
+    return 11000;
+   }
+   if (phase == DSM_CH2_READ_A)
+    phase = DSM_CH1_WRITE_B;
+   else
+    phase = DSM_CH1_WRITE_A;
+   CYRF_SetTxRxMode(TX_EN);
+   CYRF_WriteRegister(CYRF_29_RX_ABORT, 0x00);
+   DSM_set_sop_data_crc();
+   return 600;
+ }
+ return 0;
+}
+uint16_t initDsm()
+{
+ CYRF_GetMfgData(cyrfmfg_id);
+ cyrfmfg_id[3]^=RX_num;
+ sop_col = (cyrfmfg_id[0] + cyrfmfg_id[1] + cyrfmfg_id[2] + 2) & 0x07;
+ if(sop_col==0)
+ {
+    cyrfmfg_id[rx_tx_addr[0]%3]^=0x01;
+    sop_col = (cyrfmfg_id[0] + cyrfmfg_id[1] + cyrfmfg_id[2] + 2) & 0x07;
+ }
+ if (sub_protocol == DSMX_11 || sub_protocol == DSMX_22)
+  DSM_calc_dsmx_channel();
+ else
+ {
+  uint8_t tmpch[10];
+  CYRF_FindBestChannels(tmpch, 10, 5, 3, 75);
+  uint8_t idx = random(0xfefefefe) % 10;
+  hopping_frequency[0] = tmpch[idx];
+  while(1)
+  {
+   idx = random(0xfefefefe) % 10;
+   if (tmpch[idx] != hopping_frequency[0])
+    break;
+  }
+  hopping_frequency[1] = tmpch[idx];
+ }
+ DSM_cyrf_config();
+ CYRF_SetTxRxMode(TX_EN);
+ DSM_update_channels();
+ if(( ( protocol_flags & (1 << (7)) ) ==0 ))
+ {
+  DSM_initialize_bind_phase();
+  phase = DSM_BIND_WRITE;
+  bind_counter=300;
+ }
+ else
+  phase = DSM_CHANSEL;
+ return 10000;
+}
+enum {
+ DEVO_BIND,
+ DEVO_BIND_SENDCH,
+ DEVO_BOUND,
+ DEVO_BOUND_1,
+ DEVO_BOUND_2,
+ DEVO_BOUND_3,
+ DEVO_BOUND_4,
+ DEVO_BOUND_5,
+ DEVO_BOUND_6,
+ DEVO_BOUND_7,
+ DEVO_BOUND_8,
+ DEVO_BOUND_9,
+ DEVO_BOUND_10,
+};
+static void __attribute__((unused)) DEVO_scramble_pkt()
+{
+ for(uint8_t i = 0; i < 15; i++)
+  packet[i + 1] ^= cyrfmfg_id[i % 4];
+}
+static void __attribute__((unused)) DEVO_add_pkt_suffix()
+{
+    uint8_t bind_state;
+    if(prev_option!=option && ( ( protocol_flags & (1 << (7)) ) !=0 ))
+ {
+  MProtocol_id = RX_num + MProtocol_id_master;
+  bind_counter=0x1388;
+ }
+ if (option)
+ {
+        if (bind_counter > 0)
+            bind_state = 0xc0;
+        else
+            bind_state = 0x80;
+    }
+ else
+        bind_state = 0x00;
+ packet[10] = bind_state | (4 - packet_count - 1);
+ packet[11] = *(hopping_frequency_ptr + 1);
+ packet[12] = *(hopping_frequency_ptr + 2);
+ packet[13] = MProtocol_id & 0xff;
+ packet[14] = (MProtocol_id >> 8) & 0xff;
+ packet[15] = (MProtocol_id >> 16) & 0xff;
+}
+static void __attribute__((unused)) DEVO_build_beacon_pkt(uint8_t upper)
+{
+ packet[0] = (8 << 4) | 0x07;
+ uint8_t max = 8, offset = 0, enable = 0;
+ if (upper)
+ {
+  packet[0] += 1;
+  max = 4;
+  offset = 8;
+ }
+ for(uint8_t i = 0; i < max; i++)
+ {
+   uint16_t failsafe=Failsafe_data[CH_EATR[i+offset]];
+   if(i + offset < 8 && failsafe!=2047 && ( ( protocol_flags2 & (1 << (0)) ) !=0 ))
+   {
+    enable |= 0x80 >> i;
+    packet[i+1] = ((failsafe*25)>>8)-100;
+   }
+   else
+    packet[i+1] = 0;
+ }
+ packet[9] = enable;
+ DEVO_add_pkt_suffix();
+}
+static void __attribute__((unused)) DEVO_build_bind_pkt()
+{
+ packet[0] = (8 << 4) | 0x0a;
+ packet[1] = bind_counter & 0xff;
+ packet[2] = (bind_counter >> 8);
+ packet[3] = *hopping_frequency_ptr;
+ packet[4] = *(hopping_frequency_ptr + 1);
+ packet[5] = *(hopping_frequency_ptr + 2);
+ packet[6] = cyrfmfg_id[0];
+ packet[7] = cyrfmfg_id[1];
+ packet[8] = cyrfmfg_id[2];
+ packet[9] = cyrfmfg_id[3];
+ DEVO_add_pkt_suffix();
+ packet[13] ^= cyrfmfg_id[0];
+ packet[14] ^= cyrfmfg_id[1];
+ packet[15] ^= cyrfmfg_id[2];
+}
+static void __attribute__((unused)) DEVO_build_data_pkt()
+{
+ static uint8_t ch_idx=0;
+ packet[0] = (8 << 4) | (0x0b + ch_idx);
+ uint8_t sign = 0x0b;
+ for (uint8_t i = 0; i < 4; i++)
+ {
+  int16_t value=convert_channel_16b_nolimit(CH_EATR[ch_idx * 4 + i],-1600,1600);
+  if(value < 0)
+  {
+   value = -value;
+   sign |= 1 << (7 - i);
+  }
+  packet[2 * i + 1] = value & 0xff;
+  packet[2 * i + 2] = (value >> 8) & 0xff;
+ }
+ packet[9] = sign;
+ ch_idx++;
+ if (ch_idx * 4 >= 8)
+  ch_idx = 0;
+ DEVO_add_pkt_suffix();
+}
+static void __attribute__((unused)) DEVO_cyrf_set_bound_sop_code()
+{
+ uint8_t crc = (cyrfmfg_id[0] + (cyrfmfg_id[1] >> 6) + cyrfmfg_id[2]);
+ if(! crc)
+  crc = 1;
+ uint8_t sopidx = (0xff &((cyrfmfg_id[0] << 2) + cyrfmfg_id[1] + cyrfmfg_id[2])) % 10;
+ CYRF_SetTxRxMode(TX_EN);
+ CYRF_ConfigCRCSeed((crc << 8) + crc);
+ CYRF_PROGMEM_ConfigSOPCode(DEVO_j6pro_sopcodes[sopidx]);
+ CYRF_SetPower(0x08);
+}
+const uint8_t __attribute__((__progmem__)) DEVO_init_vals[][2] = {
+ { CYRF_1D_MODE_OVERRIDE, 0x38 },
+ { CYRF_03_TX_CFG, 0x08 },
+ { CYRF_06_RX_CFG, 0x4A },
+ { CYRF_0B_PWR_CTRL, 0x00 },
+ { CYRF_10_FRAMING_CFG, 0xA4 },
+ { CYRF_11_DATA32_THOLD, 0x05 },
+ { CYRF_12_DATA64_THOLD, 0x0E },
+ { CYRF_1B_TX_OFFSET_LSB, 0x55 },
+ { CYRF_1C_TX_OFFSET_MSB, 0x05 },
+ { CYRF_32_AUTO_CAL_TIME, 0x3C },
+ { CYRF_35_AUTOCAL_OFFSET, 0x14 },
+ { CYRF_39_ANALOG_CTRL, 0x01 },
+ { CYRF_1E_RX_OVERRIDE, 0x10 },
+ { CYRF_1F_TX_OVERRIDE, 0x00 },
+ { CYRF_01_TX_LENGTH, 0x10 },
+ { CYRF_0F_XACT_CFG, 0x10 },
+ { CYRF_27_CLK_OVERRIDE, 0x02 },
+ { CYRF_28_CLK_EN, 0x02 },
+ { CYRF_0F_XACT_CFG, 0x28 }
+};
+static void __attribute__((unused)) DEVO_cyrf_init()
+{
+ for(uint8_t i = 0; i < sizeof(DEVO_init_vals) / 2; i++)
+  CYRF_WriteRegister((__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DEVO_init_vals[i][0])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })), (__extension__({ uint16_t __addr16 = (uint16_t)((uint16_t)(&DEVO_init_vals[i][1])); uint8_t __result; __asm__ __volatile__ ( "lpm %0, Z" "\n\t" : "=r" (__result) : "z" (__addr16) ); __result; })) );
+}
+static void __attribute__((unused)) DEVO_set_radio_channels()
+{
+ CYRF_FindBestChannels(hopping_frequency, 3, 4, 4, 80);
+ hopping_frequency[3] = hopping_frequency[0];
+ hopping_frequency[4] = hopping_frequency[1];
+}
+static void __attribute__((unused)) DEVO_BuildPacket()
+{
+ static uint8_t failsafe_pkt=0;
+ switch(phase)
+ {
+  case DEVO_BIND:
+   if(bind_counter)
+    bind_counter--;
+   DEVO_build_bind_pkt();
+   phase = DEVO_BIND_SENDCH;
+   break;
+  case DEVO_BIND_SENDCH:
+   if(bind_counter)
+    bind_counter--;
+   DEVO_build_data_pkt();
+   DEVO_scramble_pkt();
+   if (bind_counter == 0)
+   {
+    phase = DEVO_BOUND;
+    protocol_flags |= (1 << (7));
+   }
+   else
+    phase = DEVO_BIND;
+   break;
+  case DEVO_BOUND:
+  case DEVO_BOUND_1:
+  case DEVO_BOUND_2:
+  case DEVO_BOUND_3:
+  case DEVO_BOUND_4:
+  case DEVO_BOUND_5:
+  case DEVO_BOUND_6:
+  case DEVO_BOUND_7:
+  case DEVO_BOUND_8:
+  case DEVO_BOUND_9:
+   DEVO_build_data_pkt();
+   DEVO_scramble_pkt();
+   phase++;
+   if (bind_counter)
+   {
+    bind_counter--;
+    if (bind_counter == 0)
+     protocol_flags |= (1 << (7));
+   }
+   break;
+  case DEVO_BOUND_10:
+   DEVO_build_beacon_pkt(8 > 8 ? failsafe_pkt : 0);
+   failsafe_pkt = failsafe_pkt ? 0 : 1;
+   DEVO_scramble_pkt();
+   phase = DEVO_BOUND_1;
+   break;
+ }
+ packet_count++;
+ if(packet_count == 4)
+  packet_count = 0;
+}
+uint16_t devo_callback()
+{
+ static uint8_t txState=0;
+ if (txState == 0)
+ {
+  txState = 1;
+  DEVO_BuildPacket();
+  CYRF_WriteDataPacket(packet);
+  return 1200;
+ }
+ txState = 0;
+ uint8_t i = 0;
+ while (! (CYRF_ReadRegister(CYRF_04_TX_IRQ_STATUS) & 0x02))
+  if(++i > (100 / 5))
+   return 1200;
+ if (phase == DEVO_BOUND)
+ {
+  phase = DEVO_BOUND_3;
+  DEVO_cyrf_set_bound_sop_code();
+ }
+ if(packet_count == 0)
+ {
+  CYRF_SetPower(0x08);
+  hopping_frequency_ptr = hopping_frequency_ptr == &hopping_frequency[2] ? hopping_frequency : hopping_frequency_ptr + 1;
+  CYRF_ConfigRFChannel(*hopping_frequency_ptr);
+ }
+ return 1200;
+}
+uint16_t DevoInit()
+{
+ DEVO_cyrf_init();
+ CYRF_GetMfgData(cyrfmfg_id);
+ CYRF_SetTxRxMode(TX_EN);
+ CYRF_ConfigCRCSeed(0x0000);
+ CYRF_PROGMEM_ConfigSOPCode(DEVO_j6pro_sopcodes[0]);
+ DEVO_set_radio_channels();
+ hopping_frequency_ptr = hopping_frequency;
+ CYRF_ConfigRFChannel(*hopping_frequency_ptr);
+ packet_count = 0;
+ prev_option=option;
+ if(option==0)
+ {
+  MProtocol_id = ((uint32_t)(hopping_frequency[0] ^ cyrfmfg_id[0] ^ cyrfmfg_id[3]) << 16)
+      | ((uint32_t)(hopping_frequency[1] ^ cyrfmfg_id[1] ^ cyrfmfg_id[4]) << 8)
+      | ((uint32_t)(hopping_frequency[2] ^ cyrfmfg_id[2] ^ cyrfmfg_id[5]) << 0);
+  MProtocol_id %= 1000000;
+  bind_counter = 0x1388;
+  phase = DEVO_BIND;
+  protocol_flags &= ~(1 << (7));
+ }
+ else
+ {
+  phase = DEVO_BOUND_1;
+  bind_counter = 0;
+  DEVO_cyrf_set_bound_sop_code();
+ }
+ return 2400;
+}
